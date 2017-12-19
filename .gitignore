@@ -2,4 +2,6 @@ files/*
 cache/*
 config/*
 .idea/*
-
+simpla/.htaccess
+compiled/smartycms/*
+simpla/design/compiled/*
