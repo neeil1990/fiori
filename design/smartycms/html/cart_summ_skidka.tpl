@@ -1,0 +1,1 @@
+<b>Скидка от суммы заказа</b> <span>{if $cart->summ_discount}{$cart->summ_discount|convert} {$currency->sign}{else}Действует от 3 000 {$currency->sign}{/if}</span>

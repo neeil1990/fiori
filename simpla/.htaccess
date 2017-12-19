@@ -1,0 +1,5 @@
+AddType application/octet-stream csv
+AuthName "Simpla CMS"
+AuthType Basic
+AuthUserFile /home/s/svprim4w/svprim4w.beget.tech/public_html/simpla/.passwd
+require valid-user

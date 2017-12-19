@@ -1,0 +1,1 @@
+{if $cart->purchases}В корзине {$cart->total_products} {$cart->total_products|plural:'позиция':'позиций':'позиции'}{else}Корзина пуста{/if}

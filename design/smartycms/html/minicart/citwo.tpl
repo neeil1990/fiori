@@ -1,0 +1,1 @@
+{$cart->total_price|convert} {$currency->sign|escape}

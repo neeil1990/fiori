@@ -1,0 +1,1 @@
+{($variant->price*$amount)|convert} {$currency->sign}

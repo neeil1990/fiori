@@ -1,0 +1,1 @@
+<b>Персональная скидка</b> <span>{if $user->discount}{$user->discount} %{else}0 {$currency->sign}{/if}</span>
