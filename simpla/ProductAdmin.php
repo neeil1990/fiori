@@ -24,7 +24,7 @@ class ProductAdmin extends Simpla
 			$product->name = $this->request->post('name');
 			$product->visible = $this->request->post('visible', 'boolean');
 			$product->featured = $this->request->post('featured');
-			$product->brand_id = $this->request->post('brand_id', 'integer');
+
 			$product->event_id = $this->request->post('event_id', 'integer');
 			$product->whom_id = $this->request->post('whom_id', 'integer');
 
@@ -59,6 +59,19 @@ class ProductAdmin extends Simpla
 					$pc[] = $x;
 				}
 				$product_categories = $pc;
+			}
+
+			//Бренды товара
+			$product_brands = $this->request->post('brand_id');
+			if(is_array($product_brands))
+			{
+				foreach($product_brands as $b)
+				{
+					$x = new stdClass;
+					$x->id = $b;
+					$pb[] = $x;
+				}
+				$product_brands = $pb;
 			}
 
 			// Свойства товара
@@ -125,6 +138,15 @@ class ProductAdmin extends Simpla
 		  		    	foreach($product_categories as $i=>$category)
 	   	    				$this->categories->add_product_category($product->id, $category->id, $i);
 	  	    		}
+
+					//Бренды товара
+					$query = $this->db->placehold('DELETE FROM __brands_products WHERE product_id=?', $product->id);
+					$this->db->query($query);
+					if(is_array($product_brands))
+					{
+						foreach($product_brands as $i=>$brand)
+							$this->brands->add_product_brand($product->id, $brand->id);
+					}
 	
 	   	    		// Варианты
 		  		    if(is_array($variants))
@@ -308,7 +330,8 @@ class ProductAdmin extends Simpla
 	  	    		}
   	    		}
 			}
-			
+
+
 			//header('Location: '.$this->request->url(array('message_success'=>'updated')));
 		}
 		else
@@ -321,7 +344,10 @@ class ProductAdmin extends Simpla
 				
 				// Категории товара
 				$product_categories = $this->categories->get_categories(array('product_id'=>$product->id));
-				
+
+				//Бренды товара
+				$product_brands = $this->brands->get_brands_product(array('product_id'=>$product->id));
+
 				// Варианты товара
 				$variants = $this->variants->get_variants(array('product_id'=>$product->id));
 				
@@ -343,21 +369,23 @@ class ProductAdmin extends Simpla
 				$product->visible = 1;			
 			}
 		}
-		
-		
+
+
 		if(empty($variants))
 			$variants = array(1);
 			
 		if(empty($product_categories))
 		{
-			if($category_id = $this->request->get('category_id'))
-				$product_categories[0]->id = $category_id;		
-			else
+			if($category_id = $this->request->get('category_id')){
+				$product_categories[0]->id = $category_id;
+			}else{
 				$product_categories = array(1);
+			}
+
 		}
 		if(empty($product->brand_id) && $brand_id=$this->request->get('brand_id'))
 		{
-			$product->brand_id = $brand_id;
+			$product_brands = $brand_id;
 		}
 		if(empty($product->event_id) && $event_id=$this->request->get('event_id'))
 		{
@@ -390,11 +418,12 @@ class ProductAdmin extends Simpla
 				$temp_options[$option->feature_id] = $option;
 			$options = $temp_options;
 		}
-			
+
 
 		$this->design->assign('product', $product);
 		$this->design->assign('properties', $properties);
 		$this->design->assign('product_categories', $product_categories);
+		$this->design->assign('product_brands', $product_brands);
 		$this->design->assign('product_variants', $variants);
 		$this->design->assign('product_images', $images);
 		$this->design->assign('options', $options);

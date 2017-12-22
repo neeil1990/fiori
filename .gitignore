@@ -5,3 +5,4 @@ config/*
 simpla/.htaccess
 compiled/smartycms/*
 simpla/design/compiled/*
+access/*

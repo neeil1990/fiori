@@ -37,6 +37,21 @@ $(function() {
 		return false;
 	});
 
+
+	// Добавление Брендов
+	$('#product_brand .add').click(function() {
+		$("#product_brand ul li:last").clone(false).appendTo('#product_brand ul').fadeIn('slow').find("select[name*=brand_id]:last").focus();
+		$("#product_brand ul li:last span.add").hide();
+		$("#product_brand ul li:last span.delete").show();
+		return false;
+	});
+
+	// Удаление Брендов
+	$("#product_brand .delete").live('click', function() {
+		$(this).closest("li").fadeOut(200, function() { $(this).remove(); });
+		return false;
+	});
+
 	// Сортировка вариантов
 	$("#variants_block").sortable({ items: '#variants ul' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
 	// Сортировка вариантов
@@ -536,21 +551,14 @@ overflow-y: auto;
 		<div class="checkbox">
 			<input name=featured value="1" type="checkbox" id="featured_checkbox" {if $product->featured}checked{/if}/> <label for="featured_checkbox">Рекомендуемый</label>
 		</div>
-	</div> 
-	
+	</div>
+
+
+
 	<div class="prodsob">
-	
-		<div id="product_brand" {if !$brands}style='display:none;'{/if}>
-			<label>Цветок</label>
-			<select name="brand_id">
-				<option value='0' {if !$product->brand_id}selected{/if} brand_name=''>Не указан</option>
-				{foreach $brands as $brand}
-					<option value='{$brand->id}' {if $product->brand_id == $brand->id}selected{/if} brand_name='{$brand->name|escape}'>{$brand->name|escape}</option>
-				{/foreach}
-			</select>
-		</div>
+
 		
-		<div id="product_brand" {if !$whoms}style='display:none;'{/if}>
+		<div id="product_brand_1" {if !$whoms}style='display:none;'{/if}>
 			<label>Кому</label>
 			<select name="whom_id">
 				<option value='0' {if !$product->whom_id}selected{/if} whom_name=''>Не указан</option>
@@ -560,7 +568,7 @@ overflow-y: auto;
 			</select>
 		</div>
 		
-		<div id="product_brand" {if !$events}style='display:none;'{/if}>
+		<div id="product_brand_2" {if !$events}style='display:none;'{/if}>
 			<label>Событие</label>
 			<select name="event_id">
 				<option value='0' {if !$product->event_id}selected{/if} event_name=''>Не указан</option>
@@ -570,6 +578,27 @@ overflow-y: auto;
 			</select>
 		</div>
 	
+	</div>
+
+	<div id="product_brand" {if !$brands}style='display:none;'{/if}>
+		<label>Цветок</label>
+		<div>
+			<ul>
+				{foreach $product_brands as $brans_list name=brains}
+				<li>
+					<select name="brand_id[]">
+						<option value='0' {if !$brans_list}selected{/if} brand_name=''>Не указан</option>
+						{foreach $brands as $brand}
+							<option value='{$brand->id}' {if $brans_list->id == $brand->id}selected{/if} brand_name='{$brand->name|escape}'>{$brand->name|escape}</option>
+						{/foreach}
+					</select>
+
+					<span {if not $smarty.foreach.brains.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительная категория</i></span>
+					<span {if $smarty.foreach.brains.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
+				</li>
+				{/foreach}
+			</ul>
+		</div>
 	</div>
 	
 	<div id="product_categories" {if !$categories}style='display:none;'{/if}>

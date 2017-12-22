@@ -64,7 +64,7 @@ class Products extends Simpla
 		}
 
 		if(!empty($filter['brand_id']))
-			$brand_id_filter = $this->db->placehold('AND p.brand_id in(?@)', (array)$filter['brand_id']);
+			$brand_id_filter = $this->db->placehold('AND bp.brand_id in(?@)', (array)$filter['brand_id']);
 		
 		if(!empty($filter['event_id']))
 			$event_id_filter = $this->db->placehold('AND p.event_id in(?@)', (array)$filter['event_id']);
@@ -164,8 +164,9 @@ class Products extends Simpla
 					w.name as whom,
 					w.url as whom_url
 				FROM __products p		
-				$category_id_filter 
-				LEFT JOIN __brands b ON p.brand_id = b.id
+				$category_id_filter
+				LEFT JOIN s_brands_products bp ON bp.product_id = p.id
+				LEFT JOIN s_brands b ON bp.brand_id = b.id
 				LEFT JOIN __events e ON p.event_id = e.id
 				LEFT JOIN __whoms w ON p.whom_id = w.id
 				LEFT JOIN __variants v ON v.product_id = p.id
@@ -188,7 +189,7 @@ class Products extends Simpla
 					$sql_limit";
 
 		$query = $this->db->placehold($query);
-		
+
 		$this->db->query($query);
 
 		return $this->db->results();
@@ -344,8 +345,9 @@ class Products extends Simpla
 			$category_id_filter = $this->db->placehold('INNER JOIN __products_categories pc ON pc.product_id = p.id AND pc.category_id in(?@)', (array)$filter['category_id']);
 
 		if(!empty($filter['brand_id']))
-			$brand_id_filter = $this->db->placehold('AND p.brand_id in(?@)', (array)$filter['brand_id']);
-		
+			$brand_id_filter = $this->db->placehold('INNER JOIN s_brands_products bp ON bp.product_id = p.id AND bp.brand_id in(?@)', (array)$filter['brand_id']);
+
+
 		if(!empty($filter['event_id']))
 			$event_id_filter = $this->db->placehold('AND p.event_id in(?@)', (array)$filter['event_id']);
 		
@@ -392,8 +394,8 @@ class Products extends Simpla
 				FROM __products AS p
 				LEFT JOIN __variants v on v.product_id = p.id
 				$category_id_filter
+				$brand_id_filter
 				WHERE 1
-					$brand_id_filter
 					$event_id_filter
 					$whom_id_filter
 					$keyword_filter

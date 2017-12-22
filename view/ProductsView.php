@@ -25,12 +25,18 @@ class ProductsView extends View
 	{
 		// GET-Параметры
 		$category_url = $this->request->get('category', 'string');
+
+
 		$brand_url    = $this->request->get('brand', 'string');
 		$brand_id	  = $this->request->get('brand_id');
+
 		$event_url    = $this->request->get('event', 'string');
 		$event_id	  = $this->request->get('event_id');
+
 		$whom_url    = $this->request->get('whom', 'string');
 		$whom_id	  = $this->request->get('whom_id');
+
+
 		$mode    = $this->request->get('mode', 'string');
 
 		$filter = array();
@@ -363,9 +369,10 @@ class ProductsView extends View
 		// Выбираем бренды, они нужны нам в шаблоне	
 		//if(!empty($category))
 		//{
-			
+
+
 			if(!empty($category)){
-				$brands = $this->brands->get_brands(array('category_id'=>$category->children));
+				$brands = $this->brands->get_brands_category(array('category_id'=>$category->children));
 				$category->brands = $brands;
 			}else{
 				$brands = $this->brands->get_brands(array('enabled'=>1));
@@ -379,8 +386,8 @@ class ProductsView extends View
 					$count_prefix = '';
 				}
 			//////////////////
-			
-			
+
+
 			foreach($brands as &$brand_temp){
 
 				if(isset($brands_active)){
@@ -403,10 +410,13 @@ class ProductsView extends View
 					}
 				
 				}else{
+
 					$brand_temp->checked = false;
 					$temp_filter = $filter;
 					$temp_filter['brand_id'] = (array)$brand_temp->id;
+
 					$brand_temp->count = $count_prefix.$this->products->count_products($temp_filter);
+
 					unset($temp_filter);
 						if((int)$brand_temp->count > 0)
 							$brand_temp->disabled = false;
