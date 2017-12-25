@@ -139,33 +139,57 @@
 
 /* Блок с выбором бренда */
 
-#product_brand {
+#product_brand,
+#product_events,
+#product_whoms
+{
 	float: left;
 	overflow: hidden;
 	margin-bottom: 20px;
 }
 /* Надпись возде выбора категории */
-#product_brand label {
+#product_brand label,
+#product_events label,
+#product_whoms label
+{
 	float: left;
 	margin-top: 5px;
 }
 /* Селект категории */
-#product_brand select {
+#product_brand select,
+#product_events select,
+#product_whoms select
+{
 	width: 300px;
 	margin-right: 15px;
 	font-size: 18px;
 }
-#product_brand ul li { margin-bottom: 5px; }
-#product_brand div {float: left;	margin-left: 10px; width: 540px; }
-#product_brand span i { font-style: normal; }
+#product_brand ul li,
+#product_events ul li,
+#product_whoms ul li
+{ margin-bottom: 5px; }
+#product_brand div,
+#product_events div,
+#product_whoms div
+{float: left;	margin-left: 10px; width: 540px; }
+#product_brand span i,
+#product_events span i,
+#product_whoms span i
+{ font-style: normal; }
 /* Добавление категории */
-#product_brand span.add {
+#product_brand span.add,
+#product_events span.add,
+#product_whoms span.add
+{
 	background-repeat: no-repeat;
 	padding-left: 20px;
 	background-image: url(../images/plus-circle.png);
 }
 /* Удаление категории */
-#product_brand span.delete {
+#product_brand span.delete,
+#product_events span.delete,
+#product_whoms span.delete
+{
 	background-image: url(../images/cross-circle-frame.png);
 	background-repeat: no-repeat;
 	padding-left: 20px;

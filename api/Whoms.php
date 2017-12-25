@@ -38,6 +38,63 @@ class Whoms extends Simpla
 		return $this->db->results();
 	}
 
+	public function get_whoms_category($filter = array())
+	{
+		$brands = array();
+		$category_id_filter = '';
+		$visible_filter = '';
+		if(isset($filter['visible']))
+			$visible_filter = $this->db->placehold('AND p.visible=?', intval($filter['visible']));
+
+		if(!empty($filter['category_id']))
+			$category_id_filter = $this->db->placehold("
+			LEFT JOIN s_products p ON p.id=bp.product_id
+			LEFT JOIN s_whoms b ON b.id=bp.whom_id
+			LEFT JOIN s_products_categories pc ON p.id = pc.product_id
+			WHERE pc.category_id in(?@) $visible_filter", (array)$filter['category_id']);
+
+		// Выбираем все бренды
+		$query = $this->db->placehold("SELECT DISTINCT b.id, b.name, b.url, b.meta_title, b.meta_keywords, b.meta_description, b.description, b.image
+								 		FROM __whoms_products bp $category_id_filter ORDER BY b.name");
+		$this->db->query($query);
+
+		return $this->db->results();
+	}
+
+	//Добавить бренд к заданному товару
+	public function add_product_whom($product_id, $brand_id)
+	{
+		$query = $this->db->placehold("INSERT IGNORE INTO __whoms_products SET product_id=?, whom_id=?", $product_id, $brand_id);
+		$this->db->query($query);
+	}
+
+	// Функция возвращает массив брендов
+	public function get_whoms_product($filter = array())
+	{
+		if(!empty($filter['product_id']))
+		{
+			$query = $this->db->placehold("SELECT whom_id FROM __whoms_products WHERE product_id in(?@) ORDER BY id", (array)$filter['product_id']);
+			$this->db->query($query);
+			$brands_ids = $this->db->results('whom_id');
+			if(is_array($brands_ids) and !empty($brands_ids))
+			{
+				foreach($brands_ids as $b)
+				{
+					$x = new stdClass;
+					$x->id = $b;
+					$pb[] = $x;
+				}
+				$result = $pb;
+
+				return $result;
+			}else{
+				$x = new stdClass;
+				$x->id = 0;
+				return array($x);
+			}
+		}
+	}
+
 	/*
 	*
 	* Функция возвращает бренд по его id или url

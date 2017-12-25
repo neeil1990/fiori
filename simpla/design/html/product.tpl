@@ -52,6 +52,34 @@ $(function() {
 		return false;
 	});
 
+	// Добавление Событие
+	$('#product_events .add').click(function() {
+		$("#product_events ul li:last").clone(false).appendTo('#product_events ul').fadeIn('slow').find("select[name*=event_id]:last").focus();
+		$("#product_events ul li:last span.add").hide();
+		$("#product_events ul li:last span.delete").show();
+		return false;
+	});
+
+	// Удаление Событие
+	$("#product_events .delete").live('click', function() {
+		$(this).closest("li").fadeOut(200, function() { $(this).remove(); });
+		return false;
+	});
+
+	// Добавление Кому
+	$('#product_whoms .add').click(function() {
+		$("#product_whoms ul li:last").clone(false).appendTo('#product_whoms ul').fadeIn('slow').find("select[name*=whom_id]:last").focus();
+		$("#product_whoms ul li:last span.add").hide();
+		$("#product_whoms ul li:last span.delete").show();
+		return false;
+	});
+
+	// Удаление Кому
+	$("#product_whoms .delete").live('click', function() {
+		$(this).closest("li").fadeOut(200, function() { $(this).remove(); });
+		return false;
+	});
+
 	// Сортировка вариантов
 	$("#variants_block").sortable({ items: '#variants ul' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
 	// Сортировка вариантов
@@ -555,29 +583,49 @@ overflow-y: auto;
 
 
 
-	<div class="prodsob">
+	<div class="prodsob"></div>
 
-		
-		<div id="product_brand_1" {if !$whoms}style='display:none;'{/if}>
-			<label>Кому</label>
-			<select name="whom_id">
-				<option value='0' {if !$product->whom_id}selected{/if} whom_name=''>Не указан</option>
-				{foreach $whoms as $whom}
-					<option value='{$whom->id}' {if $product->whom_id == $whom->id}selected{/if} whom_name='{$whom->name|escape}'>{$whom->name|escape}</option>
+
+	<div id="product_whoms" {if !$whoms}style='display:none;'{/if}>
+		<label>Кому</label>
+		<div>
+			<ul>
+				{foreach $product_whoms as $whoms_list name=whoms}
+					<li>
+						<select name="whom_id[]">
+							<option value='0' {if !$whoms_list}selected{/if} whom_name=''>Не указан</option>
+							{foreach $whoms as $whom}
+								<option value='{$whom->id}' {if $whoms_list->id == $whom->id}selected{/if} whom_name='{$whom->name|escape}'>{$whom->name|escape}</option>
+							{/foreach}
+						</select>
+
+						<span {if not $smarty.foreach.whoms.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительное Кому</i></span>
+						<span {if $smarty.foreach.whoms.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
 				{/foreach}
-			</select>
+			</ul>
 		</div>
-		
-		<div id="product_brand_2" {if !$events}style='display:none;'{/if}>
-			<label>Событие</label>
-			<select name="event_id">
-				<option value='0' {if !$product->event_id}selected{/if} event_name=''>Не указан</option>
-				{foreach $events as $event}
-					<option value='{$event->id}' {if $product->event_id == $event->id}selected{/if} event_name='{$event->name|escape}'>{$event->name|escape}</option>
+	</div>
+
+	<div id="product_events" {if !$events}style='display:none;'{/if}>
+		<label>Событие</label>
+		<div>
+			<ul>
+				{foreach $product_events as $events_list name=events}
+					<li>
+						<select name="event_id[]">
+							<option value='0' {if !$events_list}selected{/if} event_name=''>Не указан</option>
+							{foreach $events as $event}
+								<option value='{$event->id}' {if $events_list->id == $event->id}selected{/if} whom_name='{$event->name|escape}'>{$event->name|escape}</option>
+							{/foreach}
+						</select>
+
+						<span {if not $smarty.foreach.events.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительное Событие</i></span>
+						<span {if $smarty.foreach.events.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
 				{/foreach}
-			</select>
+			</ul>
 		</div>
-	
 	</div>
 
 	<div id="product_brand" {if !$brands}style='display:none;'{/if}>
@@ -593,7 +641,7 @@ overflow-y: auto;
 						{/foreach}
 					</select>
 
-					<span {if not $smarty.foreach.brains.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительная категория</i></span>
+					<span {if not $smarty.foreach.brains.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительный Цветок</i></span>
 					<span {if $smarty.foreach.brains.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
 				</li>
 				{/foreach}

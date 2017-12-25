@@ -434,7 +434,7 @@ class ProductsView extends View
 		//if(!empty($category))
 		//{
 			if(!empty($category)){
-				$whoms = $this->whoms->get_whoms(array('category_id'=>$category->children));
+				$whoms = $this->whoms->get_whoms_category(array('category_id'=>$category->children));
 				$category->whoms = $whoms;
 			}else{
 				$whoms = $this->whoms->get_whoms(array('enabled'=>1));
@@ -493,7 +493,7 @@ class ProductsView extends View
 		//if(!empty($category))
 		//{
 			if(!empty($category)){
-				$events = $this->events->get_events(array('category_id'=>$category->children));
+				$events = $this->events->get_events_category(array('category_id'=>$category->children));
 				$category->events = $events;
 			}else{
 				$events = $this->events->get_events(array('enabled'=>1));

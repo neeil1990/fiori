@@ -67,10 +67,10 @@ class Products extends Simpla
 			$brand_id_filter = $this->db->placehold('AND bp.brand_id in(?@)', (array)$filter['brand_id']);
 		
 		if(!empty($filter['event_id']))
-			$event_id_filter = $this->db->placehold('AND p.event_id in(?@)', (array)$filter['event_id']);
+			$event_id_filter = $this->db->placehold('AND ep.event_id in(?@)', (array)$filter['event_id']);
 		
 		if(!empty($filter['whom_id']))
-			$whom_id_filter = $this->db->placehold('AND p.whom_id in(?@)', (array)$filter['whom_id']);
+			$whom_id_filter = $this->db->placehold('AND wp.whom_id in(?@)', (array)$filter['whom_id']);
 
 		if(!empty($filter['featured']))
 			$is_featured_filter = $this->db->placehold('AND p.featured=?', intval($filter['featured']));
@@ -167,8 +167,10 @@ class Products extends Simpla
 				$category_id_filter
 				LEFT JOIN s_brands_products bp ON bp.product_id = p.id
 				LEFT JOIN s_brands b ON bp.brand_id = b.id
-				LEFT JOIN __events e ON p.event_id = e.id
-				LEFT JOIN __whoms w ON p.whom_id = w.id
+				LEFT JOIN s_events_products ep ON ep.product_id = p.id
+				LEFT JOIN __events e ON ep.event_id = e.id
+				LEFT JOIN s_whoms_products wp ON wp.product_id = p.id
+				LEFT JOIN __whoms w ON wp.whom_id = w.id
 				LEFT JOIN __variants v ON v.product_id = p.id
 				WHERE 
 					1
@@ -349,10 +351,10 @@ class Products extends Simpla
 
 
 		if(!empty($filter['event_id']))
-			$event_id_filter = $this->db->placehold('AND p.event_id in(?@)', (array)$filter['event_id']);
+			$event_id_filter = $this->db->placehold('INNER JOIN s_events_products ep ON ep.product_id = p.id AND ep.event_id in(?@)', (array)$filter['event_id']);
 		
 		if(!empty($filter['whom_id']))
-			$whom_id_filter = $this->db->placehold('AND p.whom_id in(?@)', (array)$filter['whom_id']);
+			$whom_id_filter = $this->db->placehold('INNER JOIN s_whoms_products wp ON wp.product_id = p.id AND wp.whom_id in(?@)', (array)$filter['whom_id']);
 		
 		if(isset($filter['keyword']))
 		{
@@ -395,9 +397,9 @@ class Products extends Simpla
 				LEFT JOIN __variants v on v.product_id = p.id
 				$category_id_filter
 				$brand_id_filter
+				$event_id_filter
+				$whom_id_filter
 				WHERE 1
-					$event_id_filter
-					$whom_id_filter
 					$keyword_filter
 					$is_featured_filter
 					$discounted_filter

@@ -24,10 +24,6 @@ class ProductAdmin extends Simpla
 			$product->name = $this->request->post('name');
 			$product->visible = $this->request->post('visible', 'boolean');
 			$product->featured = $this->request->post('featured');
-
-			$product->event_id = $this->request->post('event_id', 'integer');
-			$product->whom_id = $this->request->post('whom_id', 'integer');
-
 			$product->url = trim($this->request->post('url', 'string'));
 			$product->meta_title = $this->request->post('meta_title');
 			$product->meta_keywords = $this->request->post('meta_keywords');
@@ -67,11 +63,49 @@ class ProductAdmin extends Simpla
 			{
 				foreach($product_brands as $b)
 				{
-					$x = new stdClass;
-					$x->id = $b;
-					$pb[] = $x;
+					if($b > 0){
+						$x = new stdClass;
+						$x->id = $b;
+						$pb[] = $x;
+					}else{
+						$pb = false;
+					}
 				}
 				$product_brands = $pb;
+			}
+
+			//Кому товара
+			$product_whoms = $this->request->post('whom_id');
+			if(is_array($product_whoms))
+			{
+				foreach($product_whoms as $w)
+				{
+					if($w > 0) {
+						$x = new stdClass;
+						$x->id = $w;
+						$pw[] = $x;
+					}else{
+						$pw = false;
+					}
+				}
+				$product_whoms = $pw;
+			}
+
+			//Событие товара
+			$product_events = $this->request->post('event_id');
+			if(is_array($product_events))
+			{
+				foreach($product_events as $e)
+				{
+					if($e > 0) {
+						$x = new stdClass;
+						$x->id = $e;
+						$pe[] = $x;
+					}else{
+						$pe = false;
+					}
+				}
+				$product_events = $pe;
 			}
 
 			// Свойства товара
@@ -146,6 +180,24 @@ class ProductAdmin extends Simpla
 					{
 						foreach($product_brands as $i=>$brand)
 							$this->brands->add_product_brand($product->id, $brand->id);
+					}
+
+					//Кому товара
+					$query = $this->db->placehold('DELETE FROM __whoms_products WHERE product_id=?', $product->id);
+					$this->db->query($query);
+					if(is_array($product_whoms))
+					{
+						foreach($product_whoms as $i=>$whom)
+							$this->whoms->add_product_whom($product->id, $whom->id);
+					}
+
+					//Событие товара
+					$query = $this->db->placehold('DELETE FROM __events_products WHERE product_id=?', $product->id);
+					$this->db->query($query);
+					if(is_array($product_events))
+					{
+						foreach($product_events as $i=>$event)
+							$this->events->add_product_event($product->id, $event->id);
 					}
 	
 	   	    		// Варианты
@@ -348,6 +400,12 @@ class ProductAdmin extends Simpla
 				//Бренды товара
 				$product_brands = $this->brands->get_brands_product(array('product_id'=>$product->id));
 
+				//Кому товара
+				$product_whoms = $this->whoms->get_whoms_product(array('product_id'=>$product->id));
+
+				//Событие товара
+				$product_events = $this->events->get_events_product(array('product_id'=>$product->id));
+
 				// Варианты товара
 				$variants = $this->variants->get_variants(array('product_id'=>$product->id));
 				
@@ -389,11 +447,11 @@ class ProductAdmin extends Simpla
 		}
 		if(empty($product->event_id) && $event_id=$this->request->get('event_id'))
 		{
-			$product->event_id = $event_id;
+			$product_events = $event_id;
 		}
 		if(empty($product->whom_id) && $whom_id=$this->request->get('whom_id'))
 		{
-			$product->whom_id = $whom_id;
+			$product_whoms = $whom_id;
 		}
 			
 		if(!empty($related_products))
@@ -424,6 +482,8 @@ class ProductAdmin extends Simpla
 		$this->design->assign('properties', $properties);
 		$this->design->assign('product_categories', $product_categories);
 		$this->design->assign('product_brands', $product_brands);
+		$this->design->assign('product_events', $product_events);
+		$this->design->assign('product_whoms', $product_whoms);
 		$this->design->assign('product_variants', $variants);
 		$this->design->assign('product_images', $images);
 		$this->design->assign('options', $options);
