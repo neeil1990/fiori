@@ -718,6 +718,7 @@ overflow-y: auto;
 			<li class="variant_move"><div class="move_zone"></div></li>
 			<li class="variant_name"><input name="variants[id][]" type="hidden" value="" /><input name="variants[name][]" type="" value="" /><a class="del_variant" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
 			<li class="variant_sku"><input name="variants[sku][]" type="" value="" /></li>
+			<li class="variant_desc"><input name="variants[description][]" type="" value="" /></li>
 			<li class="variant_price"><input  name="variants[price][]" type="" value="" /></li>
 			<li class="variant_discount"><input name="variants[compare_price][]" type="" value="" /></li>
 			<li class="variant_amount"><input name="variants[stock][]" type="" value="∞" />{$settings->units}</li>
