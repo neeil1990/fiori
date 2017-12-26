@@ -580,8 +580,10 @@ overflow-y: auto;
 			<input name=featured value="1" type="checkbox" id="featured_checkbox" {if $product->featured}checked{/if}/> <label for="featured_checkbox">Рекомендуемый</label>
 		</div>
 	</div>
-
-
+	
+	<div class="block layer">
+		<a href="/products/{$product->url|escape}" target="_blank">{$config->root_url}/products/{$product->url|escape}</a>
+	</div>
 
 	<div class="prodsob"></div>
 
