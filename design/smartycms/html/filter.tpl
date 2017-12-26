@@ -55,7 +55,7 @@
 	{else}
 	{if $brands}
 	<div class="iteamfilter">
-		<div class="if_name">Цветок/div>
+		<div class="if_name">Цветок</div>
 		<ul class="samopal">
 			<li>
 				<span>
