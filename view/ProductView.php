@@ -165,6 +165,19 @@ class ProductView extends View
 		$this->design->assign('next_product', $this->products->get_next_product($product->id));
 		$this->design->assign('prev_product', $this->products->get_prev_product($product->id));
 
+
+		if(count($product->variants) > 0){
+			foreach($product->variants as $i => $image){
+				if($image->attachment){
+					$img = new stdClass();
+					$img->id = $image->id;
+					$img->filename = $image->attachment;
+					$img->name = $image->name;
+					$product->images[] = $img;
+				}
+			}
+		}
+
 		// И передаем его в шаблон
 		$this->design->assign('product', $product);
 		$this->design->assign('comments', $comments);

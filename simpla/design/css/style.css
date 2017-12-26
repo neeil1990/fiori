@@ -262,7 +262,9 @@
 	padding-top: 6px;
 }
 #variants_block li.variant_sku { width: 120px; }
+#variants_block li.variant_desc { width: 215px; }
 #variants_block li.variant_sku input { width: 95px; }
+#variants_block li.variant_desc input { width: 190px; }
 #variants_block li.variant_price { width: 120px; }
 #variants_block li.variant_price input {
 	width: 95px;

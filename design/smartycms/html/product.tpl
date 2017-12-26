@@ -28,7 +28,7 @@
 			{if $product->images|count>1}
 			<div class="pp_images slider-nav">
 				{foreach $product->images as $i=>$image}
-				<div>
+				<div variants-image="{$image->id}">
 					<div class="pp_i_b">
 						<span>
 							<span>
@@ -47,11 +47,11 @@
 	<div class="ptableright">
 		<h1 class="prodtitle" data-product="{$product->id}">{$product->name|escape}</h1>
 		
-		{if $product->annotation}
+
 		<div class="prodanno">
 		{$product->annotation}
 		</div>
-		{/if}
+
 		
 		<div class="fichi">
 			{if $product->featured}<span class="chit">Хит</span>{/if}
@@ -62,11 +62,11 @@
 		
 			{if $product->variants|count > 1}
 			<div class="blockselectprod">
-				<b>Выберите вариант</b>
+				<b>Вариант букета</b>
 				<div class="podipselect">
 					<select class="ipselect ajaxselect" name="variant">
 					{foreach $product->variants as $v}
-						<option value="{$v->id}" {if $v->compare_price > 0}data-compareprice2="{$v->compare_price}" data-proc="- {floor(abs(100-{$v->price}/($v->compare_price)*100))}%" data-compare_price="<span><b class='clcomp'>{$v->compare_price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>"{/if} data-price="<span><b class='calcitog'>{$v->price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>">{$v->name}</option>
+						<option value="{$v->id}" data-text-var="{$v->description}" {if $v->compare_price > 0}data-compareprice2="{$v->compare_price}" data-proc="- {floor(abs(100-{$v->price}/($v->compare_price)*100))}%" data-compare_price="<span><b class='clcomp'>{$v->compare_price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>"{/if} data-price="<span><b class='calcitog'>{$v->price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>">{$v->name}</option>
 					{/foreach}
 					</select>
 				</div>
@@ -109,13 +109,17 @@
 				<a href="#" class="bluron" onclick="$('.oneclick').fadeIn(300); return false;">Купить в 1 клик</a>
 
 			</div>		
-			
+
+
 			
 			{literal}
 			<script>		
 			$(function() {
 				$('select.ajaxselect').change(function(e) {
-					e.preventDefault(); 
+					e.preventDefault();
+					$('.prodanno').html("<p>" + $('option:selected',this).attr('data-text-var') + "</p>");
+					$('div[variants-image="'+ $(this).val() +'"]').click();
+
 					$.ajax({
 						dataType: 'json',
 						url: "ajax/calc.php",
@@ -126,6 +130,7 @@
 						}
 					}
 					});
+
 				});
 			});
 			</script>

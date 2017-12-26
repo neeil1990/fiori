@@ -679,9 +679,10 @@ overflow-y: auto;
 	<div id="variants_block" {assign var=first_variant value=$product_variants|@first}{if $product_variants|@count <= 1 && !$first_variant->name}class=single_variant{/if}>
 		<ul id="header">
 			<li class="variant_move"></li>
-			<li class="variant_name">Название варианта</li>	
+			<li class="variant_name">Вариант букета</li>
 			<li class="variant_sku">Артикул</li>	
-			<li class="variant_price">Цена, {$currency->sign}</li>	
+			<li class="variant_desc">Описание</li>
+			<li class="variant_price">Цена, {$currency->sign}</li>
 			<li class="variant_discount">Старая, {$currency->sign}</li>	
 			<li class="variant_amount">Кол-во</li>
 		</ul>
@@ -691,6 +692,7 @@ overflow-y: auto;
 			<li class="variant_move"><div class="move_zone"></div></li>
 			<li class="variant_name">      <input name="variants[id][]"            type="hidden" value="{$variant->id|escape}" /><input name="variants[name][]" type="" value="{$variant->name|escape}" /> <a class="del_variant" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
 			<li class="variant_sku">       <input name="variants[sku][]"           type="text"   value="{$variant->sku|escape}" /></li>
+			<li class="variant_desc">       <input name="variants[description][]"           type="text"   value="{$variant->description|escape}" /></li>
 			<li class="variant_price">     <input name="variants[price][]"         type="text"   value="{$variant->price|escape}" /></li>
 			<li class="variant_discount">  <input name="variants[compare_price][]" type="text"   value="{$variant->compare_price|escape}" /></li>
 			<li class="variant_amount">    <input name="variants[stock][]"         type="text"   value="{if $variant->infinity || $variant->stock == ''}∞{else}{$variant->stock|escape}{/if}" />{$settings->units}</li>
