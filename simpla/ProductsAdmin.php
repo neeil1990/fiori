@@ -261,7 +261,8 @@ class ProductsAdmin extends Simpla
 				}
 			}			
 		}
-		if($category_id == 0 and $_GET['filter'] != "hidden")
+
+		if($category_id == 0 and !isset($_GET['filter']))
 			$filter['group_by'] = 1;
 
 		// Отображение
