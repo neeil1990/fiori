@@ -316,8 +316,6 @@ class ProductsAdmin extends Simpla
 				$products[$image->product_id]->images[$image->id] = $image;
 		}
 
-		var_dump($products);
-	 
 		$this->design->assign('products', $products);
 	
 		return $this->design->fetch('products.tpl');

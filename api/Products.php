@@ -192,6 +192,7 @@ class Products extends Simpla
 
 		$query = $this->db->placehold($query);
 
+		var_dump($query);
 		$this->db->query($query);
 
 		return $this->db->results();
