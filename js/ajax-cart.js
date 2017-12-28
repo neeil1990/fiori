@@ -12,6 +12,6 @@ $('form.cart').live('submit', function(e) {
 				button.val(button.attr('added_text'));
 		}
 	});
-	$(this).find('input[type="submit"]').effect("transfer", { to: $("#cart_informer") }, 500);	
+	$(this).find('input[type="submit"]').effect("transfer", { to: $("#cart_informer") }, 500);
 	return false;
 });

@@ -35,7 +35,10 @@ class Cart extends Simpla
 			$session_items = $_SESSION['shopping_cart'];
 			
 			$session_properties = $_SESSION['shopping_properties'];
-	
+
+			$session_boxing = $_SESSION['shopping_boxing'];
+
+
 			//$variants = $this->variants->get_variants(array('id'=>array_keys($session_items)));
 
 			//if(!empty($variants))
@@ -57,13 +60,20 @@ class Cart extends Simpla
 							
 						$variant->price = $variant->price+$price;
 					}
+
+					if( !empty( $session_boxing[$si] ) ) {
+							$price = 0;
+							$price += $session_boxing[$si]['price'];
+						$variant->price = $variant->price+$price;
+					}
 					
 					$items[$si] = new stdClass();
 					$items[$si]->variant = $variant;
 					$items[$si]->amount = $session_items[$si];
 					
 					$items[$si]->properties = $session_properties[$si];
-					
+					$items[$si]->boxing = $session_boxing[$si];
+
 					$products_ids[] = $variant->product_id;
 				}
 
@@ -94,6 +104,11 @@ class Cart extends Simpla
 						if( $item->properties )
 							foreach( $item->properties as $i )
 								$properties_price += $i['price'];
+
+						$purchase->boxing = $item->boxing;
+						if( $item->boxing )
+								$properties_price += $item->boxing['price'];
+
 
 						$cart->purchases[] = $purchase;
 						$cart->total_price += $item->variant->price*$item->amount;
@@ -143,7 +158,7 @@ class Cart extends Simpla
 	* Добавление варианта товара в корзину
 	*
 	*/
-	public function add_item($variant_id, $amount = 1, $properties = array() )
+	public function add_item($variant_id, $amount = 1, $properties = array(),$box )
 	{ 
 		$amount = max(1, $amount);
 		
@@ -152,9 +167,7 @@ class Cart extends Simpla
 			$new_variant_id = $variant_id . '_' . $implode;
 		} else
 			$new_variant_id = $variant_id;
-		
-	
-		
+
 	
 		if(isset($_SESSION['shopping_cart'][$new_variant_id]))
       		$amount = max(1, $amount+$_SESSION['shopping_cart'][$new_variant_id]);
@@ -170,11 +183,17 @@ class Cart extends Simpla
 	     
 			$_SESSION['shopping_cart'][$new_variant_id] = intval($amount); 
 			$_SESSION['shopping_properties'][$new_variant_id] = '';
+			$_SESSION['shopping_boxing'][$new_variant_id] = '';
 			if( !empty( $properties ) ) {
 				foreach( $properties as $p ) {
 					$property = $this->properties->get_property( $p );
 					$_SESSION['shopping_properties'][$new_variant_id][] = array('id' => $property->id, 'name' => $property->name, 'price' => $property->price);
 				}
+			}
+
+			if( !empty( $box ) ) {
+					$box = $this->boxing->get_box( $box );
+					$_SESSION['shopping_boxing'][$new_variant_id] = array('id' => $box->id, 'name' => $box->name, 'price' => $box->price);
 			}
 			
 			
@@ -218,6 +237,7 @@ class Cart extends Simpla
 	{
 		unset($_SESSION['shopping_cart'][$variant_id]); 
 		unset($_SESSION['shopping_properties'][$variant_id]); 
+		unset($_SESSION['shopping_boxing'][$variant_id]);
 	}
 	
 	/*
@@ -229,6 +249,7 @@ class Cart extends Simpla
 	{
 		unset($_SESSION['shopping_cart']);
 		unset($_SESSION['shopping_properties']);
+		unset($_SESSION['shopping_boxing']);
 		unset($_SESSION['coupon_code']);
 	}
  
@@ -248,5 +269,5 @@ class Cart extends Simpla
 		{
 			unset($_SESSION['coupon_code']);
 		}		
-	} 
+	}
 }

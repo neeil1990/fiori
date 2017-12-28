@@ -4,15 +4,21 @@
 	require_once('api/Simpla.php');
 	$simpla = new Simpla();
 
-    $new_variant_id = $simpla->request->get('new_variant_id', 'integer');
+    $new_variant_id = $simpla->request->get('new_variant_id');
     $amount     = $simpla->request->get('amount',     'integer');
-    $remove_id  = $simpla->request->get('remove_id',  'integer');
+    $remove_id  = $simpla->request->get('remove_id');
 	
     // Если есть amount, обновляем их
     if($amount && $new_variant_id){
        $simpla->cart->update_item($new_variant_id, $amount);
        $variant = $simpla->variants->get_variants(array('id'=>$new_variant_id));
        $simpla->design->assign('amount',  $_SESSION['shopping_cart'][$new_variant_id]);
+		if($_SESSION['shopping_boxing'][$new_variant_id]){
+			$variant[0]->price += $_SESSION['shopping_boxing'][$new_variant_id]['price'];
+			if($variant[0]->compare_price){
+				$variant[0]->compare_price += $_SESSION['shopping_boxing'][$new_variant_id]['price'];
+			}
+		}
        $simpla->design->assign('variant', $variant[0]);
     }
 

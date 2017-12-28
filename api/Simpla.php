@@ -20,6 +20,7 @@ class Simpla
 		'design'     => 'Design',
 		'products'   => 'Products',
 		'variants'   => 'Variants',
+		'boxing'   	 => 'Boxing',
 		'categories' => 'Categories',
 		'brands'     => 'Brands',
 		'whoms'      => 'Whoms',

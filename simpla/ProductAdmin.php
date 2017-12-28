@@ -13,6 +13,7 @@ class ProductAdmin extends Simpla
 		$options = array();
 		$product_categories = array();
 		$variants = array();
+		$boxing = array();
 		$images = array();
 		$product_features = array();
 		$related_products = array();
@@ -41,6 +42,18 @@ class ProductAdmin extends Simpla
 					if(empty($variants[$i]))
 						$variants[$i] = new stdClass;
 					$variants[$i]->$n = $v;
+				}
+			}
+
+			// Варианты упаковки
+			if($this->request->post('boxing'))
+			foreach($this->request->post('boxing') as $n=>$bo)
+			{
+				foreach($bo as $i=>$b)
+				{
+					if(empty($boxing[$i]))
+						$boxing[$i] = new stdClass;
+					$boxing[$i]->$n = $b;
 				}
 			}
 
@@ -254,6 +267,60 @@ class ProductAdmin extends Simpla
 							$i++;
 						}
 					}
+					// Упаковки
+		  		    if(is_array($boxing))
+		  		    {
+	 					$boxing_ids = array();
+						foreach($boxing as $index=>&$box)
+						{
+							if($box->stock == '∞' || $box->stock == '')
+								$box->stock = null;
+
+							// Удалить файл
+							if(!empty($_POST['delete_attachment_box'][$index]))
+							{
+								$this->boxing->delete_attachment($box->id);
+							}
+
+		 					// Загрузить файлы
+		 					if(!empty($_FILES['attachment_box']['tmp_name'][$index]) && !empty($_FILES['attachment_box']['name'][$index]))
+		 					{
+			 					$attachment_tmp_name = $_FILES['attachment_box']['tmp_name'][$index];
+			 					$attachment_name = $_FILES['attachment_box']['name'][$index];
+		 						move_uploaded_file($attachment_tmp_name, $this->config->root_dir.'/'.$this->config->downloads_dir.$attachment_name);
+		 						$box->attachment = $attachment_name;
+		 					}
+
+							if(!empty($box->id))
+								$this->boxing->update_box($box->id, $box);
+							else
+							{
+								$box->product_id = $product->id;
+								$box->id = $this->boxing->add_box($box);
+							}
+							$box = $this->boxing->get_box($box->id);
+							if(!empty($box->id))
+					 			$boxing_ids[] = $box->id;
+						}
+
+
+						// Удалить непереданные варианты
+						$current_boxing = $this->boxing->get_boxing(array('product_id'=>$product->id));
+						foreach($current_boxing as $current_box)
+							if(!in_array($current_box->id, $boxing_ids))
+	 							$this->boxing->delete_box($current_box->id);
+
+	 					//if(!empty($))
+
+						// Отсортировать  варианты
+						asort($boxing_ids);
+						$i = 0;
+						foreach($boxing_ids as $box_id)
+						{
+							$this->boxing->update_box($boxing_ids[$i], array('position'=>$box_id));
+							$i++;
+						}
+					}
 	
 					// Удаление изображений
 					$images = (array)$this->request->post('images');
@@ -408,6 +475,9 @@ class ProductAdmin extends Simpla
 
 				// Варианты товара
 				$variants = $this->variants->get_variants(array('product_id'=>$product->id));
+
+				// Варианты упаковки
+				$boxing = $this->boxing->get_boxing(array('product_id'=>$product->id));
 				
 				// Изображения товара
 				$images = $this->products->get_images(array('product_id'=>$product->id));
@@ -431,6 +501,9 @@ class ProductAdmin extends Simpla
 
 		if(empty($variants))
 			$variants = array(1);
+
+		if(empty($boxing))
+			$boxing = array(1);
 			
 		if(empty($product_categories))
 		{
@@ -485,6 +558,7 @@ class ProductAdmin extends Simpla
 		$this->design->assign('product_events', $product_events);
 		$this->design->assign('product_whoms', $product_whoms);
 		$this->design->assign('product_variants', $variants);
+		$this->design->assign('product_boxing', $boxing);
 		$this->design->assign('product_images', $images);
 		$this->design->assign('options', $options);
 		$this->design->assign('related_products', $related_products);		

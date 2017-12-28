@@ -37,6 +37,7 @@
 						</div>
 						{/if}
 					</div>
+
 					
 					<div class="mcamount">
 						<div class="amountposit">
@@ -129,10 +130,15 @@
 			$input.change();
 			return false;
 		});
+
 	});
+
+
 	</script>
 	{/literal}
 	{/if}
 {else}
 	<span class="pusto">Корзина пуста</span>
 {/if}
+
+

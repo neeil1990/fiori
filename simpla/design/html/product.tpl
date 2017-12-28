@@ -85,6 +85,11 @@ $(function() {
 	// Сортировка вариантов
 	$("table.related_products").sortable({ items: 'tr' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
 
+	// Сортировка упаковок
+	$("#boxing_block").sortable({ items: '#boxing ul' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
+	// Сортировка упаковок
+	$("table.related_products").sortable({ items: 'tr' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
+
 	
 	// Сортировка связанных товаров
 	$(".sortable").sortable({
@@ -169,12 +174,35 @@ $(function() {
 		return false;
 	});
 
+	// Удаление упаковки
+	$('a.del_box').click(function() {
+		if($("#boxing ul").size()>1)
+		{
+			$(this).closest("ul").fadeOut(200, function() { $(this).remove(); });
+		}
+		else
+		{
+			$('#boxing_block .box_name input[name*=box][name*=name]').val('');
+			$('#boxing_block .box_name').hide('slow');
+			$('#boxing_block').addClass('single_box');
+		}
+		return false;
+	});
+
 	// Загрузить файл к варианту
 	$('#variants_block a.add_attachment').click(function() {
 		$(this).hide();
 		$(this).closest('li').find('div.browse_attachment').show('fast');
 		$(this).closest('li').find('input[name*=attachment]').attr('disabled', false);
 		return false;		
+	});
+
+	// Загрузить файл к упаковки
+	$('#boxing_block a.add_attachment').click(function() {
+		$(this).hide();
+		$(this).closest('li').find('div.browse_attachment').show('fast');
+		$(this).closest('li').find('input[name*=attachment_box]').attr('disabled', false);
+		return false;
 	});
 	
 	// Удалить файл к варианту
@@ -185,6 +213,16 @@ $(function() {
 		closest_li.find('input[name*=delete_attachment]').val('1');
 		closest_li.find('a.add_attachment').show('fast');
 		return false;		
+	});
+
+	// Удалить файл к уаковке
+	$('#boxing_block a.remove_attachment').click(function() {
+		closest_li = $(this).closest('li');
+		closest_li.find('.attachment_name').hide('fast');
+		$(this).hide('fast');
+		closest_li.find('input[name*=delete_attachment_box]').val('1');
+		closest_li.find('a.add_attachment').show('fast');
+		return false;
 	});
 
 
@@ -202,6 +240,21 @@ $(function() {
 			$('#variants_block').removeClass('single_variant');		
 		}
 		return false;		
+	});
+	// Добавление упаковки
+	var box = $('#new_box').clone(true);
+	$('#new_box').remove().removeAttr('id');
+	$('#boxing_block span.add').click(function() {
+		if(!$('#boxing_block').is('.single_box'))
+		{
+			$(box).clone(true).appendTo('#boxing').fadeIn('slow').find("input[name*=box][name*=name]").focus();
+		}
+		else
+		{
+			$('#boxing_block .box_name').show('slow');
+			$('#boxing_block').removeClass('single_box');
+		}
+		return false;
 	});
 	
 	
@@ -315,6 +368,17 @@ $(function() {
 	});
 
 	$("input[name*=variant][name*=stock]").blur(function() {
+		if($(this).val() == '')
+			$(this).val('∞');
+	});
+
+	$("input[name*=box][name*=stock]").focus(function() {
+		if($(this).val() == '∞')
+			$(this).val('');
+		return false;
+	});
+
+	$("input[name*=box][name*=stock]").blur(function() {
 		if($(this).val() == '')
 			$(this).val('∞');
 	});
@@ -587,6 +651,49 @@ overflow-y: auto;
 
 	<div class="prodsob"></div>
 
+	<div id="product_categories" {if !$categories}style='display:none;'{/if}>
+		<label>Категория</label>
+		<div>
+			<ul>
+				{foreach $product_categories as $product_category name=categories}
+					<li>
+						<select name="categories[]">
+							{function name=category_select level=0}
+								{foreach $categories as $category}
+									<option value='{$category->id}' {if $category->id == $selected_id}selected{/if} category_name='{$category->name|escape}'>{section name=sp loop=$level}&nbsp;&nbsp;&nbsp;&nbsp;{/section}{$category->name|escape}</option>
+									{category_select categories=$category->subcategories selected_id=$selected_id  level=$level+1}
+								{/foreach}
+							{/function}
+							{category_select categories=$categories selected_id=$product_category->id}
+						</select>
+						<span {if not $smarty.foreach.categories.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительная категория</i></span>
+						<span {if $smarty.foreach.categories.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
+				{/foreach}
+			</ul>
+		</div>
+	</div>
+
+	<div id="product_brand" {if !$brands}style='display:none;'{/if}>
+		<label>Цветок</label>
+		<div>
+			<ul>
+				{foreach $product_brands as $brans_list name=brains}
+					<li>
+						<select name="brand_id[]">
+							<option value='0' {if !$brans_list}selected{/if} brand_name=''>Не указан</option>
+							{foreach $brands as $brand}
+								<option value='{$brand->id}' {if $brans_list->id == $brand->id}selected{/if} brand_name='{$brand->name|escape}'>{$brand->name|escape}</option>
+							{/foreach}
+						</select>
+
+						<span {if not $smarty.foreach.brains.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительный Цветок</i></span>
+						<span {if $smarty.foreach.brains.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
+				{/foreach}
+			</ul>
+		</div>
+	</div>
 
 	<div id="product_whoms" {if !$whoms}style='display:none;'{/if}>
 		<label>Кому</label>
@@ -629,52 +736,7 @@ overflow-y: auto;
 			</ul>
 		</div>
 	</div>
-
-	<div id="product_brand" {if !$brands}style='display:none;'{/if}>
-		<label>Цветок</label>
-		<div>
-			<ul>
-				{foreach $product_brands as $brans_list name=brains}
-				<li>
-					<select name="brand_id[]">
-						<option value='0' {if !$brans_list}selected{/if} brand_name=''>Не указан</option>
-						{foreach $brands as $brand}
-							<option value='{$brand->id}' {if $brans_list->id == $brand->id}selected{/if} brand_name='{$brand->name|escape}'>{$brand->name|escape}</option>
-						{/foreach}
-					</select>
-
-					<span {if not $smarty.foreach.brains.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительный Цветок</i></span>
-					<span {if $smarty.foreach.brains.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
-				</li>
-				{/foreach}
-			</ul>
-		</div>
-	</div>
 	
-	<div id="product_categories" {if !$categories}style='display:none;'{/if}>
-		<label>Категория</label>
-		<div>
-			<ul>
-				{foreach $product_categories as $product_category name=categories}
-				<li>
-					<select name="categories[]">
-						{function name=category_select level=0}
-						{foreach $categories as $category}
-								<option value='{$category->id}' {if $category->id == $selected_id}selected{/if} category_name='{$category->name|escape}'>{section name=sp loop=$level}&nbsp;&nbsp;&nbsp;&nbsp;{/section}{$category->name|escape}</option>
-								{category_select categories=$category->subcategories selected_id=$selected_id  level=$level+1}
-						{/foreach}
-						{/function}
-						{category_select categories=$categories selected_id=$product_category->id}
-					</select>
-					<span {if not $smarty.foreach.categories.first}style='display:none;'{/if} class="add"><i class="dash_link">Дополнительная категория</i></span>
-					<span {if $smarty.foreach.categories.first}style='display:none;'{/if} class="delete"><i class="dash_link">Удалить</i></span>
-				</li>
-				{/foreach}		
-			</ul>
-		</div>
-	</div>
-
-
  	<!-- Варианты товара -->
 	<div id="variants_block" {assign var=first_variant value=$product_variants|@first}{if $product_variants|@count <= 1 && !$first_variant->name}class=single_variant{/if}>
 		<ul id="header">
@@ -734,7 +796,69 @@ overflow-y: auto;
 		<input class="button_green button_save" type="submit" name="" value="Сохранить" />
 		<span class="add" id="add_variant"><i class="dash_link">Добавить вариант</i></span>
  	</div>
-	<!-- Варианты товара (The End)--> 
+	<!-- Варианты товара (The End)-->
+
+
+	<!-- Варианты упаковки -->
+	<div id="boxing_block" {assign var=first_box value=$product_boxing|@first}{if $product_boxing|@count <= 1 && !$first_box->name}class=single_box{/if}>
+		<ul id="header">
+			<li class="box_move"></li>
+			<li class="box_name">Вариант упаковки</li>
+			<li class="box_sku">Артикул</li>
+			<li class="box_desc">Описание</li>
+			<li class="box_price">Цена, {$currency->sign}</li>
+			<li class="box_discount">Старая, {$currency->sign}</li>
+			<li class="box_amount">Кол-во</li>
+		</ul>
+		<div id="boxing">
+			{foreach $product_boxing as $box}
+				<ul>
+					<li class="box_move"><div class="move_zone"></div></li>
+					<li class="box_name"><input name="boxing[id][]" type="hidden" value="{$box->id|escape}" /><input name="boxing[name][]" type="" value="{$box->name|escape}" /> <a class="del_box" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
+					<li class="box_sku">       <input name="boxing[sku][]"           type="text"   value="{$box->sku|escape}" /></li>
+					<li class="box_desc">       <input name="boxing[description][]"           type="text"   value="{$box->description|escape}" /></li>
+					<li class="box_price">     <input name="boxing[price][]"         type="text"   value="{$box->price|escape}" /></li>
+					<li class="box_discount">  <input name="boxing[compare_price][]" type="text"   value="{$box->compare_price|escape}" /></li>
+					<li class="box_amount">    <input name="boxing[stock][]"         type="text"   value="{if $box->infinity || $box->stock == ''}∞{else}{$box->stock|escape}{/if}" />{$settings->units}</li>
+					<li class="box_download">
+
+						{if $box->attachment}
+							<span class=attachment_name>{$box->attachment|truncate:25:'...':false:true}</span>
+							<a href='#' class=remove_attachment><img src='design/images/bullet_delete.png'  title="Удалить цифровой товар"></a>
+							<a href='#' class=add_attachment style='display:none;'><img src="design/images/cd_add.png" title="Добавить цифровой товар" /></a>
+						{else}
+							<a href='#' class=add_attachment><img src="design/images/cd_add.png"  title="Добавить цифровой товар" /></a>
+						{/if}
+						<div class=browse_attachment style='display:none;'>
+							<input type=file name=attachment_box[]>
+							<input type=hidden name=delete_attachment_box[]>
+						</div>
+					</li>
+				</ul>
+			{/foreach}
+		</div>
+		<ul id=new_box style='display:none;'>
+			<li class="box_move"><div class="move_zone"></div></li>
+			<li class="box_name"><input name="boxing[id][]" type="hidden" value="" /><input name="boxing[name][]" type="" value="" /><a class="del_box" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
+			<li class="box_sku"><input name="boxing[sku][]" type="" value="" /></li>
+			<li class="box_desc"><input name="boxing[description][]" type="" value="" /></li>
+			<li class="box_price"><input  name="boxing[price][]" type="" value="" /></li>
+			<li class="box_discount"><input name="boxing[compare_price][]" type="" value="" /></li>
+			<li class="box_amount"><input name="boxing[stock][]" type="" value="∞" />{$settings->units}</li>
+			<li class="box_download">
+				<a href='#' class=add_attachment><img src="design/images/cd_add.png" alt="" /></a>
+				<div class=browse_attachment style='display:none;'>
+					<input type=file name=attachment_box[]>
+					<input type=hidden name=delete_attachment_box[]>
+				</div>
+			</li>
+		</ul>
+
+		<input class="button_green button_save" type="submit" name="" value="Сохранить" />
+		<span class="add" id="add_box"><i class="dash_link">Добавить вариант</i></span>
+	</div>
+	<!-- Варианты упаковки (The End)-->
+
 	
  	<!-- Левая колонка свойств товара -->
 	<div id="column_left">

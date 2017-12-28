@@ -90,6 +90,7 @@
 			<div id="cart_informer">
 				{*<!--Корзина-->*}{include file='cart_informer.tpl'}
 			</div>
+
 		</div>
 	</div>
 

@@ -4,7 +4,12 @@
 	$simpla = new Simpla();
 	$variant = $simpla->variants->get_variant($simpla->request->get('variant', 'integer'));
 	if(!$variant) exit;
-	$simpla->cart->add_item($simpla->request->get('variant', 'integer'), $simpla->request->get('amount', 'integer'), $simpla->request->get('properties'));
+	$simpla->cart->add_item(
+		$simpla->request->get('variant', 'integer'),
+		$simpla->request->get('amount', 'integer'),
+		$simpla->request->get('properties'),
+		$simpla->request->get('box')
+	);
 	$cart = $simpla->cart->get_cart();
 	$simpla->design->assign('cart', $cart);
 	

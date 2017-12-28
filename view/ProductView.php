@@ -43,7 +43,19 @@ class ProductView extends View
 			$product->variant = $variants[$v_id];
 		else
 			$product->variant = reset($variants);
-					
+
+		$boxing = array();
+		foreach($this->boxing->get_boxing(array('product_id'=>$product->id, 'in_stock'=>true)) as $b)
+			$boxing[$b->id] = $b;
+
+		$product->boxing = $boxing;
+
+		// Вариант по умолчанию
+		if(($b_id = $this->request->get('boxing', 'integer'))>0 && isset($boxing[$b_id]))
+			$product->box = $boxing[$b_id];
+		else
+			$product->box = reset($boxing);
+
 		$product->features = $this->features->get_product_options(array('product_id'=>$product->id));
 	
 		// Автозаполнение имени для формы комментария

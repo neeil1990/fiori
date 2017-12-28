@@ -208,7 +208,9 @@
 }
 
 /* Варианты товара */
-#variants_block {
+#variants_block,
+#boxing_block
+{
     background-color: #f0f0f0;
     border: 1px dotted #d0d0d0;
     clear: both;
@@ -217,30 +219,40 @@
     padding-bottom: 15px;
     margin-bottom: 20px;
 }
-#variants_block ul  {
+#variants_block ul,
+#boxing_block ul
+{
 	overflow: hidden;
 	padding-bottom: 2px;
 	padding-left:20px;
 	padding-top: 2px;
 	clear: left;
 }
-#variants_block ul#header {
+#variants_block ul#header,
+#boxing_block ul#header
+{
 	height: 20px;
 	margin-bottom: 0;
 	padding-bottom: 0;
 }
-#variants_block ul#header li {
+#variants_block ul#header li,
+#boxing_block ul#header li
+{
 	font-size: 13px;
 	padding-left: 3px;
 	margin-left: -2px;
 }
-#variants_block ul li {
+#variants_block ul li,
+#boxing_block ul li
+{
 	float: left;
 	display: block;
 	height: 31px;
 	overflow: hidden;
 }
-#variants_block ul li input {
+#variants_block ul li input,
+#boxing_block ul li input
+{
 	height: 20px;
 	font-size: 14px;
 	color: #636363;
@@ -248,40 +260,76 @@
 	padding-top: 2px;
 	margin-left: 2px;
 }
-#variants_block li.variant_move {	width: 20px; height:16px; padding-top: 5px;}
-#variants_block li.variant_name { width: 270px;	padding-left: 5px; }
-#variants_block li.variant_name input {
+#variants_block li.variant_move,
+#boxing_block li.box_move
+{	width: 20px; height:16px; padding-top: 5px;}
+#variants_block li.variant_name,
+#boxing_block li.box_name
+{ width: 270px;	padding-left: 5px; }
+#variants_block li.variant_name input,
+#boxing_block li.box_name input
+{
 	font-size: 16px;
 	color: #000;
 	width: 220px;
 	float: left;
 	margin-right: 2px;
 }
-#variants_block li.variant_name a.del_variant {
+#variants_block li.variant_name a.del_variant,
+#boxing_block li.box_name a.del_box
+{
 	display: block;
 	padding-top: 6px;
 }
-#variants_block li.variant_sku { width: 120px; }
-#variants_block li.variant_desc { width: 215px; }
-#variants_block li.variant_sku input { width: 95px; }
-#variants_block li.variant_desc input { width: 190px; }
-#variants_block li.variant_price { width: 120px; }
-#variants_block li.variant_price input {
+#variants_block li.variant_sku,
+#boxing_block li.box_sku
+{ width: 120px; }
+#variants_block li.variant_desc,
+#boxing_block li.box_desc
+{ width: 215px; }
+#variants_block li.variant_sku input,
+#boxing_block li.box_sku input
+{ width: 95px; }
+#variants_block li.variant_desc input,
+#boxing_block li.box_desc input
+{ width: 190px; }
+#variants_block li.variant_price,
+#boxing_block li.box_price
+{ width: 120px; }
+#variants_block li.variant_price input,
+#boxing_block li.box_price input
+{
 	width: 95px;
 	font-size: 15px;
 	font-weight: bold;
 	color: #000;
 }
-#variants_block li.variant_discount { width: 95px; }
-#variants_block li.variant_discount input { width: 70px; }
-#variants_block li.variant_amount { width: 90px; font-size: 11px; }
-#variants_block li.variant_amount input { width: 35px; margin-right: 2px; }
-#variants_block li.variant_download { width: 180px;}
-#variants_block li.variant_download input{ width: 170px; font-size: 9px; margin-top: 2px;}
-#variants_block li.variant_download .add_attachment img{  margin-top: 4px;}
+#variants_block li.variant_discount,
+#boxing_block li.box_discount
+{ width: 95px; }
+#variants_block li.variant_discount input,
+#boxing_block li.box_discount input
+{ width: 70px; }
+#variants_block li.variant_amount,
+#boxing_block li.box_amount
+{ width: 90px; font-size: 11px; }
+#variants_block li.variant_amount input,
+#boxing_block li.box_amount input
+{ width: 35px; margin-right: 2px; }
+#variants_block li.variant_download,
+#boxing_block li.box_download
+{ width: 180px;}
+#variants_block li.variant_download input,
+#boxing_block li.box_download input
+{ width: 170px; font-size: 9px; margin-top: 2px;}
+#variants_block li.variant_download .add_attachment img,
+#boxing_block li.box_download .add_attachment img
+{  margin-top: 4px;}
 
 
-#variants_block span.add {
+#variants_block span.add,
+#boxing_block span.add
+{
 	margin-left: 30px;
 	clear: left;
 	margin-top: 5px;
@@ -290,7 +338,9 @@
 	padding-left: 20px;	
 	background-image: url(../images/plus-circle.png);
 }
-#variants_block .variant_move div{
+#variants_block .variant_move div,
+#boxing_block .box_move div
+{
 	width:20px;
 	height: 16px;
 }
@@ -299,6 +349,12 @@
 #variants_block.single_variant ul li.variant_name, 
 #variants_block.single_variant ul li.variant_move
 #variants_block.single_variant #add_variant
+{ display: none; }
+
+/* Одиночный вариант упаковки */
+#boxing_block.single_box ul li.box_name,
+#boxing_block.single_box ul li.box_move
+#boxing_block.single_box #add_box
 { display: none; }
 
 

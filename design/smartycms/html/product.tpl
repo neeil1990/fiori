@@ -66,7 +66,19 @@
 				<div class="podipselect">
 					<select class="ipselect ajaxselect" name="variant">
 					{foreach $product->variants as $v}
-						<option value="{$v->id}" data-text-var="{$v->description}" {if $v->compare_price > 0}data-compareprice2="{$v->compare_price}" data-proc="- {floor(abs(100-{$v->price}/($v->compare_price)*100))}%" data-compare_price="<span><b class='clcomp'>{$v->compare_price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>"{/if} data-price="<span><b class='calcitog'>{$v->price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>">{$v->name}</option>
+						<option value="{$v->id}"
+								data-text-var="{$v->description}"
+								{if $v->compare_price > 0}
+									data-compareprice2="{$v->compare_price}"
+									data-proc="- {floor(abs(100-{$v->price}/($v->compare_price)*100))}%"
+									data-compare_price="<span><b class='clcomp'>{$v->compare_price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>"
+									data-compare_price-int="{$v->compare_price|string_format:"%.0f"}"
+								{/if}
+								data-price="<span><b class='calcitog'>{$v->price|string_format:"%.0f"}</b> {$currency->sign|escape}</span>"
+								data-price-int="{$v->price|string_format:"%.0f"}"
+								>
+							{$v->name}
+						</option>
 					{/foreach}
 					</select>
 				</div>
@@ -76,7 +88,23 @@
 			<input checked name="variant" value="{$v->id}" type="radio" style="display: none;"/>
 			{/foreach}
 			{/if}
-		
+
+			{if $product->boxing|count > 0}
+				<div class="blockselectprod">
+					<b>Вариант упаковки</b>
+					<div class="podipselect">
+						<select class="ipselect selectbox" name="box">
+							<option value="0" data-compareprice2="0" data-proc="0" data-compare_price="0" data-price="0">не выбрано</option>
+							{foreach $product->boxing as $b}
+								<option value="{$b->id}" {if $b->compare_price > 0}data-compareprice2="{$b->compare_price}" data-proc="- {floor(abs(100-{$b->price}/($b->compare_price)*100))}%" data-compare_price="{$b->compare_price|string_format:"%.0f"}"{/if} data-price="{$b->price|string_format:"%.0f"}">{$b->name}</option>
+							{/foreach}
+						</select>
+					</div>
+				</div>
+			{else}
+					<input checked name="box" value="0" type="radio" style="display: none;"/>
+			{/if}
+
 			<div class="podcenlist prod">
 				<div class="cenlist">
 					<div class="prc-new"><span><b class="calcitog">{$product->variant->price|string_format:"%.0f"}</b> {$currency->sign|escape}</span></div>
@@ -115,9 +143,13 @@
 			{literal}
 			<script>		
 			$(function() {
+
+
+
 				$('select.ajaxselect').change(function(e) {
 					e.preventDefault();
-					$('.prodanno').html("<p>" + $('option:selected',this).attr('data-text-var') + "</p>");
+					$('select.selectbox option[value="0"]').prop("selected",true);
+					$('.prodanno').first().html("<p>" + $('option:selected',this).attr('data-text-var') + "</p>");
 					$('div[variants-image="'+ $(this).val() +'"]').click();
 
 					$.ajax({
@@ -132,6 +164,35 @@
 					});
 
 				});
+
+				$('select.selectbox').change(function(e) {
+					e.preventDefault();
+
+					$(".addcalc").val(1);
+
+					var price = parseInt($('.ajaxselect option:selected').attr('data-price-int'));
+					var compareprice = parseInt($('.ajaxselect option:selected').attr('data-compare_price-int'));
+
+					var str = (price + parseInt($('option:selected',this).attr('data-price')));
+					var oldstr = (compareprice + parseInt($('option:selected',this).attr('data-compare_price')));
+
+
+					$(".calcitog").text(str);
+					$(".clcomp").text(oldstr);
+
+					$.ajax({
+						dataType: 'json',
+						url: "ajax/calc.php",
+						data: {productid: {/literal}{$product->id}{literal}},
+						success: function(data){
+							if(data){
+								$('.scriptblock').html(data.scriptblock);
+							}
+						}
+					});
+
+				});
+
 			});
 			</script>
 			{/literal}
