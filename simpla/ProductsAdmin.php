@@ -315,6 +315,8 @@ class ProductsAdmin extends Simpla
 			foreach($images as $image)
 				$products[$image->product_id]->images[$image->id] = $image;
 		}
+
+		var_dump($products);
 	 
 		$this->design->assign('products', $products);
 	
