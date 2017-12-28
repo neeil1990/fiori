@@ -261,6 +261,8 @@ class ProductsAdmin extends Simpla
 				}
 			}			
 		}
+		if($category_id == 0)
+			$filter['group_by'] = 1;
 
 		// Отображение
 		if(isset($brand))

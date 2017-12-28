@@ -49,6 +49,9 @@ class Products extends Simpla
 		if(isset($filter['limit']))
 			$limit = max(1, intval($filter['limit']));
 
+		if(isset($filter['group_by']))
+			$group_by = "GROUP BY p.id";
+
 		if(isset($filter['page']))
 			$page = max(1, intval($filter['page']));
 
@@ -191,8 +194,6 @@ class Products extends Simpla
 					$sql_limit";
 
 		$query = $this->db->placehold($query);
-
-		var_dump($query);
 		$this->db->query($query);
 
 		return $this->db->results();
