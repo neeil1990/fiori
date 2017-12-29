@@ -57,10 +57,10 @@ class Products extends Simpla
 
 		$sql_limit = $this->db->placehold(' LIMIT ?, ? ', ($page-1)*$limit, $limit);
 
-		if(!empty($filter['id']))
+		if(isset($filter['id']))
 			$product_id_filter = $this->db->placehold('AND p.id in(?@)', (array)$filter['id']);
 
-		if(!empty($filter['category_id']))
+		if(isset($filter['category_id']))
 		{
 			$category_id_filter = $this->db->placehold('INNER JOIN __products_categories pc ON pc.product_id = p.id AND pc.category_id in(?@)', (array)$filter['category_id']);
 			$group_by = "GROUP BY p.id";
@@ -75,19 +75,19 @@ class Products extends Simpla
 		if(!empty($filter['whom_id']))
 			$whom_id_filter = $this->db->placehold('AND wp.whom_id in(?@)', (array)$filter['whom_id']);
 
-		if(!empty($filter['featured']))
+		if(isset($filter['featured']))
 			$is_featured_filter = $this->db->placehold('AND p.featured=?', intval($filter['featured']));
 
-		if(!empty($filter['discounted']))
+		if(isset($filter['discounted']))
 			$discounted_filter = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.compare_price>0 LIMIT 1) = ?', intval($filter['discounted']));
 
-		if(!empty($filter['visible']))
+		if(isset($filter['visible']))
 			$visible_filter = $this->db->placehold('AND p.visible=?', intval($filter['visible']));
 
-		if(!empty($filter['min_price']))
+		if(isset($filter['min_price']))
 			$min_price = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.price>=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['min_price']));;
 
-		if(!empty($filter['max_price']))
+		if(isset($filter['max_price']))
 			$max_price = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.price<=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['max_price']));
 
 			
