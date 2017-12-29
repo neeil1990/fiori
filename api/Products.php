@@ -369,13 +369,13 @@ class Products extends Simpla
 			}
 		}
 
-		if(!empty($filter['featured']))
+		if(isset($filter['featured']))
 			$is_featured_filter = $this->db->placehold('AND p.featured=?', intval($filter['featured']));
 
-		if(!empty($filter['discounted']))
+		if(isset($filter['discounted']))
 			$discounted_filter = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.compare_price>0 LIMIT 1) = ?', intval($filter['discounted']));
 			
-		if(!empty($filter['visible']))
+		if(isset($filter['visible']))
 			$visible_filter = $this->db->placehold('AND p.visible=?', intval($filter['visible']));
 		
 		if(!empty($filter['min_price']))
