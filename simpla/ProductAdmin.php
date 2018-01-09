@@ -514,18 +514,37 @@ class ProductAdmin extends Simpla
 			}
 
 		}
-		if(empty($product->brand_id) && $brand_id=$this->request->get('brand_id'))
+
+		if(empty($product_brands))
 		{
-			$product_brands = $brand_id;
+			if($brand_id = $this->request->get('brand_id')){
+				$product_brands[0]->id = $brand_id;
+			}else{
+				$product_brands = array(1);
+			}
+
 		}
-		if(empty($product->event_id) && $event_id=$this->request->get('event_id'))
+
+		if(empty($product_events))
 		{
-			$product_events = $event_id;
+			if($event_id = $this->request->get('event_id')){
+				$product_events[0]->id = $event_id;
+			}else{
+				$product_events = array(1);
+			}
+
 		}
-		if(empty($product->whom_id) && $whom_id=$this->request->get('whom_id'))
+
+		if(empty($product_whoms))
 		{
-			$product_whoms = $whom_id;
+			if($whom_id = $this->request->get('whom_id')){
+				$product_whoms[0]->id = $whom_id;
+			}else{
+				$product_whoms = array(1);
+			}
+
 		}
+
 			
 		if(!empty($related_products))
 		{
@@ -549,6 +568,7 @@ class ProductAdmin extends Simpla
 				$temp_options[$option->feature_id] = $option;
 			$options = $temp_options;
 		}
+
 
 
 		$this->design->assign('product', $product);
