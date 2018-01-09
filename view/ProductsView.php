@@ -626,6 +626,14 @@ class ProductsView extends View
 			$this->design->assign('meta_title', $brand->meta_title);
 			$this->design->assign('meta_keywords', $brand->meta_keywords);
 			$this->design->assign('meta_description', $brand->meta_description);
+		}elseif(isset($event)) {
+			$this->design->assign('meta_title', $event->meta_title);
+			$this->design->assign('meta_keywords', $event->meta_keywords);
+			$this->design->assign('meta_description', $event->meta_description);
+		}elseif(isset($whom)) {
+			$this->design->assign('meta_title', $whom->meta_title);
+			$this->design->assign('meta_keywords', $whom->meta_keywords);
+			$this->design->assign('meta_description', $whom->meta_description);
 		}
 		elseif(isset($keyword)) $this->design->assign('meta_title', $keyword);
 
