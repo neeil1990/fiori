@@ -545,6 +545,10 @@ class ProductAdmin extends Simpla
 
 		}
 
+		if(empty($properties)){
+			$properties = array();
+		}
+
 			
 		if(!empty($related_products))
 		{
