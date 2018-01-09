@@ -53,6 +53,8 @@
 			</div>
 		</div>
 
+		<input checked name="box" value="0" type="radio" style="display: none;"/>
+
 		
 		<div class="pis_photo">
 			{if $product->image}
