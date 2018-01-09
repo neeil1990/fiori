@@ -25,6 +25,8 @@
 				<input checked name="variant" value="{$v->id}" type="radio" style="display: none;"/>
 				{/foreach}
 				{/if}
+
+				<input checked name="box" value="0" type="radio" style="display: none;"/>
 				
 				<div class="podcenlist">
 					<div class="cenlist">

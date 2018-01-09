@@ -17,6 +17,7 @@ $('form.variants').live('submit', function(e) {
 			properties.push( $(o).val() ); 
 		});
 
+	console.log(box);
 
 
 	$.ajax({
