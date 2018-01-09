@@ -16,9 +16,7 @@ $('form.variants').live('submit', function(e) {
 		$(this).find("input[name='properties[]']:checked").each(function (i, o) { 
 			properties.push( $(o).val() ); 
 		});
-
-	console.log(box);
-
+	
 
 	$.ajax({
 		url: "ajax/cart.php",
