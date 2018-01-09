@@ -875,7 +875,7 @@ overflow-y: auto;
 		</div>
 		<!-- Параметры страницы (The End)-->
 				
-		<div class="block layer" {if !$categories}style='display:none;'{/if}>
+		<div class="block layer" style='display:none;'>
 			<h2>Свойства товара
 			<a href="#" id=properties_wizard><img src="design/images/wand.png" alt="Подобрать автоматически" title="Подобрать автоматически"/></a>
 			</h2>
