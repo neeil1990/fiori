@@ -671,7 +671,7 @@ class ProductsView extends View
 			$category = $this->categories->get_category((string)$category_url);
 			if (empty($category) || (!$category->visible && empty($_SESSION['admin'])))
 				return false;
-			$filter['category_id'] = $category->children;
+			$filter['category_id'] = $category->id;
 		}
 		if (!empty($brand_url))
 		{
