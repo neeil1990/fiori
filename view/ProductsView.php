@@ -160,9 +160,9 @@ class ProductsView extends View
 			if (empty($category) || (!$category->visible && empty($_SESSION['admin'])))
 				return false;
 			$this->design->assign('category', $category);
-			$filter['category_id'] = $category->children;
+			$filter['category_id'] = $category->id;
 		}
-
+		
 		// Если задано ключевое слово
 		$keyword = $this->request->get('keyword');
 		if (!empty($keyword)) {
