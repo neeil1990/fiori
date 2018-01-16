@@ -147,6 +147,8 @@ class Products extends Simpla
 			foreach($filter['features'] as $feature=>$value)
 				$features_filter .= $this->db->placehold('AND p.id in (SELECT product_id FROM __options WHERE feature_id=? AND value in (?@) ) ', $feature, $value);
 
+		$select_b_e_w = "";
+		$left_b_e_w = "";
 		if($brand_id_filter OR $event_id_filter OR $whom_id_filter){
 			$select_b_e_w = ",
 					b.name as brand,
