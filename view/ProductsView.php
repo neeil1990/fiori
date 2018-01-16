@@ -310,6 +310,7 @@ class ProductsView extends View
 		$filter['page'] = $current_page;
 		$filter['limit'] = $items_per_page;
 
+
 		$discount = 0;
 		if(isset($_SESSION['user_id']) && $user = $this->users->get_user(intval($_SESSION['user_id'])))
 			$discount = $user->discount;

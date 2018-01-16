@@ -46,8 +46,11 @@ class Products extends Simpla
 		$group_by = '';
 		$order = 'p.position DESC';
 
-		if(isset($filter['limit']))
+		if(isset($filter['limit'])){
 			$limit = max(1, intval($filter['limit']));
+			$group_by = "GROUP BY p.id";
+		}
+
 
 		if(isset($filter['group_by']))
 			$group_by = "GROUP BY p.id";
@@ -195,7 +198,6 @@ class Products extends Simpla
 
 		$query = $this->db->placehold($query);
 		$this->db->query($query);
-
 		return $this->db->results();
 	}
 	

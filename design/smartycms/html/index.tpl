@@ -12,6 +12,7 @@
 	<link href="design/{$settings->theme|escape}/css/style.css?v={filemtime("design/{$settings->theme|escape}/css/style.css")}" rel="stylesheet" type="text/css" media="screen"/>
 	{if $category}{if $category->brands || $category->whoms || $category->events || $features}<link href="design/{$settings->theme|escape}/css/filter.css" rel="stylesheet" type="text/css" media="screen"/>{/if}{else}{if $brands || $whoms || $events || $features}<link href="design/{$settings->theme|escape}/css/filter.css" rel="stylesheet" type="text/css" media="screen"/>{/if}{/if} 
 	<link href="design/{$settings->theme|escape}/css/adaptive.css?v={filemtime("design/{$settings->theme|escape}/css/adaptive.css")}" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="design/{$settings->theme|escape}/css/pagination.css" rel="stylesheet" type="text/css" media="screen"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"  type="text/javascript"></script>
  </head>
 <body>
