@@ -78,7 +78,7 @@ class Notify extends Simpla
 			}
 			$email_template = $this->design->fetch($this->config->root_dir.'design/'.$this->settings->theme.'/html/email_order.tpl');
 			$subject = $this->design->get_var('subject');
-			$this->email($order->email, $this->settings->site_name.' '.$subject, $email_template, $this->settings->order_email);
+			$this->email($order->email, $this->settings->site_name.'. '.$subject, $email_template, $this->settings->order_email);
 	
 	}
 
@@ -139,7 +139,7 @@ class Notify extends Simpla
 			// Отправляем письмо
 			$email_template = $this->design->fetch($this->config->root_dir.'simpla/design/html/email_order_admin.tpl');
 			$subject = $this->design->get_var('subject');
-			$this->email($this->settings->order_email, $this->settings->site_name.' '.$subject, $email_template, $this->settings->order_email);
+			$this->email($this->settings->order_email, $this->settings->site_name.'. '.$subject, $email_template, $this->settings->order_email);
 	
 	}
 
