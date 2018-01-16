@@ -44,6 +44,7 @@ class Comments extends Simpla
 
 		if(isset($filter['ip']))
 			$ip = $this->db->placehold("OR c.ip=?", $filter['ip']);
+
 		if(isset($filter['approved']))
 			$approved_filter = $this->db->placehold("AND (c.approved=? $ip)", intval($filter['approved']));
 			
@@ -70,7 +71,8 @@ class Comments extends Simpla
 		
 		$query = $this->db->placehold("SELECT c.id, c.object_id, c.ip, c.name, c.image, c.email, c.text, c.otvet, c.rate, c.type, c.date, c.approved
 										FROM __comments c WHERE 1 $object_id_filter $type_filter $keyword_filter $approved_filter ORDER BY id $sort $sql_limit");
-	
+
+
 		$this->db->query($query);
 		return $this->db->results();
 	}

@@ -82,8 +82,11 @@ class CommentsAdmin extends Simpla
   			$albums_ids[] = $comment->object_id;
   	}
 	$products = array();
-	foreach($this->products->get_products(array('id'=>$products_ids)) as $p)
-		$products[$p->id] = $p;
+	if($products_ids){
+		foreach($this->products->get_products(array('id'=>$products_ids)) as $p)
+			$products[$p->id] = $p;
+	}
+
 
   	$posts = array();
   	foreach($this->blog->get_posts(array('id'=>$posts_ids)) as $p)

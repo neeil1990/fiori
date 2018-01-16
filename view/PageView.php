@@ -69,9 +69,11 @@ class PageView extends View
 
 				
 				// Если были одобренные комментарии от текущего ip, одобряем сразу
+				/*
 				$this->db->query("SELECT 1 FROM __comments WHERE approved=1 AND ip=? LIMIT 1", $comment->ip);
 				if($this->db->num_rows()>0)
 					$comment->approved = 1;
+				*/
 				
 				// Добавляем комментарий в базу
 				$comment_id = $this->comments->add_comment($comment);
