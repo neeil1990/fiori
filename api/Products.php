@@ -147,6 +147,28 @@ class Products extends Simpla
 			foreach($filter['features'] as $feature=>$value)
 				$features_filter .= $this->db->placehold('AND p.id in (SELECT product_id FROM __options WHERE feature_id=? AND value in (?@) ) ', $feature, $value);
 
+		if($brand_id_filter OR $event_id_filter OR $whom_id_filter){
+			$select_b_e_w = ",
+					b.name as brand,
+					b.url as brand_url,
+					e.name as event,
+					e.url as event_url,
+					w.name as whom,
+					w.url as whom_url
+			";
+
+			$left_b_e_w = "
+				LEFT JOIN s_brands_products bp ON bp.product_id = p.id
+				LEFT JOIN s_brands b ON bp.brand_id = b.id
+				LEFT JOIN s_events_products ep ON ep.product_id = p.id
+				LEFT JOIN __events e ON ep.event_id = e.id
+				LEFT JOIN s_whoms_products wp ON wp.product_id = p.id
+				LEFT JOIN __whoms w ON wp.whom_id = w.id
+			";
+
+		}
+
+
 		$query = "SELECT  
 					p.id,
 					p.url,
@@ -162,21 +184,11 @@ class Products extends Simpla
 					p.featured, 
 					p.meta_title, 
 					p.meta_keywords, 
-					p.meta_description, 
-					b.name as brand,
-					b.url as brand_url,
-					e.name as event,
-					e.url as event_url,
-					w.name as whom,
-					w.url as whom_url
+					p.meta_description
+					$select_b_e_w
 				FROM __products p		
 				$category_id_filter
-				LEFT JOIN s_brands_products bp ON bp.product_id = p.id
-				LEFT JOIN s_brands b ON bp.brand_id = b.id
-				LEFT JOIN s_events_products ep ON ep.product_id = p.id
-				LEFT JOIN __events e ON ep.event_id = e.id
-				LEFT JOIN s_whoms_products wp ON wp.product_id = p.id
-				LEFT JOIN __whoms w ON wp.whom_id = w.id
+				$left_b_e_w
 				LEFT JOIN __variants v ON v.product_id = p.id
 				WHERE 
 					1
