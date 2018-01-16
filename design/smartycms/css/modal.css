@@ -10,7 +10,7 @@ div.modalitem {
     right: 0;
     bottom: 0;
     background: rgba(64, 26, 48, 0.57);
-    z-index: 999999;
+    z-index: 9999;
 }
 
 .modalclose {
