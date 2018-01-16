@@ -16,7 +16,9 @@
 
 @media screen and (max-width: 880px) {
     .pagination a{
-        padding: 12px;
-        line-height: 25px;
+        display: none;
+    }
+    .pagination a.prev_page_link,.pagination a.next_page_link{
+        display: inline-block;
     }
 }
