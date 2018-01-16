@@ -3,6 +3,6 @@ cache/*
 config/*
 .idea/*
 simpla/.htaccess
-compiled/smartycms/*
+compiled/*
 simpla/design/compiled/*
 access/*
