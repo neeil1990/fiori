@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:32:37
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-12 20:33:35
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13403001545a2d768f37be78-15764068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c31f9b3bdfa427eb73705f099be22e10b686dea' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl',
-      1 => 1512930749,
+      1 => 1515778409,
       2 => 'file',
     ),
   ),
@@ -177,7 +177,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 /images/odnoklassniki.png" alt="" /></a><?php }?>
 		</div>
 		<?php }?>
-		<p>Мы принимаем онлайн оплату, цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
+		<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
 
 		<div class="socblock pay">
 			<img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>

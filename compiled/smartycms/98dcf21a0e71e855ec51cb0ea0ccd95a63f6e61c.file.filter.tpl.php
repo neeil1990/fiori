@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:17:01
+<?php /* Smarty version Smarty-3.1.18, created on 2017-12-26 14:44:10
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/filter.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4127547045a2d7a1dd76284-08336889%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98dcf21a0e71e855ec51cb0ea0ccd95a63f6e61c' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/filter.tpl',
-      1 => 1512928511,
+      1 => 1514288647,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d7a1df1a952_89995856',
   'variables' => 
   array (
     'category' => 0,
@@ -41,8 +43,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'products' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d7a1df1a952_89995856',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d7a1df1a952_89995856')) {function content_5a2d7a1df1a952_89995856($_smarty_tpl) {?><form class="ufilter" method="get" action="<?php if ($_smarty_tpl->tpl_vars['category']->value) {?><?php echo $_smarty_tpl->tpl_vars['config']->value->root_url;?>
 /catalog/<?php echo $_smarty_tpl->tpl_vars['category']->value->url;?>
@@ -127,7 +127,7 @@ $_smarty_tpl->tpl_vars['b']->_loop = true;
 	<?php } else { ?>
 	<?php if ($_smarty_tpl->tpl_vars['brands']->value) {?>
 	<div class="iteamfilter">
-		<div class="if_name">Цветок/div>
+		<div class="if_name">Цветок</div>
 		<ul class="samopal">
 			<li>
 				<span>

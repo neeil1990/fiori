@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:06:26
+<?php /* Smarty version Smarty-3.1.18, created on 2017-12-29 14:58:01
          compiled from "simpla/design/html/products.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:7010785095a2d77a2d90ed3-76135671%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '29ea9ac8ff03271d57a7c517b21d0b694373e940' => 
     array (
       0 => 'simpla/design/html/products.tpl',
-      1 => 1512928511,
+      1 => 1514548619,
       2 => 'file',
     ),
   ),
@@ -30,6 +30,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d77a3048834_93098602',
   'variables' => 
   array (
     'manager' => 0,
@@ -59,8 +61,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'event' => 0,
   ),
   'has_nocache_code' => 0,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d77a3048834_93098602',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d77a3048834_93098602')) {function content_5a2d77a3048834_93098602($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include '/home/s/svprim4w/svprim4w.beget.tech/public_html/Smarty/libs/plugins/modifier.truncate.php';
 ?>
@@ -377,8 +377,7 @@ $_smarty_tpl->tpl_vars['b']->_loop = true;
 ">Активные</a></li>
 		<li <?php if ($_smarty_tpl->tpl_vars['filter']->value=='hidden') {?>class="selected"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('keyword'=>null,'brand_id'=>null,'category_id'=>null,'page'=>null,'filter'=>'hidden'),$_smarty_tpl);?>
 ">Неактивные</a></li>
-		<li <?php if ($_smarty_tpl->tpl_vars['filter']->value=='outofstock') {?>class="selected"<?php }?>><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('keyword'=>null,'brand_id'=>null,'category_id'=>null,'page'=>null,'filter'=>'outofstock'),$_smarty_tpl);?>
-">Отсутствующие</a></li>
+		
 	</ul>
 	<!-- Фильтры -->
 

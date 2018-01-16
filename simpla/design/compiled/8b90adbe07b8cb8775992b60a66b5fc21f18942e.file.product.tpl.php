@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:17:38
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-09 14:19:45
          compiled from "simpla/design/html/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5000946285a2d7a42baa5f1-02821683%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8b90adbe07b8cb8775992b60a66b5fc21f18942e' => 
     array (
       0 => 'simpla/design/html/product.tpl',
-      1 => 1512928511,
+      1 => 1515496736,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d7a42d90318_66097612',
   'variables' => 
   array (
     'product' => 0,
@@ -31,23 +33,32 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'config' => 0,
     'product_images' => 0,
     'message_error' => 0,
-    'brands' => 0,
-    'brand' => 0,
-    'whoms' => 0,
-    'whom' => 0,
-    'events' => 0,
-    'event' => 0,
     'categories' => 0,
     'product_categories' => 0,
     'category' => 0,
     'selected_id' => 0,
     'level' => 0,
     'product_category' => 0,
+    'brands' => 0,
+    'product_brands' => 0,
+    'brans_list' => 0,
+    'brand' => 0,
+    'whoms' => 0,
+    'product_whoms' => 0,
+    'whoms_list' => 0,
+    'whom' => 0,
+    'events' => 0,
+    'product_events' => 0,
+    'events_list' => 0,
+    'event' => 0,
     'product_variants' => 0,
     'first_variant' => 0,
     'currency' => 0,
     'variant' => 0,
     'settings' => 0,
+    'product_boxing' => 0,
+    'first_box' => 0,
+    'box' => 0,
     'features' => 0,
     'feature' => 0,
     'feature_id' => 0,
@@ -59,8 +70,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'related_product' => 0,
   ),
   'has_nocache_code' => 0,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d7a42d90318_66097612',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d7a42d90318_66097612')) {function content_5a2d7a42d90318_66097612($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_replace')) include '/home/s/svprim4w/svprim4w.beget.tech/public_html/Smarty/libs/plugins/modifier.replace.php';
 if (!is_callable('smarty_modifier_truncate')) include '/home/s/svprim4w/svprim4w.beget.tech/public_html/Smarty/libs/plugins/modifier.truncate.php';
@@ -112,9 +121,57 @@ $(function() {
 		return false;
 	});
 
+
+	// Добавление Брендов
+	$('#product_brand .add').click(function() {
+		$("#product_brand ul li:last").clone(false).appendTo('#product_brand ul').fadeIn('slow').find("select[name*=brand_id]:last").focus();
+		$("#product_brand ul li:last span.add").hide();
+		$("#product_brand ul li:last span.delete").show();
+		return false;
+	});
+
+	// Удаление Брендов
+	$("#product_brand .delete").live('click', function() {
+		$(this).closest("li").fadeOut(200, function() { $(this).remove(); });
+		return false;
+	});
+
+	// Добавление Событие
+	$('#product_events .add').click(function() {
+		$("#product_events ul li:last").clone(false).appendTo('#product_events ul').fadeIn('slow').find("select[name*=event_id]:last").focus();
+		$("#product_events ul li:last span.add").hide();
+		$("#product_events ul li:last span.delete").show();
+		return false;
+	});
+
+	// Удаление Событие
+	$("#product_events .delete").live('click', function() {
+		$(this).closest("li").fadeOut(200, function() { $(this).remove(); });
+		return false;
+	});
+
+	// Добавление Кому
+	$('#product_whoms .add').click(function() {
+		$("#product_whoms ul li:last").clone(false).appendTo('#product_whoms ul').fadeIn('slow').find("select[name*=whom_id]:last").focus();
+		$("#product_whoms ul li:last span.add").hide();
+		$("#product_whoms ul li:last span.delete").show();
+		return false;
+	});
+
+	// Удаление Кому
+	$("#product_whoms .delete").live('click', function() {
+		$(this).closest("li").fadeOut(200, function() { $(this).remove(); });
+		return false;
+	});
+
 	// Сортировка вариантов
 	$("#variants_block").sortable({ items: '#variants ul' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
 	// Сортировка вариантов
+	$("table.related_products").sortable({ items: 'tr' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
+
+	// Сортировка упаковок
+	$("#boxing_block").sortable({ items: '#boxing ul' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
+	// Сортировка упаковок
 	$("table.related_products").sortable({ items: 'tr' , axis: 'y',  cancel: '#header', handle: '.move_zone' });
 
 	
@@ -201,12 +258,35 @@ $(function() {
 		return false;
 	});
 
+	// Удаление упаковки
+	$('a.del_box').click(function() {
+		if($("#boxing ul").size()>1)
+		{
+			$(this).closest("ul").fadeOut(200, function() { $(this).remove(); });
+		}
+		else
+		{
+			$('#boxing_block .box_name input[name*=box][name*=name]').val('');
+			$('#boxing_block .box_name').hide('slow');
+			$('#boxing_block').addClass('single_box');
+		}
+		return false;
+	});
+
 	// Загрузить файл к варианту
 	$('#variants_block a.add_attachment').click(function() {
 		$(this).hide();
 		$(this).closest('li').find('div.browse_attachment').show('fast');
 		$(this).closest('li').find('input[name*=attachment]').attr('disabled', false);
 		return false;		
+	});
+
+	// Загрузить файл к упаковки
+	$('#boxing_block a.add_attachment').click(function() {
+		$(this).hide();
+		$(this).closest('li').find('div.browse_attachment').show('fast');
+		$(this).closest('li').find('input[name*=attachment_box]').attr('disabled', false);
+		return false;
 	});
 	
 	// Удалить файл к варианту
@@ -217,6 +297,16 @@ $(function() {
 		closest_li.find('input[name*=delete_attachment]').val('1');
 		closest_li.find('a.add_attachment').show('fast');
 		return false;		
+	});
+
+	// Удалить файл к уаковке
+	$('#boxing_block a.remove_attachment').click(function() {
+		closest_li = $(this).closest('li');
+		closest_li.find('.attachment_name').hide('fast');
+		$(this).hide('fast');
+		closest_li.find('input[name*=delete_attachment_box]').val('1');
+		closest_li.find('a.add_attachment').show('fast');
+		return false;
 	});
 
 
@@ -234,6 +324,21 @@ $(function() {
 			$('#variants_block').removeClass('single_variant');		
 		}
 		return false;		
+	});
+	// Добавление упаковки
+	var box = $('#new_box').clone(true);
+	$('#new_box').remove().removeAttr('id');
+	$('#boxing_block span.add').click(function() {
+		if(!$('#boxing_block').is('.single_box'))
+		{
+			$(box).clone(true).appendTo('#boxing').fadeIn('slow').find("input[name*=box][name*=name]").focus();
+		}
+		else
+		{
+			$('#boxing_block .box_name').show('slow');
+			$('#boxing_block').removeClass('single_box');
+		}
+		return false;
 	});
 	
 	
@@ -347,6 +452,17 @@ $(function() {
 	});
 
 	$("input[name*=variant][name*=stock]").blur(function() {
+		if($(this).val() == '')
+			$(this).val('∞');
+	});
+
+	$("input[name*=box][name*=stock]").focus(function() {
+		if($(this).val() == '∞')
+			$(this).val('');
+		return false;
+	});
+
+	$("input[name*=box][name*=stock]").blur(function() {
 		if($(this).val() == '')
 			$(this).val('∞');
 	});
@@ -633,63 +749,17 @@ overflow-y: auto;
 		<div class="checkbox">
 			<input name=featured value="1" type="checkbox" id="featured_checkbox" <?php if ($_smarty_tpl->tpl_vars['product']->value->featured) {?>checked<?php }?>/> <label for="featured_checkbox">Рекомендуемый</label>
 		</div>
-	</div> 
-	
-	<div class="prodsob">
-	
-		<div id="product_brand" <?php if (!$_smarty_tpl->tpl_vars['brands']->value) {?>style='display:none;'<?php }?>>
-			<label>Цветок</label>
-			<select name="brand_id">
-				<option value='0' <?php if (!$_smarty_tpl->tpl_vars['product']->value->brand_id) {?>selected<?php }?> brand_name=''>Не указан</option>
-				<?php  $_smarty_tpl->tpl_vars['brand'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['brand']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['brands']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['brand']->key => $_smarty_tpl->tpl_vars['brand']->value) {
-$_smarty_tpl->tpl_vars['brand']->_loop = true;
-?>
-					<option value='<?php echo $_smarty_tpl->tpl_vars['brand']->value->id;?>
-' <?php if ($_smarty_tpl->tpl_vars['product']->value->brand_id==$_smarty_tpl->tpl_vars['brand']->value->id) {?>selected<?php }?> brand_name='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['brand']->value->name, ENT_QUOTES, 'UTF-8', true);?>
-'><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['brand']->value->name, ENT_QUOTES, 'UTF-8', true);?>
-</option>
-				<?php } ?>
-			</select>
-		</div>
-		
-		<div id="product_brand" <?php if (!$_smarty_tpl->tpl_vars['whoms']->value) {?>style='display:none;'<?php }?>>
-			<label>Кому</label>
-			<select name="whom_id">
-				<option value='0' <?php if (!$_smarty_tpl->tpl_vars['product']->value->whom_id) {?>selected<?php }?> whom_name=''>Не указан</option>
-				<?php  $_smarty_tpl->tpl_vars['whom'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['whom']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['whoms']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['whom']->key => $_smarty_tpl->tpl_vars['whom']->value) {
-$_smarty_tpl->tpl_vars['whom']->_loop = true;
-?>
-					<option value='<?php echo $_smarty_tpl->tpl_vars['whom']->value->id;?>
-' <?php if ($_smarty_tpl->tpl_vars['product']->value->whom_id==$_smarty_tpl->tpl_vars['whom']->value->id) {?>selected<?php }?> whom_name='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['whom']->value->name, ENT_QUOTES, 'UTF-8', true);?>
-'><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['whom']->value->name, ENT_QUOTES, 'UTF-8', true);?>
-</option>
-				<?php } ?>
-			</select>
-		</div>
-		
-		<div id="product_brand" <?php if (!$_smarty_tpl->tpl_vars['events']->value) {?>style='display:none;'<?php }?>>
-			<label>Событие</label>
-			<select name="event_id">
-				<option value='0' <?php if (!$_smarty_tpl->tpl_vars['product']->value->event_id) {?>selected<?php }?> event_name=''>Не указан</option>
-				<?php  $_smarty_tpl->tpl_vars['event'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['event']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['events']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['event']->key => $_smarty_tpl->tpl_vars['event']->value) {
-$_smarty_tpl->tpl_vars['event']->_loop = true;
-?>
-					<option value='<?php echo $_smarty_tpl->tpl_vars['event']->value->id;?>
-' <?php if ($_smarty_tpl->tpl_vars['product']->value->event_id==$_smarty_tpl->tpl_vars['event']->value->id) {?>selected<?php }?> event_name='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['event']->value->name, ENT_QUOTES, 'UTF-8', true);?>
-'><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['event']->value->name, ENT_QUOTES, 'UTF-8', true);?>
-</option>
-				<?php } ?>
-			</select>
-		</div>
-	
 	</div>
 	
+	<div class="block layer">
+		<a href="/products/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['product']->value->url, ENT_QUOTES, 'UTF-8', true);?>
+" target="_blank"><?php echo $_smarty_tpl->tpl_vars['config']->value->root_url;?>
+/products/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['product']->value->url, ENT_QUOTES, 'UTF-8', true);?>
+</a>
+	</div>
+
+	<div class="prodsob"></div>
+
 	<div id="product_categories" <?php if (!$_smarty_tpl->tpl_vars['categories']->value) {?>style='display:none;'<?php }?>>
 		<label>Категория</label>
 		<div>
@@ -703,19 +773,19 @@ $_smarty_tpl->tpl_vars['product_category']->_loop = true;
  $_smarty_tpl->tpl_vars['product_category']->first = $_smarty_tpl->tpl_vars['product_category']->index === 0;
  $_smarty_tpl->tpl_vars['smarty']->value['foreach']['categories']['first'] = $_smarty_tpl->tpl_vars['product_category']->first;
 ?>
-				<li>
-					<select name="categories[]">
-						<?php if (!function_exists('smarty_template_function_category_select')) {
+					<li>
+						<select name="categories[]">
+							<?php if (!function_exists('smarty_template_function_category_select')) {
     function smarty_template_function_category_select($_smarty_tpl,$params) {
     $saved_tpl_vars = $_smarty_tpl->tpl_vars;
     foreach ($_smarty_tpl->smarty->template_functions['category_select']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
     foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
-						<?php  $_smarty_tpl->tpl_vars['category'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['category']->_loop = false;
+								<?php  $_smarty_tpl->tpl_vars['category'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['category']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['category']->key => $_smarty_tpl->tpl_vars['category']->value) {
 $_smarty_tpl->tpl_vars['category']->_loop = true;
 ?>
-								<option value='<?php echo $_smarty_tpl->tpl_vars['category']->value->id;?>
+									<option value='<?php echo $_smarty_tpl->tpl_vars['category']->value->id;?>
 ' <?php if ($_smarty_tpl->tpl_vars['category']->value->id==$_smarty_tpl->tpl_vars['selected_id']->value) {?>selected<?php }?> category_name='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['category']->value->name, ENT_QUOTES, 'UTF-8', true);?>
 '><?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['sp'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['sp']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['sp']['name'] = 'sp';
@@ -742,32 +812,140 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['sp']['first']      = ($_smar
 $_smarty_tpl->tpl_vars['smarty']->value['section']['sp']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['sp']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['sp']['total']);
 ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endfor; endif; ?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['category']->value->name, ENT_QUOTES, 'UTF-8', true);?>
 </option>
-								<?php smarty_template_function_category_select($_smarty_tpl,array('categories'=>$_smarty_tpl->tpl_vars['category']->value->subcategories,'selected_id'=>$_smarty_tpl->tpl_vars['selected_id']->value,'level'=>$_smarty_tpl->tpl_vars['level']->value+1));?>
+									<?php smarty_template_function_category_select($_smarty_tpl,array('categories'=>$_smarty_tpl->tpl_vars['category']->value->subcategories,'selected_id'=>$_smarty_tpl->tpl_vars['selected_id']->value,'level'=>$_smarty_tpl->tpl_vars['level']->value+1));?>
 
-						<?php } ?>
-						<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
+								<?php } ?>
+							<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
-						<?php smarty_template_function_category_select($_smarty_tpl,array('categories'=>$_smarty_tpl->tpl_vars['categories']->value,'selected_id'=>$_smarty_tpl->tpl_vars['product_category']->value->id));?>
+							<?php smarty_template_function_category_select($_smarty_tpl,array('categories'=>$_smarty_tpl->tpl_vars['categories']->value,'selected_id'=>$_smarty_tpl->tpl_vars['product_category']->value->id));?>
 
-					</select>
-					<span <?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['categories']['first']) {?>style='display:none;'<?php }?> class="add"><i class="dash_link">Дополнительная категория</i></span>
-					<span <?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['categories']['first']) {?>style='display:none;'<?php }?> class="delete"><i class="dash_link">Удалить</i></span>
-				</li>
-				<?php } ?>		
+						</select>
+						<span <?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['categories']['first']) {?>style='display:none;'<?php }?> class="add"><i class="dash_link">Дополнительная категория</i></span>
+						<span <?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['categories']['first']) {?>style='display:none;'<?php }?> class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>
 
+	<div id="product_brand" <?php if (!$_smarty_tpl->tpl_vars['brands']->value) {?>style='display:none;'<?php }?>>
+		<label>Цветок</label>
+		<div>
+			<ul>
+				<?php  $_smarty_tpl->tpl_vars['brans_list'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['brans_list']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product_brands']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['brans_list']->index=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['brans_list']->key => $_smarty_tpl->tpl_vars['brans_list']->value) {
+$_smarty_tpl->tpl_vars['brans_list']->_loop = true;
+ $_smarty_tpl->tpl_vars['brans_list']->index++;
+ $_smarty_tpl->tpl_vars['brans_list']->first = $_smarty_tpl->tpl_vars['brans_list']->index === 0;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['brains']['first'] = $_smarty_tpl->tpl_vars['brans_list']->first;
+?>
+					<li>
+						<select name="brand_id[]">
+							<option value='0' <?php if (!$_smarty_tpl->tpl_vars['brans_list']->value) {?>selected<?php }?> brand_name=''>Не указан</option>
+							<?php  $_smarty_tpl->tpl_vars['brand'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['brand']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['brands']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['brand']->key => $_smarty_tpl->tpl_vars['brand']->value) {
+$_smarty_tpl->tpl_vars['brand']->_loop = true;
+?>
+								<option value='<?php echo $_smarty_tpl->tpl_vars['brand']->value->id;?>
+' <?php if ($_smarty_tpl->tpl_vars['brans_list']->value->id==$_smarty_tpl->tpl_vars['brand']->value->id) {?>selected<?php }?> brand_name='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['brand']->value->name, ENT_QUOTES, 'UTF-8', true);?>
+'><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['brand']->value->name, ENT_QUOTES, 'UTF-8', true);?>
+</option>
+							<?php } ?>
+						</select>
 
+						<span <?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['brains']['first']) {?>style='display:none;'<?php }?> class="add"><i class="dash_link">Дополнительный Цветок</i></span>
+						<span <?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['brains']['first']) {?>style='display:none;'<?php }?> class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+	</div>
+
+	<div id="product_whoms" <?php if (!$_smarty_tpl->tpl_vars['whoms']->value) {?>style='display:none;'<?php }?>>
+		<label>Кому</label>
+		<div>
+			<ul>
+				<?php  $_smarty_tpl->tpl_vars['whoms_list'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['whoms_list']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product_whoms']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['whoms_list']->index=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['whoms_list']->key => $_smarty_tpl->tpl_vars['whoms_list']->value) {
+$_smarty_tpl->tpl_vars['whoms_list']->_loop = true;
+ $_smarty_tpl->tpl_vars['whoms_list']->index++;
+ $_smarty_tpl->tpl_vars['whoms_list']->first = $_smarty_tpl->tpl_vars['whoms_list']->index === 0;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['whoms']['first'] = $_smarty_tpl->tpl_vars['whoms_list']->first;
+?>
+					<li>
+						<select name="whom_id[]">
+							<option value='0' <?php if (!$_smarty_tpl->tpl_vars['whoms_list']->value) {?>selected<?php }?> whom_name=''>Не указан</option>
+							<?php  $_smarty_tpl->tpl_vars['whom'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['whom']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['whoms']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['whom']->key => $_smarty_tpl->tpl_vars['whom']->value) {
+$_smarty_tpl->tpl_vars['whom']->_loop = true;
+?>
+								<option value='<?php echo $_smarty_tpl->tpl_vars['whom']->value->id;?>
+' <?php if ($_smarty_tpl->tpl_vars['whoms_list']->value->id==$_smarty_tpl->tpl_vars['whom']->value->id) {?>selected<?php }?> whom_name='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['whom']->value->name, ENT_QUOTES, 'UTF-8', true);?>
+'><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['whom']->value->name, ENT_QUOTES, 'UTF-8', true);?>
+</option>
+							<?php } ?>
+						</select>
+
+						<span <?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['whoms']['first']) {?>style='display:none;'<?php }?> class="add"><i class="dash_link">Дополнительное Кому</i></span>
+						<span <?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['whoms']['first']) {?>style='display:none;'<?php }?> class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+	</div>
+
+	<div id="product_events" <?php if (!$_smarty_tpl->tpl_vars['events']->value) {?>style='display:none;'<?php }?>>
+		<label>Событие</label>
+		<div>
+			<ul>
+				<?php  $_smarty_tpl->tpl_vars['events_list'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['events_list']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product_events']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_smarty_tpl->tpl_vars['events_list']->index=-1;
+foreach ($_from as $_smarty_tpl->tpl_vars['events_list']->key => $_smarty_tpl->tpl_vars['events_list']->value) {
+$_smarty_tpl->tpl_vars['events_list']->_loop = true;
+ $_smarty_tpl->tpl_vars['events_list']->index++;
+ $_smarty_tpl->tpl_vars['events_list']->first = $_smarty_tpl->tpl_vars['events_list']->index === 0;
+ $_smarty_tpl->tpl_vars['smarty']->value['foreach']['events']['first'] = $_smarty_tpl->tpl_vars['events_list']->first;
+?>
+					<li>
+						<select name="event_id[]">
+							<option value='0' <?php if (!$_smarty_tpl->tpl_vars['events_list']->value) {?>selected<?php }?> event_name=''>Не указан</option>
+							<?php  $_smarty_tpl->tpl_vars['event'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['event']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['events']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['event']->key => $_smarty_tpl->tpl_vars['event']->value) {
+$_smarty_tpl->tpl_vars['event']->_loop = true;
+?>
+								<option value='<?php echo $_smarty_tpl->tpl_vars['event']->value->id;?>
+' <?php if ($_smarty_tpl->tpl_vars['events_list']->value->id==$_smarty_tpl->tpl_vars['event']->value->id) {?>selected<?php }?> whom_name='<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['event']->value->name, ENT_QUOTES, 'UTF-8', true);?>
+'><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['event']->value->name, ENT_QUOTES, 'UTF-8', true);?>
+</option>
+							<?php } ?>
+						</select>
+
+						<span <?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['events']['first']) {?>style='display:none;'<?php }?> class="add"><i class="dash_link">Дополнительное Событие</i></span>
+						<span <?php if ($_smarty_tpl->getVariable('smarty')->value['foreach']['events']['first']) {?>style='display:none;'<?php }?> class="delete"><i class="dash_link">Удалить</i></span>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+	</div>
+	
  	<!-- Варианты товара -->
 	<div id="variants_block" <?php $_smarty_tpl->tpl_vars['first_variant'] = new Smarty_variable($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['first'][0][0]->first_modifier($_smarty_tpl->tpl_vars['product_variants']->value), null, 0);?><?php if (count($_smarty_tpl->tpl_vars['product_variants']->value)<=1&&!$_smarty_tpl->tpl_vars['first_variant']->value->name) {?>class=single_variant<?php }?>>
 		<ul id="header">
 			<li class="variant_move"></li>
-			<li class="variant_name">Название варианта</li>	
+			<li class="variant_name">Вариант букета</li>
 			<li class="variant_sku">Артикул</li>	
+			<li class="variant_desc">Описание</li>
 			<li class="variant_price">Цена, <?php echo $_smarty_tpl->tpl_vars['currency']->value->sign;?>
-</li>	
+</li>
 			<li class="variant_discount">Старая, <?php echo $_smarty_tpl->tpl_vars['currency']->value->sign;?>
 </li>	
 			<li class="variant_amount">Кол-во</li>
@@ -784,6 +962,8 @@ $_smarty_tpl->tpl_vars['variant']->_loop = true;
 " /><input name="variants[name][]" type="" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['variant']->value->name, ENT_QUOTES, 'UTF-8', true);?>
 " /> <a class="del_variant" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
 			<li class="variant_sku">       <input name="variants[sku][]"           type="text"   value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['variant']->value->sku, ENT_QUOTES, 'UTF-8', true);?>
+" /></li>
+			<li class="variant_desc">       <input name="variants[description][]"           type="text"   value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['variant']->value->description, ENT_QUOTES, 'UTF-8', true);?>
 " /></li>
 			<li class="variant_price">     <input name="variants[price][]"         type="text"   value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['variant']->value->price, ENT_QUOTES, 'UTF-8', true);?>
 " /></li>
@@ -815,6 +995,7 @@ $_smarty_tpl->tpl_vars['variant']->_loop = true;
 			<li class="variant_move"><div class="move_zone"></div></li>
 			<li class="variant_name"><input name="variants[id][]" type="hidden" value="" /><input name="variants[name][]" type="" value="" /><a class="del_variant" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
 			<li class="variant_sku"><input name="variants[sku][]" type="" value="" /></li>
+			<li class="variant_desc"><input name="variants[description][]" type="" value="" /></li>
 			<li class="variant_price"><input  name="variants[price][]" type="" value="" /></li>
 			<li class="variant_discount"><input name="variants[compare_price][]" type="" value="" /></li>
 			<li class="variant_amount"><input name="variants[stock][]" type="" value="∞" /><?php echo $_smarty_tpl->tpl_vars['settings']->value->units;?>
@@ -831,7 +1012,85 @@ $_smarty_tpl->tpl_vars['variant']->_loop = true;
 		<input class="button_green button_save" type="submit" name="" value="Сохранить" />
 		<span class="add" id="add_variant"><i class="dash_link">Добавить вариант</i></span>
  	</div>
-	<!-- Варианты товара (The End)--> 
+	<!-- Варианты товара (The End)-->
+
+
+	<!-- Варианты упаковки -->
+	<div id="boxing_block" <?php $_smarty_tpl->tpl_vars['first_box'] = new Smarty_variable($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['first'][0][0]->first_modifier($_smarty_tpl->tpl_vars['product_boxing']->value), null, 0);?><?php if (count($_smarty_tpl->tpl_vars['product_boxing']->value)<=1&&!$_smarty_tpl->tpl_vars['first_box']->value->name) {?>class=single_box<?php }?>>
+		<ul id="header">
+			<li class="box_move"></li>
+			<li class="box_name">Вариант упаковки</li>
+			<li class="box_sku">Артикул</li>
+			<li class="box_desc">Описание</li>
+			<li class="box_price">Цена, <?php echo $_smarty_tpl->tpl_vars['currency']->value->sign;?>
+</li>
+			<li class="box_discount">Старая, <?php echo $_smarty_tpl->tpl_vars['currency']->value->sign;?>
+</li>
+			<li class="box_amount">Кол-во</li>
+		</ul>
+		<div id="boxing">
+			<?php  $_smarty_tpl->tpl_vars['box'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['box']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product_boxing']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['box']->key => $_smarty_tpl->tpl_vars['box']->value) {
+$_smarty_tpl->tpl_vars['box']->_loop = true;
+?>
+				<ul>
+					<li class="box_move"><div class="move_zone"></div></li>
+					<li class="box_name"><input name="boxing[id][]" type="hidden" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['box']->value->id, ENT_QUOTES, 'UTF-8', true);?>
+" /><input name="boxing[name][]" type="" value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['box']->value->name, ENT_QUOTES, 'UTF-8', true);?>
+" /> <a class="del_box" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
+					<li class="box_sku">       <input name="boxing[sku][]"           type="text"   value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['box']->value->sku, ENT_QUOTES, 'UTF-8', true);?>
+" /></li>
+					<li class="box_desc">       <input name="boxing[description][]"           type="text"   value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['box']->value->description, ENT_QUOTES, 'UTF-8', true);?>
+" /></li>
+					<li class="box_price">     <input name="boxing[price][]"         type="text"   value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['box']->value->price, ENT_QUOTES, 'UTF-8', true);?>
+" /></li>
+					<li class="box_discount">  <input name="boxing[compare_price][]" type="text"   value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['box']->value->compare_price, ENT_QUOTES, 'UTF-8', true);?>
+" /></li>
+					<li class="box_amount">    <input name="boxing[stock][]"         type="text"   value="<?php if ($_smarty_tpl->tpl_vars['box']->value->infinity||$_smarty_tpl->tpl_vars['box']->value->stock=='') {?>∞<?php } else { ?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['box']->value->stock, ENT_QUOTES, 'UTF-8', true);?>
+<?php }?>" /><?php echo $_smarty_tpl->tpl_vars['settings']->value->units;?>
+</li>
+					<li class="box_download">
+
+						<?php if ($_smarty_tpl->tpl_vars['box']->value->attachment) {?>
+							<span class=attachment_name><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['box']->value->attachment,25,'...',false,true);?>
+</span>
+							<a href='#' class=remove_attachment><img src='design/images/bullet_delete.png'  title="Удалить цифровой товар"></a>
+							<a href='#' class=add_attachment style='display:none;'><img src="design/images/cd_add.png" title="Добавить цифровой товар" /></a>
+						<?php } else { ?>
+							<a href='#' class=add_attachment><img src="design/images/cd_add.png"  title="Добавить цифровой товар" /></a>
+						<?php }?>
+						<div class=browse_attachment style='display:none;'>
+							<input type=file name=attachment_box[]>
+							<input type=hidden name=delete_attachment_box[]>
+						</div>
+					</li>
+				</ul>
+			<?php } ?>
+		</div>
+		<ul id=new_box style='display:none;'>
+			<li class="box_move"><div class="move_zone"></div></li>
+			<li class="box_name"><input name="boxing[id][]" type="hidden" value="" /><input name="boxing[name][]" type="" value="" /><a class="del_box" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
+			<li class="box_sku"><input name="boxing[sku][]" type="" value="" /></li>
+			<li class="box_desc"><input name="boxing[description][]" type="" value="" /></li>
+			<li class="box_price"><input  name="boxing[price][]" type="" value="" /></li>
+			<li class="box_discount"><input name="boxing[compare_price][]" type="" value="" /></li>
+			<li class="box_amount"><input name="boxing[stock][]" type="" value="∞" /><?php echo $_smarty_tpl->tpl_vars['settings']->value->units;?>
+</li>
+			<li class="box_download">
+				<a href='#' class=add_attachment><img src="design/images/cd_add.png" alt="" /></a>
+				<div class=browse_attachment style='display:none;'>
+					<input type=file name=attachment_box[]>
+					<input type=hidden name=delete_attachment_box[]>
+				</div>
+			</li>
+		</ul>
+
+		<input class="button_green button_save" type="submit" name="" value="Сохранить" />
+		<span class="add" id="add_box"><i class="dash_link">Добавить вариант</i></span>
+	</div>
+	<!-- Варианты упаковки (The End)-->
+
 	
  	<!-- Левая колонка свойств товара -->
 	<div id="column_left">
@@ -852,7 +1111,7 @@ $_smarty_tpl->tpl_vars['variant']->_loop = true;
 		</div>
 		<!-- Параметры страницы (The End)-->
 				
-		<div class="block layer" <?php if (!$_smarty_tpl->tpl_vars['categories']->value) {?>style='display:none;'<?php }?>>
+		<div class="block layer" style='display:none;'>
 			<h2>Свойства товара
 			<a href="#" id=properties_wizard><img src="design/images/wand.png" alt="Подобрать автоматически" title="Подобрать автоматически"/></a>
 			</h2>

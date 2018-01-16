@@ -89,7 +89,7 @@
 			{if $settings->odnoklassniki}<a href="{$settings->odnoklassniki}" target="_blank"><img src="design/{$settings->theme}/images/odnoklassniki.png" alt="" /></a>{/if}
 		</div>
 		{/if}
-		<p>Мы принимаем онлайн оплату, цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
+		<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
 
 		<div class="socblock pay">
 			<img src="design/{$settings->theme}/images/money1.png" alt="" />

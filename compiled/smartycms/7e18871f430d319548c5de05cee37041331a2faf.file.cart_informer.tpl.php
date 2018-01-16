@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:01:51
+<?php /* Smarty version Smarty-3.1.18, created on 2017-12-28 16:17:15
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/cart_informer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10765248675a2d768f10cde9-89730979%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7e18871f430d319548c5de05cee37041331a2faf' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/cart_informer.tpl',
-      1 => 1512928511,
+      1 => 1514467025,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d768f190fe6_29646051',
   'variables' => 
   array (
     'cart' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'property' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d768f190fe6_29646051',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d768f190fe6_29646051')) {function content_5a2d768f190fe6_29646051($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['cart']->value->total_products>0) {?>
 	<span class="cionecitwo">
@@ -92,6 +92,7 @@ $_smarty_tpl->tpl_vars['property']->_loop = true;
 						</div>
 						<?php }?>
 					</div>
+
 					
 					<div class="mcamount">
 						<div class="amountposit">
@@ -196,11 +197,16 @@ $_smarty_tpl->tpl_vars['property']->_loop = true;
 			$input.change();
 			return false;
 		});
+
 	});
+
+
 	</script>
 	
 	<?php }?>
 <?php } else { ?>
 	<span class="pusto">Корзина пуста</span>
 <?php }?>
+
+
 <?php }} ?>

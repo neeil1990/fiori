@@ -235,12 +235,13 @@
 		
 		<div class="bpinfo">
 			<a href="/usloviya-dostavki">Условия доставки и самовывоза</a>
-			<p>Курьером на дом или в офис — 350 p, 2 дня</p>
+			<p>Курьером на дом или в офис — 150 ₽</p>
 			<p>Бесплатно — от 3000 p</p>
 		</div>
 		
 		<div class="bpinfo">
 			<a href="/kak-oplatit-zakaz">Способы оплаты</a>
+         <!--
 			<div class="payprod">
 				<img src="design/{$settings->theme}/images/money1.png" alt="" />
 				<img src="design/{$settings->theme}/images/money2.png" alt="" />
@@ -248,13 +249,14 @@
 				<img src="design/{$settings->theme}/images/money4.png" alt="" />
 				<img src="design/{$settings->theme}/images/money5.png" alt="" />
 			</div>
+		-->
 			<p>Или наличными курьеру</p>
 		</div>
-		
+		<!--
 		<div class="bpinfo">
 			<a href="/vozvrat">Условия возврата товара</a>
 		</div>
-				
+		-->		
 	</div>
 	
 </div>

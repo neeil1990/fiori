@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:01:50
+<?php /* Smarty version Smarty-3.1.18, created on 2017-12-28 16:17:15
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1842527065a2d768ef08b67-55744000%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a22196e84fdfc4c6f2aaa26545be869df712bacf' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl',
-      1 => 1512928511,
+      1 => 1514467025,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d768f0f12b9_30646090',
   'variables' => 
   array (
     'config' => 0,
@@ -44,8 +46,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'page' => 0,
   ),
   'has_nocache_code' => 0,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d768f0f12b9_30646090',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d768f0f12b9_30646090')) {function content_5a2d768f0f12b9_30646090($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="ru">
@@ -180,6 +180,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 				<?php echo $_smarty_tpl->getSubTemplate ('cart_informer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
 			</div>
+
 		</div>
 	</div>
 

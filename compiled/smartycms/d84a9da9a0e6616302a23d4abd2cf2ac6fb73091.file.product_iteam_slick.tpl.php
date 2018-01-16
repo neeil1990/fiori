@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:07:09
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-09 18:41:47
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product_iteam_slick.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4953950475a2d77cd019b88-71066750%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd84a9da9a0e6616302a23d4abd2cf2ac6fb73091' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product_iteam_slick.tpl',
-      1 => 1512928511,
+      1 => 1515512498,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d77cd0c56b9_78540855',
   'variables' => 
   array (
     'product' => 0,
@@ -24,8 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'wishlist' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d77cd0c56b9_78540855',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d77cd0c56b9_78540855')) {function content_5a2d77cd0c56b9_78540855($_smarty_tpl) {?><div class="product_iteam_slick product jsprod">
 	<form class="variants pis_table" action="/cart">
@@ -128,6 +128,8 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 				</div>
 			</div>
 		</div>
+
+		<input checked name="box" value="0" type="radio" style="display: none;"/>
 
 		
 		<div class="pis_photo">

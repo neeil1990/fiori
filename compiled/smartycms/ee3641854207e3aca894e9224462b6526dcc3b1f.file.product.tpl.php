@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:11:41
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-14 14:39:04
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3751944975a2d78dddab537-29009487%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ee3641854207e3aca894e9224462b6526dcc3b1f' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product.tpl',
-      1 => 1512928511,
+      1 => 1515929939,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d78ddf20fb0_33584231',
   'variables' => 
   array (
     'product' => 0,
@@ -24,6 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'image' => 0,
     'v' => 0,
     'currency' => 0,
+    'b' => 0,
     'properties' => 0,
     'val' => 0,
     'comments' => 0,
@@ -31,8 +34,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'related_products' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d78ddf20fb0_33584231',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d78ddf20fb0_33584231')) {function content_5a2d78ddf20fb0_33584231($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['canonical'] = new Smarty_variable("/products/".((string)$_smarty_tpl->tpl_vars['product']->value->url), null, 1);
 if ($_smarty_tpl->parent != null) $_smarty_tpl->parent->tpl_vars['canonical'] = clone $_smarty_tpl->tpl_vars['canonical'];?>
@@ -89,7 +90,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['image']->key => $_smarty_tpl->tpl_var
 $_smarty_tpl->tpl_vars['image']->_loop = true;
  $_smarty_tpl->tpl_vars['i']->value = $_smarty_tpl->tpl_vars['image']->key;
 ?>
-				<div>
+				<div variants-image="<?php echo $_smarty_tpl->tpl_vars['image']->value->id;?>
+">
 					<div class="pp_i_b">
 						<span>
 							<span>
@@ -112,12 +114,12 @@ $_smarty_tpl->tpl_vars['image']->_loop = true;
 "><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['product']->value->name, ENT_QUOTES, 'UTF-8', true);?>
 </h1>
 		
-		<?php if ($_smarty_tpl->tpl_vars['product']->value->annotation) {?>
+
 		<div class="prodanno">
 		<?php echo $_smarty_tpl->tpl_vars['product']->value->annotation;?>
 
 		</div>
-		<?php }?>
+
 		
 		<div class="fichi">
 			<?php if ($_smarty_tpl->tpl_vars['product']->value->featured) {?><span class="chit">Хит</span><?php }?>
@@ -128,9 +130,9 @@ $_smarty_tpl->tpl_vars['image']->_loop = true;
 		
 		<form class="variants pis_table mar-b-30" action="/cart">
 		
-			<?php if (count($_smarty_tpl->tpl_vars['product']->value->variants)>1) {?>
+			<?php if (count($_smarty_tpl->tpl_vars['product']->value->variants)>0) {?>
 			<div class="blockselectprod">
-				<b>Выберите вариант</b>
+				<b>Вариант букета</b>
 				<div class="podipselect">
 					<select class="ipselect ajaxselect" name="variant">
 					<?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
@@ -139,15 +141,30 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v
 $_smarty_tpl->tpl_vars['v']->_loop = true;
 ?>
 						<option value="<?php echo $_smarty_tpl->tpl_vars['v']->value->id;?>
-" <?php if ($_smarty_tpl->tpl_vars['v']->value->compare_price>0) {?>data-compareprice2="<?php echo $_smarty_tpl->tpl_vars['v']->value->compare_price;?>
-" data-proc="- <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['v']->value->price;?>
+"
+								data-text-var="<?php echo $_smarty_tpl->tpl_vars['v']->value->description;?>
+"
+								<?php if ($_smarty_tpl->tpl_vars['v']->value->compare_price>0) {?>
+									data-compareprice2="<?php echo $_smarty_tpl->tpl_vars['v']->value->compare_price;?>
+"
+									data-proc="- <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['v']->value->price;?>
 <?php $_tmp2=ob_get_clean();?><?php echo floor(abs(100-$_tmp2/($_smarty_tpl->tpl_vars['v']->value->compare_price)*100));?>
-%" data-compare_price="<span><b class='clcomp'><?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['v']->value->compare_price);?>
+%"
+									data-compare_price="<span><b class='clcomp'><?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['v']->value->compare_price);?>
 </b> <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['currency']->value->sign, ENT_QUOTES, 'UTF-8', true);?>
-</span>"<?php }?> data-price="<span><b class='calcitog'><?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['v']->value->price);?>
+</span>"
+									data-compare_price-int="<?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['v']->value->compare_price);?>
+"
+								<?php }?>
+								data-price="<span><b class='calcitog'><?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['v']->value->price);?>
 </b> <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['currency']->value->sign, ENT_QUOTES, 'UTF-8', true);?>
-</span>"><?php echo $_smarty_tpl->tpl_vars['v']->value->name;?>
-</option>
+</span>"
+								data-price-int="<?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['v']->value->price);?>
+"
+								>
+							<?php echo $_smarty_tpl->tpl_vars['v']->value->name;?>
+
+						</option>
 					<?php } ?>
 					</select>
 				</div>
@@ -162,7 +179,35 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 " type="radio" style="display: none;"/>
 			<?php } ?>
 			<?php }?>
-		
+
+
+			<?php if (count($_smarty_tpl->tpl_vars['product']->value->boxing)>0) {?>
+				<div class="blockselectprod">
+					<b>Вариант упаковки</b>
+					<div class="podipselect">
+						<select class="ipselect selectbox" name="box">
+							<option value="0" data-compareprice2="0" data-proc="0" data-compare_price="0" data-price="0">не выбрано</option>
+							<?php  $_smarty_tpl->tpl_vars['b'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['b']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product']->value->boxing; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['b']->key => $_smarty_tpl->tpl_vars['b']->value) {
+$_smarty_tpl->tpl_vars['b']->_loop = true;
+?>
+								<option value="<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
+" <?php if ($_smarty_tpl->tpl_vars['b']->value->compare_price>0) {?>data-compareprice2="<?php echo $_smarty_tpl->tpl_vars['b']->value->compare_price;?>
+" data-proc="- <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['b']->value->price;?>
+<?php $_tmp3=ob_get_clean();?><?php echo floor(abs(100-$_tmp3/($_smarty_tpl->tpl_vars['b']->value->compare_price)*100));?>
+%" data-compare_price="<?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['b']->value->compare_price);?>
+"<?php }?> data-price="<?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['b']->value->price);?>
+"><?php echo $_smarty_tpl->tpl_vars['b']->value->name;?>
+</option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+			<?php } else { ?>
+					<input checked name="box" value="0" type="radio" style="display: none;"/>
+			<?php }?>
+
 			<div class="podcenlist prod">
 				<div class="cenlist">
 					<div class="prc-new"><span><b class="calcitog"><?php echo sprintf("%.0f",$_smarty_tpl->tpl_vars['product']->value->variant->price);?>
@@ -209,13 +254,21 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 				<a href="#" class="bluron" onclick="$('.oneclick').fadeIn(300); return false;">Купить в 1 клик</a>
 
 			</div>		
-			
+
+
 			
 			
 			<script>		
 			$(function() {
+
+
+
 				$('select.ajaxselect').change(function(e) {
-					e.preventDefault(); 
+					e.preventDefault();
+					$('select.selectbox option[value="0"]').prop("selected",true);
+					$('.prodanno').first().html("<p>" + $('option:selected',this).attr('data-text-var') + "</p>");
+					$('div[variants-image="'+ $(this).val() +'"]').click();
+
 					$.ajax({
 						dataType: 'json',
 						url: "ajax/calc.php",
@@ -227,7 +280,38 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 						}
 					}
 					});
+
 				});
+
+				$('select.selectbox').change(function(e) {
+					e.preventDefault();
+
+					$(".addcalc").val(1);
+
+					var price = parseInt($('.ajaxselect option:selected').attr('data-price-int'));
+					var compareprice = parseInt($('.ajaxselect option:selected').attr('data-compare_price-int'));
+
+					var str = (price + parseInt($('option:selected',this).attr('data-price')));
+					var oldstr = (compareprice + parseInt($('option:selected',this).attr('data-compare_price')));
+
+
+					$(".calcitog").text(str);
+					$(".clcomp").text(oldstr);
+
+					$.ajax({
+						dataType: 'json',
+						url: "ajax/calc.php",
+						data: {productid: <?php echo $_smarty_tpl->tpl_vars['product']->value->id;?>
+},
+						success: function(data){
+							if(data){
+								$('.scriptblock').html(data.scriptblock);
+							}
+						}
+					});
+
+				});
+
 			});
 			</script>
 			
@@ -273,12 +357,13 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 		
 		<div class="bpinfo">
 			<a href="/usloviya-dostavki">Условия доставки и самовывоза</a>
-			<p>Курьером на дом или в офис — 350 p, 2 дня</p>
+			<p>Курьером на дом или в офис — 150 ₽</p>
 			<p>Бесплатно — от 3000 p</p>
 		</div>
 		
 		<div class="bpinfo">
 			<a href="/kak-oplatit-zakaz">Способы оплаты</a>
+         <!--
 			<div class="payprod">
 				<img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/money1.png" alt="" />
@@ -291,13 +376,14 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 				<img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/money5.png" alt="" />
 			</div>
+		-->
 			<p>Или наличными курьеру</p>
 		</div>
-		
+		<!--
 		<div class="bpinfo">
 			<a href="/vozvrat">Условия возврата товара</a>
 		</div>
-				
+		-->		
 	</div>
 	
 </div>

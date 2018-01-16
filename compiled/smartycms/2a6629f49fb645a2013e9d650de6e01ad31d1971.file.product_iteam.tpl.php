@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:11:41
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-09 14:11:39
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product_iteam.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6532573375a2d78ddf35b29-83760296%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2a6629f49fb645a2013e9d650de6e01ad31d1971' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product_iteam.tpl',
-      1 => 1512928511,
+      1 => 1515496268,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d78de06e4b1_33176057',
   'variables' => 
   array (
     'product' => 0,
@@ -24,8 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'wishlist' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d78de06e4b1_33176057',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d78de06e4b1_33176057')) {function content_5a2d78de06e4b1_33176057($_smarty_tpl) {?><li class="catprod product jsprod">
 	<div>
@@ -56,7 +56,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 							<option value="<?php echo $_smarty_tpl->tpl_vars['v']->value->id;?>
 " <?php if ($_smarty_tpl->tpl_vars['v']->value->compare_price>0) {?>data-compareprice2="<?php echo $_smarty_tpl->tpl_vars['v']->value->compare_price;?>
 " data-proc="- <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['v']->value->price;?>
-<?php $_tmp3=ob_get_clean();?><?php echo floor(abs(100-$_tmp3/($_smarty_tpl->tpl_vars['v']->value->compare_price)*100));?>
+<?php $_tmp1=ob_get_clean();?><?php echo floor(abs(100-$_tmp1/($_smarty_tpl->tpl_vars['v']->value->compare_price)*100));?>
 %" data-compare_price="<span><b><?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->tpl_vars['v']->value->compare_price);?>
 </b> <?php echo htmlspecialchars($_smarty_tpl->tpl_vars['currency']->value->sign, ENT_QUOTES, 'UTF-8', true);?>
 </span>"<?php }?> data-price="<span><b><?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->tpl_vars['v']->value->price);?>
@@ -77,6 +77,8 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 " type="radio" style="display: none;"/>
 				<?php } ?>
 				<?php }?>
+
+				<input checked name="box" value="0" type="radio" style="display: none;"/>
 				
 				<div class="podcenlist">
 					<div class="cenlist">
@@ -105,7 +107,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 			<div class="fichi">
 				<?php if ($_smarty_tpl->tpl_vars['product']->value->featured) {?><span class="chit">Хит</span><?php }?>
 				<span class="cproc" <?php if ($_smarty_tpl->tpl_vars['product']->value->variant->compare_price>0) {?><?php } else { ?>style="display: none"<?php }?>>- <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['product']->value->variant->price;?>
-<?php $_tmp4=ob_get_clean();?><?php echo floor(abs(100-$_tmp4/($_smarty_tpl->tpl_vars['product']->value->variant->compare_price)*100));?>
+<?php $_tmp2=ob_get_clean();?><?php echo floor(abs(100-$_tmp2/($_smarty_tpl->tpl_vars['product']->value->variant->compare_price)*100));?>
 %</span>
 			</div>
 			
