@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-28 16:17:15
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-16 14:34:37
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1842527065a2d768ef08b67-55744000%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a22196e84fdfc4c6f2aaa26545be869df712bacf' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl',
-      1 => 1514467025,
+      1 => 1516102465,
       2 => 'file',
     ),
   ),
@@ -76,6 +76,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 /css/adaptive.css?v=<?php ob_start();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 <?php $_tmp2=ob_get_clean();?><?php echo filemtime("design/".$_tmp2."/css/adaptive.css");?>
 " rel="stylesheet" type="text/css" media="screen"/>
+	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
+/css/pagination.css" rel="stylesheet" type="text/css" media="screen"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"  type="text/javascript"></script>
  </head>
 <body>
@@ -221,7 +223,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 	
 </div>
 
-<?php if ($_smarty_tpl->tpl_vars['module']->value=='MainView') {?>
+<?php if (empty($_smarty_tpl->tpl_vars['module']->value)) {?>
 
 <div id="hellopreloader"><div id="hellopreloader_preload"></div></div>
 <script type="text/javascript">var hellopreloader = document.getElementById("hellopreloader_preload");function fadeOutnojquery(el){el.style.opacity = 1;var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);hellopreloader.style.display = "none";}},16);}window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},500);};</script>
