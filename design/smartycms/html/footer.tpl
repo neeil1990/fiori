@@ -58,20 +58,27 @@
 			<div class="zenam">Каталог товаров</div>
 			<div class="zenam mob">Каталог товаров</div>
 			{function name=categories_tree}
-			{if $categories}
-			<ul>
-			{foreach $categories as $c}
-				{* Показываем только видимые категории *}
-				{if $c->visible}
-					<li{if $category->id == $c->id} class="selected"{/if}>
-						<a href="catalog/{$c->url}" data-category="{$c->id}">{$c->name|escape}</a>
-					</li>
+				{if $categories}
+					<ul>
+						{foreach $categories as $c}
+							{* Показываем только видимые категории *}
+							{if $c->visible}
+								<li{if $category->id == $c->id} class="selected"{/if}>
+									<a href="catalog/{$c->url}" data-category="{$c->id}">{$c->name|escape}</a>
+								</li>
+							{/if}
+						{/foreach}
+					</ul>
 				{/if}
-			{/foreach}
-			</ul>
-			{/if}
 			{/function}
 			{categories_tree categories=$categories}
+		</div>
+
+
+		<div class="zeblock" style="margin: 145px 0px 0px 0px;">
+			<script type="text/javascript" src="http://incut.prime-ltd.su/incut/incut.js" async></script>
+			<link rel="stylesheet" href="http://incut.prime-ltd.su/incut/incut.css">
+			<a class="prime-incut black colour marketing-only" style="margin: auto"></a>
 		</div>
 
 	</div>
