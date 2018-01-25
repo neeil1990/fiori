@@ -73,7 +73,7 @@
 			{/function}
 			{categories_tree categories=$categories}
 		</div>
-		
+
 	</div>
 
 	<div class="zecopy">
@@ -90,7 +90,6 @@
 		</div>
 		{/if}
 		<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
-
 		<div class="socblock pay">
 			<img src="design/{$settings->theme}/images/money1.png" alt="" />
 			<img src="design/{$settings->theme}/images/money2.png" alt="" />
@@ -99,7 +98,6 @@
 			<img src="design/{$settings->theme}/images/money5.png" alt="" />
 		</div>
 	</div>
-	
 	<div class="zecontact">
 		<b>{$settings->zphone1}</b>
 		<div>

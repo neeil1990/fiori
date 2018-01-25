@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-12 20:33:35
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-23 16:17:54
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13403001545a2d768f37be78-15764068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c31f9b3bdfa427eb73705f099be22e10b686dea' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl',
-      1 => 1515778409,
+      1 => 1516713470,
       2 => 'file',
     ),
   ),
@@ -148,7 +148,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 			<?php smarty_template_function_categories_tree($_smarty_tpl,array('categories'=>$_smarty_tpl->tpl_vars['categories']->value));?>
 
 		</div>
-		
+
 	</div>
 
 	<div class="zecopy">
@@ -178,7 +178,6 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 		</div>
 		<?php }?>
 		<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
-
 		<div class="socblock pay">
 			<img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/money1.png" alt="" />
@@ -192,7 +191,6 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 /images/money5.png" alt="" />
 		</div>
 	</div>
-	
 	<div class="zecontact">
 		<b><?php echo $_smarty_tpl->tpl_vars['settings']->value->zphone1;?>
 </b>

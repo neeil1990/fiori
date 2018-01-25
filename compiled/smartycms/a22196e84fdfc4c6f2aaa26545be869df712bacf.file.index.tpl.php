@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-16 14:34:37
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-23 16:47:40
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1842527065a2d768ef08b67-55744000%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a22196e84fdfc4c6f2aaa26545be869df712bacf' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl',
-      1 => 1516102465,
+      1 => 1516715258,
       2 => 'file',
     ),
   ),
@@ -50,6 +50,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_5a2d768f0f12b9_30646090')) {function content_5a2d768f0f12b9_30646090($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="ru">
 <head>
+ 	<meta name="yandex-verification" content="30abf236af9472eb" />
+ 	<meta name="google-site-verification" content="wc2fSX7wTIMSbdI7NSDVY2Q0Pjcw-Ou0OO4WuVYi5UY" />
 	<base href="<?php echo $_smarty_tpl->tpl_vars['config']->value->root_url;?>
 /"/>
 	<title><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['meta_title']->value, ENT_QUOTES, 'UTF-8', true);?>
@@ -297,5 +299,36 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 <script src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /js/jquery.mmenu.all.min.js" type="text/javascript"></script>
 
+ 
+ 
+ <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter47411374 = new Ya.Metrika2({
+                    id:47411374,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks2");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/47411374" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html><?php }} ?>
