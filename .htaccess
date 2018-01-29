@@ -6,8 +6,9 @@ RewriteEngine on
 # Админка теперь по адресу /simpla
 RewriteRule	^admin/?$  simpla [L]
 
-RewriteCond %{HTTP_HOST} ^www.flower.smartycms.ru [NC]
-RewriteRule ^(.*)$ http://flower.smartycms.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ http://%1/$1 [L,R=301]
+
 
 # Каталог товаров
 RewriteRule ^catalog/([^/]+)/?$	index.php?module=ProductsView&category=$1 [L,QSA]

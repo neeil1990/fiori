@@ -13,7 +13,6 @@ Disallow: /compiled/
 Disallow: /cart/
 Disallow: /resize/
 Disallow: /password.php
-
-
+Host: fiori.su
 
 

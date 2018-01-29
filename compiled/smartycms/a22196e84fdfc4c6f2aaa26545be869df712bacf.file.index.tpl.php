@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-23 16:47:40
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-29 14:13:18
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1842527065a2d768ef08b67-55744000%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a22196e84fdfc4c6f2aaa26545be869df712bacf' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl',
-      1 => 1516715258,
+      1 => 1517224054,
       2 => 'file',
     ),
   ),
@@ -57,10 +57,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<title><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['meta_title']->value, ENT_QUOTES, 'UTF-8', true);?>
 </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="description" content="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['meta_description']->value, ENT_QUOTES, 'UTF-8', true);?>
+	
+ 	<!-- 
+    <meta name="description" content="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['meta_description']->value, ENT_QUOTES, 'UTF-8', true);?>
 " />
 	<meta name="keywords"    content="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['meta_keywords']->value, ENT_QUOTES, 'UTF-8', true);?>
-" />
+" /> 
+	-->
+ 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /images/favicon.ico" rel="icon" type="image/x-icon"/>

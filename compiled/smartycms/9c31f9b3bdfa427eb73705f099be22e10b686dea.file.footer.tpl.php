@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-23 16:17:54
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-25 18:51:31
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13403001545a2d768f37be78-15764068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c31f9b3bdfa427eb73705f099be22e10b686dea' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl',
-      1 => 1516713470,
+      1 => 1516895322,
       2 => 'file',
     ),
   ),
@@ -123,30 +123,37 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
     $saved_tpl_vars = $_smarty_tpl->tpl_vars;
     foreach ($_smarty_tpl->smarty->template_functions['categories_tree']['parameter'] as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);};
     foreach ($params as $key => $value) {$_smarty_tpl->tpl_vars[$key] = new Smarty_variable($value);}?>
-			<?php if ($_smarty_tpl->tpl_vars['categories']->value) {?>
-			<ul>
-			<?php  $_smarty_tpl->tpl_vars['c'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['c']->_loop = false;
+				<?php if ($_smarty_tpl->tpl_vars['categories']->value) {?>
+					<ul>
+						<?php  $_smarty_tpl->tpl_vars['c'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['c']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['c']->key => $_smarty_tpl->tpl_vars['c']->value) {
 $_smarty_tpl->tpl_vars['c']->_loop = true;
 ?>
-				
-				<?php if ($_smarty_tpl->tpl_vars['c']->value->visible) {?>
-					<li<?php if ($_smarty_tpl->tpl_vars['category']->value->id==$_smarty_tpl->tpl_vars['c']->value->id) {?> class="selected"<?php }?>>
-						<a href="catalog/<?php echo $_smarty_tpl->tpl_vars['c']->value->url;?>
+							
+							<?php if ($_smarty_tpl->tpl_vars['c']->value->visible) {?>
+								<li<?php if ($_smarty_tpl->tpl_vars['category']->value->id==$_smarty_tpl->tpl_vars['c']->value->id) {?> class="selected"<?php }?>>
+									<a href="catalog/<?php echo $_smarty_tpl->tpl_vars['c']->value->url;?>
 " data-category="<?php echo $_smarty_tpl->tpl_vars['c']->value->id;?>
 "><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['c']->value->name, ENT_QUOTES, 'UTF-8', true);?>
 </a>
-					</li>
+								</li>
+							<?php }?>
+						<?php } ?>
+					</ul>
 				<?php }?>
-			<?php } ?>
-			</ul>
-			<?php }?>
 			<?php $_smarty_tpl->tpl_vars = $saved_tpl_vars;
 foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl_vars[$key])) $_smarty_tpl->tpl_vars[$key] = $value;}}?>
 
 			<?php smarty_template_function_categories_tree($_smarty_tpl,array('categories'=>$_smarty_tpl->tpl_vars['categories']->value));?>
 
+		</div>
+
+
+		<div class="zeblock" style="margin: 145px 0px 0px 0px;">
+			<script type="text/javascript" src="http://incut.prime-ltd.su/incut/incut.js" async></script>
+			<link rel="stylesheet" href="http://incut.prime-ltd.su/incut/incut.css">
+			<a class="prime-incut black colour marketing-only" style="margin: auto"></a>
 		</div>
 
 	</div>

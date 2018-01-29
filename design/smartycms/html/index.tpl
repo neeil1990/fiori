@@ -6,8 +6,12 @@
 	<base href="{$config->root_url}/"/>
 	<title>{$meta_title|escape}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="description" content="{$meta_description|escape}" />
-	<meta name="keywords"    content="{$meta_keywords|escape}" />
+	
+ 	<!-- 
+    <meta name="description" content="{$meta_description|escape}" />
+	<meta name="keywords"    content="{$meta_keywords|escape}" /> 
+	-->
+ 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="design/{$settings->theme|escape}/images/favicon.ico" rel="icon" type="image/x-icon"/>
 	{if isset($canonical)}<link rel="canonical" href="{$config->root_url}{$canonical}"/>{/if}
