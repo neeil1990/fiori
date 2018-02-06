@@ -70,24 +70,26 @@
 		<ul class="samopal">
 			<li>
 				<span>
-					{if $sort=='position'}
-					<b>По умолчанию</b>
-					{elseif $sort=='name_asc'}
-					<b>Имени от А до Я</b>
-					{elseif $sort=='name_desc'}
-					<b>Имени от Я до А</b>
-					{elseif $sort=='price_asc'}
-					<b>Сначала дешевые</b>
+					{*
+					{elseif $sort=='position'}
+						<b>По умолчанию</b>
+					*}
+					{if $sort=='price_asc'}
+						<b>Сначала дешевые</b>
 					{elseif $sort=='price_desc'}
-					<b>Сначала дорогие</b>
+						<b>Сначала дорогие</b>
+					{elseif $sort=='name_asc'}
+						<b>Имени от А до Я</b>
+					{elseif $sort=='name_desc'}
+						<b>Имени от Я до А</b>
 					{/if}
 				</span>
 				<ul class="drops">
-					<li><a {if $sort=='position'}class="selected"{/if} href="{url sort=position page=null}">По умолчанию</a></li>
-					<li><a {if $sort=='name_asc'}class="selected"{/if} href="{url sort=name_asc page=null}">По имени от А до Я</a></li>
-					<li><a {if $sort=='name_desc'}class="selected"{/if} href="{url sort=name_desc page=null}">По имени от Я до А</a></li>
+					{*<li><a {if $sort=='position'}class="selected"{/if} href="{url sort=position page=null}">По умолчанию</a></li>*}
 					<li><a {if $sort=='price_asc'}class="selected"{/if} href="{url sort=price_asc page=null}">Сначала дешевые</a></li>
 					<li><a {if $sort=='price_desc'}class="selected"{/if} href="{url sort=price_desc page=null}">Сначала дорогие</a></li>
+					<li><a {if $sort=='name_asc'}class="selected"{/if} href="{url sort=name_asc page=null}">По имени от А до Я</a></li>
+					<li><a {if $sort=='name_desc'}class="selected"{/if} href="{url sort=name_desc page=null}">По имени от Я до А</a></li>
 				</ul>
 			</li>
 		</ul>

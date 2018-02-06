@@ -194,7 +194,7 @@ ul.samopal {
 ul.samopal> li {
     display: block;
     padding: 0px 20px;
-    width: 150px;
+    width: 160px;
     cursor: pointer;
     position: relative;
 }
