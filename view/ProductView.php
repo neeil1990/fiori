@@ -26,7 +26,7 @@ class ProductView extends View
 
 		// Выбираем товар из базы
 		$product = $this->products->get_product((string)$product_url);
-		if(empty($product) || (!$product->visible && empty($_SESSION['admin'])))
+		if(empty($product) || (!$product->visible)) //&& empty($_SESSION['admin'])
 			return false;
 		
 		$product->images = $this->products->get_images(array('product_id'=>$product->id));
