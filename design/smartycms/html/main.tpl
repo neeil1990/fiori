@@ -6,7 +6,7 @@
 {*<!--Преимущества-->*}<div class="mainpage">{include file='advant.tpl'}</div>
 
 {* <!--Новинки--> *}
-{get_products var=new_products limit=18}
+{get_products var=new_products visible=1 limit=18}
 {if $new_products}
 <div class="maintitle mar-b-50"><span>Новинки</span></div>
 <div class="max">
@@ -23,42 +23,46 @@
 </div>
 {/if}
 
+
+
 {* <!--Рекомендуемые--> *}
-{get_products var=all_products featured=1 limit=18}
+{get_products var=all_products visible=1 featured=1 limit=18}
 {if $all_products}
-<div class="mainfeatured pad-t-50 pad-b-50 mar-t-70 mar-b-50">
-	<div class="maintitle2 mar-b-50"><b></b><span>Мы рекомендуем</span><b></b></div>
-	<div class="max">
-		<div class="prodblock slick15{if $all_products|count > 6} bolee{/if}">
-			<div class="prodblockslick">
-			{foreach $all_products as $product}
-				{if $product@index%2==0}<div>{/if}
-				{include file='product_iteam_slick.tpl'}
-				{if $product@iteration%2==0 || $product@last }</div>{/if}
-			{/foreach}
+	<div class="mainfeatured pad-t-50 pad-b-50 mar-t-70 mar-b-50">
+		<div class="maintitle2 mar-b-50"><b></b><span>Мы рекомендуем</span><b></b></div>
+		<div class="max">
+			<div class="prodblock slick15{if $all_products|count > 6} bolee{/if}">
+				<div class="prodblockslick">
+					{foreach $all_products as $product}
+						{if $product@index%2==0}<div>{/if}
+						{include file='product_iteam_slick.tpl'}
+						{if $product@iteration%2==0 || $product@last }</div>{/if}
+					{/foreach}
+				</div>
 			</div>
+			<div class="alllink pad-t-50"><a href="/hits">Смотреть все хиты продаж</a></div>
 		</div>
-		<div class="alllink pad-t-50"><a href="/hits">Смотреть все хиты продаж</a></div>
 	</div>
-</div>
 {/if}
 
+
+
 {* <!--Распродажа--> *}
-{get_products var=discounted_products discounted=1 limit=18}
+{get_products var=discounted_products visible=1 discounted=1 limit=18}
 {if $discounted_products}
-<div class="maintitle mar-b-50"><span>Распродажа</span></div>
-<div class="max">
-	<div class="prodblock slick15{if $discounted_products|count > 6} bolee{/if}">
-		<div class="prodblockslick">
-		{foreach $discounted_products as $product}
-			{if $product@index%2==0}<div>{/if}
-			{include file='product_iteam_slick.tpl'}
-			{if $product@iteration%2==0 || $product@last }</div>{/if}
-		{/foreach}
+	<div class="maintitle mar-b-50"><span>Распродажа</span></div>
+	<div class="max">
+		<div class="prodblock slick15{if $discounted_products|count > 6} bolee{/if}">
+			<div class="prodblockslick">
+				{foreach $discounted_products as $product}
+					{if $product@index%2==0}<div>{/if}
+					{include file='product_iteam_slick.tpl'}
+					{if $product@iteration%2==0 || $product@last }</div>{/if}
+				{/foreach}
+			</div>
 		</div>
+		<div class="alllink pad-t-30"><a href="/sales">Смотреть все товары по акции</a></div>
 	</div>
-	<div class="alllink pad-t-30"><a href="/sales">Смотреть все товары по акции</a></div>
-</div>
 {/if}
 
 {* <!--Отзывы--> *}
