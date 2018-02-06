@@ -27,6 +27,7 @@ foreach($simpla->pages->get_pages() as $p)
 	}
 }
 
+
 // Блог
 foreach($simpla->blog->get_posts(array('visible'=>1)) as $p)
 {
@@ -85,6 +86,8 @@ print "\t</image:image>"."\n";
 }
 
 print '</urlset>'."\n";
+
+
 
 function esc($s)
 {

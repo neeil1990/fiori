@@ -55,6 +55,11 @@ RewriteRule ^user/?$	index.php?module=UserView  [L,QSA]
 
 # Google sitemap
 RewriteRule ^sitemap.xml?$	sitemap.php  [L,QSA]
+RewriteRule ^sitemap-pages.xml?$	sitemap-pages.php  [L,QSA]
+RewriteRule ^sitemap-blogs.xml?$	sitemap-blogs.php  [L,QSA]
+RewriteRule ^sitemap-categories.xml?$	sitemap-categories.php  [L,QSA]
+RewriteRule ^sitemap-brands.xml?$	sitemap-brands.php  [L,QSA]
+RewriteRule ^sitemap-products.xml?$	sitemap-products.php  [L,QSA]
 
 # XML
 RewriteRule ^yandex.xml?$	yandex.php  [L,QSA]
