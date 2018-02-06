@@ -190,7 +190,7 @@ class ProductsView extends View
 		if (!empty($_SESSION['sort']))
 			$filter['sort'] = $_SESSION['sort'];
 		else
-			$filter['sort'] = 'position';
+			$filter['sort'] = 'price_asc';
 		$this->design->assign('sort', $filter['sort']);
 
 		$filter['in_stock'] = true;
