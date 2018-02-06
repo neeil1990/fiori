@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-25 18:51:31
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-05 17:01:23
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13403001545a2d768f37be78-15764068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c31f9b3bdfa427eb73705f099be22e10b686dea' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl',
-      1 => 1516895322,
+      1 => 1517839281,
       2 => 'file',
     ),
   ),
@@ -164,8 +164,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 		<br/>
 		<?php if ($_smarty_tpl->tpl_vars['settings']->value->vkontakte||$_smarty_tpl->tpl_vars['settings']->value->twitter||$_smarty_tpl->tpl_vars['settings']->value->instagram||$_smarty_tpl->tpl_vars['settings']->value->youtube||$_smarty_tpl->tpl_vars['settings']->value->facebook||$_smarty_tpl->tpl_vars['settings']->value->odnoklassniki) {?>
 		<div class="socblock">
-			<?php if ($_smarty_tpl->tpl_vars['settings']->value->vkontakte) {?><a href="<?php echo $_smarty_tpl->tpl_vars['settings']->value->vkontakte;?>
-" target="_blank"><img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
+			<?php if ($_smarty_tpl->tpl_vars['settings']->value->vkontakte) {?><a href="https://vk.com/fiori36" target="_blank"><img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/vk.png" alt="" /></a><?php }?>
 			<?php if ($_smarty_tpl->tpl_vars['settings']->value->twitter) {?><a href="<?php echo $_smarty_tpl->tpl_vars['settings']->value->twitter;?>
 " target="_blank"><img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>

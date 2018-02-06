@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
- 	<meta name="yandex-verification" content="30abf236af9472eb" />
+
+
+	<meta name="yandex-verification" content="30abf236af9472eb" />
  	<meta name="google-site-verification" content="wc2fSX7wTIMSbdI7NSDVY2Q0Pjcw-Ou0OO4WuVYi5UY" />
 	<base href="{$config->root_url}/"/>
 	<title>{$meta_title|escape}</title>
@@ -11,7 +13,7 @@
     <meta name="description" content="{$meta_description|escape}" />
 	<meta name="keywords"    content="{$meta_keywords|escape}" /> 
 	-->
- 
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="design/{$settings->theme|escape}/images/favicon.ico" rel="icon" type="image/x-icon"/>
 	{if isset($canonical)}<link rel="canonical" href="{$config->root_url}{$canonical}"/>{/if}
@@ -20,7 +22,21 @@
 	<link href="design/{$settings->theme|escape}/css/adaptive.css?v={filemtime("design/{$settings->theme|escape}/css/adaptive.css")}" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="design/{$settings->theme|escape}/css/pagination.css" rel="stylesheet" type="text/css" media="screen"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"  type="text/javascript"></script>
- </head>
+
+{literal}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62115054-26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62115054-26');
+</script>
+{/literal}
+ 
+</head>
+ 
 <body>
 
 <div class="blurs">	
@@ -79,13 +95,13 @@
 			<div class="phone">
 				<b class="pk">{$settings->zphone1}</b>
 				<b class="mob bluron link" onclick="$('.cback').fadeIn(300); return false;">{$settings->zphone1}</b>
-				<span class="pk">Звонки по России бесплатны</span>
-				<span class="mob"><b>Работаем:</b> с 10:00 до 20:00</span>
+				<span class="pk">Номер телефона приема заказов</span>
+				<span class="mob"><b>Работаем:</b> с 08:00 до 20:00</span>
 			</div>
 			
 			<div class="topinfo">
 				<span class="callback bluron" onclick="$('.cback').fadeIn(300); return false;">Заказать обратный звонок</span>
-				<span class="time"><b>Работаем:</b> с 10:00 до 20:00</span>
+				<span class="time"><b>Работаем:</b> с 08:00 до 20:00</span>
 			</div>
 		</div>
 		
@@ -180,7 +196,6 @@
 <script src="design/{$settings->theme}/js/jquery.mmenu.all.min.js" type="text/javascript"></script>
 
  
- 
  <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
     (function (d, w, c) {
@@ -209,6 +224,6 @@
     })(document, window, "yandex_metrika_callbacks2");
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/47411374" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+
 </body>
 </html>

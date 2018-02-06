@@ -88,7 +88,7 @@
 		<br/>
 		{if $settings->vkontakte || $settings->twitter || $settings->instagram || $settings->youtube || $settings->facebook || $settings->odnoklassniki}
 		<div class="socblock">
-			{if $settings->vkontakte}<a href="{$settings->vkontakte}" target="_blank"><img src="design/{$settings->theme}/images/vk.png" alt="" /></a>{/if}
+			{if $settings->vkontakte}<a href="https://vk.com/fiori36" target="_blank"><img src="design/{$settings->theme}/images/vk.png" alt="" /></a>{/if}
 			{if $settings->twitter}<a href="{$settings->twitter}" target="_blank"><img src="design/{$settings->theme}/images/twitter.png" alt="" /></a>{/if}
 			{if $settings->instagram}<a href="{$settings->instagram}" target="_blank"><img src="design/{$settings->theme}/images/instagram.png" alt="" /></a>{/if}
 			{if $settings->youtube}<a href="{$settings->youtube}" target="_blank"><img src="design/{$settings->theme}/images/youtube.png" alt="" /></a>{/if}

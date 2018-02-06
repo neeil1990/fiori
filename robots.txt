@@ -1,18 +1,12 @@
 User-agent: *
-Disallow: /
-Disallow: /sections/404
+Allow: /
 Disallow: /simpla/
-Disallow: /order/
-Disallow: /user/
 Disallow: /js/
-Disallow: /captcha/
 Disallow: /Smarty/
-Disallow: /design/
 Disallow: /api/
-Disallow: /compiled/
-Disallow: /cart/
-Disallow: /resize/
 Disallow: /password.php
+Disallow: /admin/
+Disallow: /design/
 Host: fiori.su
 
 

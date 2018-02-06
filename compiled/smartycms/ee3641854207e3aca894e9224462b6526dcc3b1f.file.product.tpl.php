@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-14 14:39:04
+<?php /* Smarty version Smarty-3.1.18, created on 2018-01-31 16:11:43
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3751944975a2d78dddab537-29009487%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ee3641854207e3aca894e9224462b6526dcc3b1f' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product.tpl',
-      1 => 1515929939,
+      1 => 1517404299,
       2 => 'file',
     ),
   ),
@@ -357,8 +357,7 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 		
 		<div class="bpinfo">
 			<a href="/usloviya-dostavki">Условия доставки и самовывоза</a>
-			<p>Курьером на дом или в офис — 150 ₽</p>
-			<p>Бесплатно — от 3000 p</p>
+			<p>Курьером на дом или в офис — 300 ₽</p>
 		</div>
 		
 		<div class="bpinfo">
