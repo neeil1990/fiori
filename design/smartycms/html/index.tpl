@@ -179,12 +179,12 @@
 {if $category}
 {if $category->brands || $category->whoms || $category->events || $features}
 <script src="design/{$settings->theme}/js/jquery-ui-1.9.0.custom.min.js"  type="text/javascript"></script>
-<script src="design/{$settings->theme}/js/filter.min.js"  type="text/javascript"></script>
+<script src="design/{$settings->theme}/js/filter.js"  type="text/javascript"></script>
 {/if}
 {else}
 {if $brands || $whoms || $events || $features}
 <script src="design/{$settings->theme}/js/jquery-ui-1.9.0.custom.min.js"  type="text/javascript"></script>
-<script src="design/{$settings->theme}/js/filter.min.js"  type="text/javascript"></script>
+<script src="design/{$settings->theme}/js/filter.js"  type="text/javascript"></script>
 {/if}
 {/if} 
 {if $page->url == 'reviews' || $module=='PhotoView' || $module=='ProductView' || $module=='MainView'}

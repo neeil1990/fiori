@@ -446,6 +446,9 @@ span.fullfilterlink.fileBtn::after {
 .iteamfilter.zindex> ul {
     z-index: 9999;
 }
+.disabled{
+    display: none!important;
+}
 
 
 
