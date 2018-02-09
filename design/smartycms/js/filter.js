@@ -487,7 +487,7 @@ function count_filter(a) {
 }(jQuery), $(document).ready(function() {
     function p(a) {
         var b = $(this);
-        b.closest("form").css("opacity", .5), b.closest("form").ajaxSubmit({
+        b.closest("form").css("opacity", 1), b.closest("form").ajaxSubmit({
             success: function(a, c, d, e) {
                 var f = $("#discounted");
                 f.parent().find("i").text("(" + a.discounted.count + ")"), parseInt(a.discounted.count) > 0 ? f.parent().find("i").show() : f.parent().find("i").hide(), a.discounted.disabled ? a.discounted.disabled && (f.attr("disabled", "disabled"), f.parent().addClass("disabled")) : (f.parent().removeClass("disabled"), f.removeAttr("disabled"));
@@ -499,14 +499,19 @@ function count_filter(a) {
                     })
                 }), $.each(a.brands, function(a, b) {
                     var c = $("#brand_" + b.id);
+                    c.closest('li').find('.li-count').removeClass('active');
                     c.parent().find("i").text("(" + b.count + ")"), parseInt(b.count) > 0 ? c.parent().find("i").show() : c.parent().find("i").hide(), b.disabled ? b.disabled && (c.parent().addClass("disabled"),c.closest('li').addClass("disabled"), c.attr("disabled", "disabled")) : (c.parent().removeClass("disabled"),c.closest('li').removeClass("disabled"), c.removeAttr("disabled"))
                 }), $.each(a.whoms, function(a, b) {
                     var c = $("#whom_" + b.id);
+                    c.closest('li').find('.li-count').removeClass('active');
                     c.parent().find("i").text("(" + b.count + ")"), parseInt(b.count) > 0 ? c.parent().find("i").show() : c.parent().find("i").hide(), b.disabled ? b.disabled && (c.parent().addClass("disabled"),c.closest('li').addClass("disabled"), c.attr("disabled", "disabled")) : (c.parent().removeClass("disabled"),c.closest('li').removeClass("disabled"), c.removeAttr("disabled"))
                 }), $.each(a.events, function(a, b) {
                     var c = $("#event_" + b.id);
+                    c.closest('li').find('.li-count').removeClass('active');
                     c.parent().find("i").text("(" + b.count + ")"), parseInt(b.count) > 0 ? c.parent().find("i").show() : c.parent().find("i").hide(), b.disabled ? b.disabled && (c.parent().addClass("disabled"),c.closest('li').addClass("disabled"), c.attr("disabled", "disabled")) : (c.parent().removeClass("disabled"),c.closest('li').removeClass("disabled"), c.removeAttr("disabled"))
-                }), cmtp(parseInt(a.max_min_price.min_price), parseInt(a.max_min_price.max_price)), umda(0), umda(1), b.parents("form").find(".popover").remove(), b.closest("form").css("opacity", 1), $(".count_filter").html(count_filter(a.total_view)), b.is('input[type="checkbox"]') && b.parent(":not(.disabled)"), b.parent().find(".popover").stop().show(200)
+                }),
+                    cmtp(parseInt(a.max_min_price.min_price), parseInt(a.max_min_price.max_price)), umda(0), umda(1), b.parents("form").find(".popover").remove(), b.closest("form").css("opacity", 1), $(".count_filter").html(count_filter(a.total_view)), b.is('input[type="checkbox"]') && b.parent(":not(.disabled)"), b.parent().find(".popover").stop().show(200),
+                    b.closest('li').find('.li-count').text("Показать: " + a.total_view).addClass('active');
             },
             error: function() {
                 return b.parents("form").submit(), !1
@@ -580,6 +585,6 @@ function count_filter(a) {
     $(a.target).closest("ul.samopal>li>ul").length || ($("ul.samopal>li>ul").slideUp(130), $("ul.samopal>li").removeClass("selected"), a.stopPropagation())
 }), $(function() {
     $("ul.samopal>li>span").click(function() {
-        return $(this).closest("ul").find(">li>ul").slideToggle(130), $(this).closest("ul").find(">li").toggleClass("selected"), $(this).closest(".iteamfilter").toggleClass("zindex"), !1
+        return $(this).closest("ul").find(">li>ul").slideToggle(130).css('overflow','unset'), $(this).closest("ul").find(">li").toggleClass("selected"), $(this).closest(".iteamfilter").toggleClass("zindex"), !1
     })
 });

@@ -41,6 +41,7 @@
 				<ul class="drops">
 				{foreach $category->brands as $b}
                     <li{if $b->disabled} class="disabled"{/if}>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="brand_{$b->id}" class="{if $b->checked}checkeds{elseif $b->disabled}disabled{/if}">
 							<input id="brand_{$b->id}" type="checkbox" name="brand_id[]" value="{$b->id}"{if $b->checked} checked{elseif $b->disabled} disabled{/if}>
                             <span class="itname">{$b->name|escape}</span>
@@ -64,6 +65,7 @@
 				<ul class="drops">
 				{foreach $brands as $b}
                     <li{if $b->disabled} class="disabled"{/if}>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="brand_{$b->id}" class="{if $b->checked}checkeds{elseif $b->disabled}disabled{/if}">
 							<input id="brand_{$b->id}" type="checkbox" name="brand_id[]" value="{$b->id}"{if $b->checked} checked{elseif $b->disabled} disabled{/if}>
                             <span class="itname">{$b->name|escape}</span>
@@ -89,6 +91,7 @@
 				<ul class="drops">
 				{foreach $category->whoms as $b}
                     <li{if $b->disabled} class="disabled"{/if}>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="whom_{$b->id}" class="{if $b->checked}checkeds{elseif $b->disabled}disabled{/if}">
 							<input id="whom_{$b->id}" type="checkbox" name="whom_id[]" value="{$b->id}"{if $b->checked} checked{elseif $b->disabled} disabled{/if}>
                             <span class="itname">{$b->name|escape}</span>
@@ -112,6 +115,7 @@
 				<ul class="drops">
 				{foreach $whoms as $b}
                     <li{if $b->disabled} class="disabled"{/if}>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="whom_{$b->id}" class="{if $b->checked}checkeds{elseif $b->disabled}disabled{/if}">
 							<input id="whom_{$b->id}" type="checkbox" name="whom_id[]" value="{$b->id}"{if $b->checked} checked{elseif $b->disabled} disabled{/if}>
                             <span class="itname">{$b->name|escape}</span>
@@ -137,6 +141,7 @@
 				<ul class="drops">
 				{foreach $category->events as $b}
                     <li{if $b->disabled} class="disabled"{/if}>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="event_{$b->id}" class="{if $b->checked}checkeds{elseif $b->disabled}disabled{/if}">
 							<input id="event_{$b->id}" type="checkbox" name="event_id[]" value="{$b->id}"{if $b->checked} checked{elseif $b->disabled} disabled{/if}>
                             <span class="itname">{$b->name|escape}</span>
@@ -160,6 +165,7 @@
 				<ul class="drops">
 				{foreach $events as $b}
                     <li{if $b->disabled} class="disabled"{/if}>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="event_{$b->id}" class="{if $b->checked}checkeds{elseif $b->disabled}disabled{/if}">
 							<input id="event_{$b->id}" type="checkbox" name="event_id[]" value="{$b->id}"{if $b->checked} checked{elseif $b->disabled} disabled{/if}>
                             <span class="itname">{$b->name|escape}</span>
