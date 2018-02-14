@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:07:08
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:09:21
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/main.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2238397155a2d77ccdc4128-99692974%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4038381575a7d8161e3b2f5-76712888%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2c9901054466e83486879b4f3ac874bc513052f1' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/main.tpl',
-      1 => 1512928511,
+      1 => 1517917402,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2238397155a2d77ccdc4128-99692974',
+  'nocache_hash' => '4038381575a7d8161e3b2f5-76712888',
   'function' => 
   array (
   ),
@@ -32,9 +32,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d77ccecc8c0_99291718',
+  'unifunc' => 'content_5a7d8161efa478_64128766',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d77ccecc8c0_99291718')) {function content_5a2d77ccecc8c0_99291718($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['wrapper'] = new Smarty_variable('index.tpl', null, 1);
+<?php if ($_valid && !is_callable('content_5a7d8161efa478_64128766')) {function content_5a7d8161efa478_64128766($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['wrapper'] = new Smarty_variable('index.tpl', null, 1);
 if ($_smarty_tpl->parent != null) $_smarty_tpl->parent->tpl_vars['wrapper'] = clone $_smarty_tpl->tpl_vars['wrapper'];?>
 <?php $_smarty_tpl->tpl_vars['canonical'] = new Smarty_variable('', null, 1);
 if ($_smarty_tpl->parent != null) $_smarty_tpl->parent->tpl_vars['canonical'] = clone $_smarty_tpl->tpl_vars['canonical'];?>
@@ -47,7 +47,7 @@ if ($_smarty_tpl->parent != null) $_smarty_tpl->parent->tpl_vars['canonical'] = 
 </div>
 
 
-<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['get_products'][0][0]->get_products_plugin(array('var'=>'new_products','limit'=>18),$_smarty_tpl);?>
+<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['get_products'][0][0]->get_products_plugin(array('var'=>'new_products','visible'=>1,'limit'=>18),$_smarty_tpl);?>
 
 <?php if ($_smarty_tpl->tpl_vars['new_products']->value) {?>
 <div class="maintitle mar-b-50"><span>Новинки</span></div>
@@ -77,15 +77,17 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 <?php }?>
 
 
-<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['get_products'][0][0]->get_products_plugin(array('var'=>'all_products','featured'=>1,'limit'=>18),$_smarty_tpl);?>
+
+
+<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['get_products'][0][0]->get_products_plugin(array('var'=>'all_products','visible'=>1,'featured'=>1,'limit'=>18),$_smarty_tpl);?>
 
 <?php if ($_smarty_tpl->tpl_vars['all_products']->value) {?>
-<div class="mainfeatured pad-t-50 pad-b-50 mar-t-70 mar-b-50">
-	<div class="maintitle2 mar-b-50"><b></b><span>Мы рекомендуем</span><b></b></div>
-	<div class="max">
-		<div class="prodblock slick15<?php if (count($_smarty_tpl->tpl_vars['all_products']->value)>6) {?> bolee<?php }?>">
-			<div class="prodblockslick">
-			<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
+	<div class="mainfeatured pad-t-50 pad-b-50 mar-t-70 mar-b-50">
+		<div class="maintitle2 mar-b-50"><b></b><span>Мы рекомендуем</span><b></b></div>
+		<div class="max">
+			<div class="prodblock slick15<?php if (count($_smarty_tpl->tpl_vars['all_products']->value)>6) {?> bolee<?php }?>">
+				<div class="prodblockslick">
+					<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['all_products']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
  $_smarty_tpl->tpl_vars['product']->total= $_smarty_tpl->_count($_from);
  $_smarty_tpl->tpl_vars['product']->iteration=0;
@@ -96,27 +98,29 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
  $_smarty_tpl->tpl_vars['product']->index++;
  $_smarty_tpl->tpl_vars['product']->last = $_smarty_tpl->tpl_vars['product']->iteration === $_smarty_tpl->tpl_vars['product']->total;
 ?>
-				<?php if ($_smarty_tpl->tpl_vars['product']->index%2==0) {?><div><?php }?>
-				<?php echo $_smarty_tpl->getSubTemplate ('product_iteam_slick.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+						<?php if ($_smarty_tpl->tpl_vars['product']->index%2==0) {?><div><?php }?>
+						<?php echo $_smarty_tpl->getSubTemplate ('product_iteam_slick.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-				<?php if ($_smarty_tpl->tpl_vars['product']->iteration%2==0||$_smarty_tpl->tpl_vars['product']->last) {?></div><?php }?>
-			<?php } ?>
+						<?php if ($_smarty_tpl->tpl_vars['product']->iteration%2==0||$_smarty_tpl->tpl_vars['product']->last) {?></div><?php }?>
+					<?php } ?>
+				</div>
 			</div>
+			<div class="alllink pad-t-50"><a href="/hits">Смотреть все хиты продаж</a></div>
 		</div>
-		<div class="alllink pad-t-50"><a href="/hits">Смотреть все хиты продаж</a></div>
 	</div>
-</div>
 <?php }?>
 
 
-<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['get_products'][0][0]->get_products_plugin(array('var'=>'discounted_products','discounted'=>1,'limit'=>18),$_smarty_tpl);?>
+
+
+<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['get_products'][0][0]->get_products_plugin(array('var'=>'discounted_products','visible'=>1,'discounted'=>1,'limit'=>18),$_smarty_tpl);?>
 
 <?php if ($_smarty_tpl->tpl_vars['discounted_products']->value) {?>
-<div class="maintitle mar-b-50"><span>Распродажа</span></div>
-<div class="max">
-	<div class="prodblock slick15<?php if (count($_smarty_tpl->tpl_vars['discounted_products']->value)>6) {?> bolee<?php }?>">
-		<div class="prodblockslick">
-		<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
+	<div class="maintitle mar-b-50"><span>Распродажа</span></div>
+	<div class="max">
+		<div class="prodblock slick15<?php if (count($_smarty_tpl->tpl_vars['discounted_products']->value)>6) {?> bolee<?php }?>">
+			<div class="prodblockslick">
+				<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['discounted_products']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
  $_smarty_tpl->tpl_vars['product']->total= $_smarty_tpl->_count($_from);
  $_smarty_tpl->tpl_vars['product']->iteration=0;
@@ -127,15 +131,15 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
  $_smarty_tpl->tpl_vars['product']->index++;
  $_smarty_tpl->tpl_vars['product']->last = $_smarty_tpl->tpl_vars['product']->iteration === $_smarty_tpl->tpl_vars['product']->total;
 ?>
-			<?php if ($_smarty_tpl->tpl_vars['product']->index%2==0) {?><div><?php }?>
-			<?php echo $_smarty_tpl->getSubTemplate ('product_iteam_slick.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+					<?php if ($_smarty_tpl->tpl_vars['product']->index%2==0) {?><div><?php }?>
+					<?php echo $_smarty_tpl->getSubTemplate ('product_iteam_slick.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-			<?php if ($_smarty_tpl->tpl_vars['product']->iteration%2==0||$_smarty_tpl->tpl_vars['product']->last) {?></div><?php }?>
-		<?php } ?>
+					<?php if ($_smarty_tpl->tpl_vars['product']->iteration%2==0||$_smarty_tpl->tpl_vars['product']->last) {?></div><?php }?>
+				<?php } ?>
+			</div>
 		</div>
+		<div class="alllink pad-t-30"><a href="/sales">Смотреть все товары по акции</a></div>
 	</div>
-	<div class="alllink pad-t-30"><a href="/sales">Смотреть все товары по акции</a></div>
-</div>
 <?php }?>
 
 

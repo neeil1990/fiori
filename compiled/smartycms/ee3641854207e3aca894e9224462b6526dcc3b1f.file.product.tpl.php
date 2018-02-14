@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-31 16:11:43
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-14 13:30:55
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3751944975a2d78dddab537-29009487%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15455365885a7d7f542a0638-61576721%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ee3641854207e3aca894e9224462b6526dcc3b1f' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product.tpl',
-      1 => 1517404299,
+      1 => 1518604254,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3751944975a2d78dddab537-29009487',
+  'nocache_hash' => '15455365885a7d7f542a0638-61576721',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d78ddf20fb0_33584231',
+  'unifunc' => 'content_5a7d7f543c7bc5_49535435',
   'variables' => 
   array (
     'product' => 0,
@@ -35,7 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d78ddf20fb0_33584231')) {function content_5a2d78ddf20fb0_33584231($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['canonical'] = new Smarty_variable("/products/".((string)$_smarty_tpl->tpl_vars['product']->value->url), null, 1);
+<?php if ($_valid && !is_callable('content_5a7d7f543c7bc5_49535435')) {function content_5a7d7f543c7bc5_49535435($_smarty_tpl) {?><?php $_smarty_tpl->tpl_vars['canonical'] = new Smarty_variable("/products/".((string)$_smarty_tpl->tpl_vars['product']->value->url), null, 1);
 if ($_smarty_tpl->parent != null) $_smarty_tpl->parent->tpl_vars['canonical'] = clone $_smarty_tpl->tpl_vars['canonical'];?>
 <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['get_session_products'][0][0]->get_session_products_plugin(array('key'=>'wishlist'),$_smarty_tpl);?>
 
@@ -356,8 +356,8 @@ $_smarty_tpl->tpl_vars['val']->_loop = true;
 		<?php }?>
 		
 		<div class="bpinfo">
-			<a href="/usloviya-dostavki">Условия доставки и самовывоза</a>
-			<p>Курьером на дом или в офис — 300 ₽</p>
+			<a href="/usloviya-dostavki">Условия доставки</a>
+			<p>Курьером на дом или в офис — Бесплатная до 15 февраля </p>
 		</div>
 		
 		<div class="bpinfo">

@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-26 14:44:10
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 16:10:08
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/filter.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:4127547045a2d7a1dd76284-08336889%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19417506415a7d7f5097bce6-01577925%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '98dcf21a0e71e855ec51cb0ea0ccd95a63f6e61c' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/filter.tpl',
-      1 => 1514288647,
+      1 => 1518181807,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4127547045a2d7a1dd76284-08336889',
+  'nocache_hash' => '19417506415a7d7f5097bce6-01577925',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d7a1df1a952_89995856',
+  'unifunc' => 'content_5a7d7f50ad6d88_00951585',
   'variables' => 
   array (
     'category' => 0,
@@ -44,7 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d7a1df1a952_89995856')) {function content_5a2d7a1df1a952_89995856($_smarty_tpl) {?><form class="ufilter" method="get" action="<?php if ($_smarty_tpl->tpl_vars['category']->value) {?><?php echo $_smarty_tpl->tpl_vars['config']->value->root_url;?>
+<?php if ($_valid && !is_callable('content_5a7d7f50ad6d88_00951585')) {function content_5a7d7f50ad6d88_00951585($_smarty_tpl) {?><form class="ufilter" method="get" action="<?php if ($_smarty_tpl->tpl_vars['category']->value) {?><?php echo $_smarty_tpl->tpl_vars['config']->value->root_url;?>
 /catalog/<?php echo $_smarty_tpl->tpl_vars['category']->value->url;?>
 <?php } else { ?><?php echo $_smarty_tpl->tpl_vars['config']->value->root_url;?>
 /products<?php }?>">
@@ -109,6 +109,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->key => $_smarty_tpl->tpl_vars['b
 $_smarty_tpl->tpl_vars['b']->_loop = true;
 ?>
                     <li<?php if ($_smarty_tpl->tpl_vars['b']->value->disabled) {?> class="disabled"<?php }?>>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="brand_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
 " class="<?php if ($_smarty_tpl->tpl_vars['b']->value->checked) {?>checkeds<?php } elseif ($_smarty_tpl->tpl_vars['b']->value->disabled) {?>disabled<?php }?>">
 							<input id="brand_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
@@ -145,6 +146,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->key => $_smarty_tpl->tpl_vars['b
 $_smarty_tpl->tpl_vars['b']->_loop = true;
 ?>
                     <li<?php if ($_smarty_tpl->tpl_vars['b']->value->disabled) {?> class="disabled"<?php }?>>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="brand_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
 " class="<?php if ($_smarty_tpl->tpl_vars['b']->value->checked) {?>checkeds<?php } elseif ($_smarty_tpl->tpl_vars['b']->value->disabled) {?>disabled<?php }?>">
 							<input id="brand_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
@@ -183,6 +185,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->key => $_smarty_tpl->tpl_vars['b
 $_smarty_tpl->tpl_vars['b']->_loop = true;
 ?>
                     <li<?php if ($_smarty_tpl->tpl_vars['b']->value->disabled) {?> class="disabled"<?php }?>>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="whom_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
 " class="<?php if ($_smarty_tpl->tpl_vars['b']->value->checked) {?>checkeds<?php } elseif ($_smarty_tpl->tpl_vars['b']->value->disabled) {?>disabled<?php }?>">
 							<input id="whom_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
@@ -219,6 +222,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->key => $_smarty_tpl->tpl_vars['b
 $_smarty_tpl->tpl_vars['b']->_loop = true;
 ?>
                     <li<?php if ($_smarty_tpl->tpl_vars['b']->value->disabled) {?> class="disabled"<?php }?>>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="whom_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
 " class="<?php if ($_smarty_tpl->tpl_vars['b']->value->checked) {?>checkeds<?php } elseif ($_smarty_tpl->tpl_vars['b']->value->disabled) {?>disabled<?php }?>">
 							<input id="whom_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
@@ -257,6 +261,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->key => $_smarty_tpl->tpl_vars['b
 $_smarty_tpl->tpl_vars['b']->_loop = true;
 ?>
                     <li<?php if ($_smarty_tpl->tpl_vars['b']->value->disabled) {?> class="disabled"<?php }?>>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="event_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
 " class="<?php if ($_smarty_tpl->tpl_vars['b']->value->checked) {?>checkeds<?php } elseif ($_smarty_tpl->tpl_vars['b']->value->disabled) {?>disabled<?php }?>">
 							<input id="event_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
@@ -293,6 +298,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['b']->key => $_smarty_tpl->tpl_vars['b
 $_smarty_tpl->tpl_vars['b']->_loop = true;
 ?>
                     <li<?php if ($_smarty_tpl->tpl_vars['b']->value->disabled) {?> class="disabled"<?php }?>>
+						<div class="li-count" onclick="$('.sendsform').trigger('click')"></div>
                        <label for="event_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>
 " class="<?php if ($_smarty_tpl->tpl_vars['b']->value->checked) {?>checkeds<?php } elseif ($_smarty_tpl->tpl_vars['b']->value->disabled) {?>disabled<?php }?>">
 							<input id="event_<?php echo $_smarty_tpl->tpl_vars['b']->value->id;?>

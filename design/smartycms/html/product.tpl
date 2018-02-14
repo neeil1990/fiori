@@ -234,8 +234,8 @@
 		{/if}
 		
 		<div class="bpinfo">
-			<a href="/usloviya-dostavki">Условия доставки и самовывоза</a>
-			<p>Курьером на дом или в офис — 300 ₽</p>
+			<a href="/usloviya-dostavki">Условия доставки</a>
+			<p>Курьером на дом или в офис — Бесплатная до 15 февраля </p>
 		</div>
 		
 		<div class="bpinfo">

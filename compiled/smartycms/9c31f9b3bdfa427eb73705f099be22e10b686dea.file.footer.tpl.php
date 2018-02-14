@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-02-05 17:01:23
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:32
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:13403001545a2d768f37be78-15764068%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11642237445a7d7f50f33465-98612046%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '13403001545a2d768f37be78-15764068',
+  'nocache_hash' => '11642237445a7d7f50f33465-98612046',
   'function' => 
   array (
     'dmenu_tree3' => 
@@ -29,8 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d768f40a4d4_58964470',
   'variables' => 
   array (
     'callback_email' => 0,
@@ -42,8 +40,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'settings' => 0,
   ),
   'has_nocache_code' => 0,
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a7d7f51070a18_46416538',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d768f40a4d4_58964470')) {function content_5a2d768f40a4d4_58964470($_smarty_tpl) {?><div class="mainfeatured pad-t-50 pad-b-50 mar-t-70 mar-b-50">
+<?php if ($_valid && !is_callable('content_5a7d7f51070a18_46416538')) {function content_5a7d7f51070a18_46416538($_smarty_tpl) {?><div class="mainfeatured pad-t-50 pad-b-50 mar-t-70 mar-b-50">
 	<div class="max">
 		<form id="mail_form" class="mail_form validate" method="post">
 			<div class="mailtable">

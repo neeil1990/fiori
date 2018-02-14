@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:17:01
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:32
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/products.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6686686615a2d7a1dc23657-68773424%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:17456308155a7d7f5087a084-23384962%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '63bdc7331659bdb08d74b8bd2b3c73387efdc487' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/products.tpl',
-      1 => 1512928511,
+      1 => 1517908593,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6686686615a2d7a1dc23657-68773424',
+  'nocache_hash' => '17456308155a7d7f5087a084-23384962',
   'function' => 
   array (
   ),
@@ -35,9 +35,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d7a1dd6e3c7_70573201',
+  'unifunc' => 'content_5a7d7f50973d41_18288421',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d7a1dd6e3c7_70573201')) {function content_5a2d7a1dd6e3c7_70573201($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5a7d7f50973d41_18288421')) {function content_5a7d7f50973d41_18288421($_smarty_tpl) {?>
 
 
 <?php if ($_smarty_tpl->tpl_vars['category']->value&&$_smarty_tpl->tpl_vars['brand']->value) {?>
@@ -150,29 +150,27 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 		<ul class="samopal">
 			<li>
 				<span>
-					<?php if ($_smarty_tpl->tpl_vars['sort']->value=='position') {?>
-					<b>По умолчанию</b>
-					<?php } elseif ($_smarty_tpl->tpl_vars['sort']->value=='name_asc') {?>
-					<b>Имени от А до Я</b>
-					<?php } elseif ($_smarty_tpl->tpl_vars['sort']->value=='name_desc') {?>
-					<b>Имени от Я до А</b>
-					<?php } elseif ($_smarty_tpl->tpl_vars['sort']->value=='price_asc') {?>
-					<b>Сначала дешевые</b>
+					
+					<?php if ($_smarty_tpl->tpl_vars['sort']->value=='price_asc') {?>
+						<b>Сначала дешевые</b>
 					<?php } elseif ($_smarty_tpl->tpl_vars['sort']->value=='price_desc') {?>
-					<b>Сначала дорогие</b>
+						<b>Сначала дорогие</b>
+					<?php } elseif ($_smarty_tpl->tpl_vars['sort']->value=='name_asc') {?>
+						<b>Имени от А до Я</b>
+					<?php } elseif ($_smarty_tpl->tpl_vars['sort']->value=='name_desc') {?>
+						<b>Имени от Я до А</b>
 					<?php }?>
 				</span>
 				<ul class="drops">
-					<li><a <?php if ($_smarty_tpl->tpl_vars['sort']->value=='position') {?>class="selected"<?php }?> href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('sort'=>'position','page'=>null),$_smarty_tpl);?>
-">По умолчанию</a></li>
-					<li><a <?php if ($_smarty_tpl->tpl_vars['sort']->value=='name_asc') {?>class="selected"<?php }?> href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('sort'=>'name_asc','page'=>null),$_smarty_tpl);?>
-">По имени от А до Я</a></li>
-					<li><a <?php if ($_smarty_tpl->tpl_vars['sort']->value=='name_desc') {?>class="selected"<?php }?> href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('sort'=>'name_desc','page'=>null),$_smarty_tpl);?>
-">По имени от Я до А</a></li>
+					
 					<li><a <?php if ($_smarty_tpl->tpl_vars['sort']->value=='price_asc') {?>class="selected"<?php }?> href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('sort'=>'price_asc','page'=>null),$_smarty_tpl);?>
 ">Сначала дешевые</a></li>
 					<li><a <?php if ($_smarty_tpl->tpl_vars['sort']->value=='price_desc') {?>class="selected"<?php }?> href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('sort'=>'price_desc','page'=>null),$_smarty_tpl);?>
 ">Сначала дорогие</a></li>
+					<li><a <?php if ($_smarty_tpl->tpl_vars['sort']->value=='name_asc') {?>class="selected"<?php }?> href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('sort'=>'name_asc','page'=>null),$_smarty_tpl);?>
+">По имени от А до Я</a></li>
+					<li><a <?php if ($_smarty_tpl->tpl_vars['sort']->value=='name_desc') {?>class="selected"<?php }?> href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('sort'=>'name_desc','page'=>null),$_smarty_tpl);?>
+">По имени от Я до А</a></li>
 				</ul>
 			</li>
 		</ul>

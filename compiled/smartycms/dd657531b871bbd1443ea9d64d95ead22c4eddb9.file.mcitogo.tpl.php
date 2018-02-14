@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-13 18:49:23
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-14 09:13:09
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/minicart/mcitogo.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:13727381305a314c03881869-77282563%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4450157175a83d37566f784-35619523%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '13727381305a314c03881869-77282563',
+  'nocache_hash' => '4450157175a83d37566f784-35619523',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a314c03890dc4_45450537',
+  'unifunc' => 'content_5a83d37567b503_09213802',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a314c03890dc4_45450537')) {function content_5a314c03890dc4_45450537($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['cart']->value->purchases) {?>
+<?php if ($_valid && !is_callable('content_5a83d37567b503_09213802')) {function content_5a83d37567b503_09213802($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['cart']->value->purchases) {?>
 <span class="mcit">
 	Итого <?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->tpl_vars['cart']->value->total_price);?>
  <?php echo $_smarty_tpl->tpl_vars['currency']->value->sign;?>

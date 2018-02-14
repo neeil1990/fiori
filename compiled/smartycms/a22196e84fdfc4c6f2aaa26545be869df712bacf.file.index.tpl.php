@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-31 16:27:47
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:32
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1842527065a2d768ef08b67-55744000%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2809412105a7d7f50bf7a46-29070762%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a22196e84fdfc4c6f2aaa26545be869df712bacf' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl',
-      1 => 1517405264,
+      1 => 1518007248,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1842527065a2d768ef08b67-55744000',
+  'nocache_hash' => '2809412105a7d7f50bf7a46-29070762',
   'function' => 
   array (
     'dmenu_tree' => 
@@ -22,8 +22,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d768f0f12b9_30646090',
   'variables' => 
   array (
     'config' => 0,
@@ -46,8 +44,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'page' => 0,
   ),
   'has_nocache_code' => 0,
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a7d7f50d04d54_82724741',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d768f0f12b9_30646090')) {function content_5a2d768f0f12b9_30646090($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5a7d7f50d04d54_82724741')) {function content_5a7d7f50d04d54_82724741($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="ru">
 <head>
 
@@ -75,14 +75,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "/><?php }?>
 	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/style.css?v=<?php ob_start();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
-<?php $_tmp1=ob_get_clean();?><?php echo filemtime("design/".$_tmp1."/css/style.css");?>
+<?php $_tmp4=ob_get_clean();?><?php echo filemtime("design/".$_tmp4."/css/style.css");?>
 " rel="stylesheet" type="text/css" media="screen"/>
 	<?php if ($_smarty_tpl->tpl_vars['category']->value) {?><?php if ($_smarty_tpl->tpl_vars['category']->value->brands||$_smarty_tpl->tpl_vars['category']->value->whoms||$_smarty_tpl->tpl_vars['category']->value->events||$_smarty_tpl->tpl_vars['features']->value) {?><link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/filter.css" rel="stylesheet" type="text/css" media="screen"/><?php }?><?php } else { ?><?php if ($_smarty_tpl->tpl_vars['brands']->value||$_smarty_tpl->tpl_vars['whoms']->value||$_smarty_tpl->tpl_vars['events']->value||$_smarty_tpl->tpl_vars['features']->value) {?><link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/filter.css" rel="stylesheet" type="text/css" media="screen"/><?php }?><?php }?> 
 	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/adaptive.css?v=<?php ob_start();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
-<?php $_tmp2=ob_get_clean();?><?php echo filemtime("design/".$_tmp2."/css/adaptive.css");?>
+<?php $_tmp5=ob_get_clean();?><?php echo filemtime("design/".$_tmp5."/css/adaptive.css");?>
 " rel="stylesheet" type="text/css" media="screen"/>
 	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/pagination.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -294,14 +294,14 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 <script src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /js/jquery-ui-1.9.0.custom.min.js"  type="text/javascript"></script>
 <script src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
-/js/filter.min.js"  type="text/javascript"></script>
+/js/filter.js"  type="text/javascript"></script>
 <?php }?>
 <?php } else { ?>
 <?php if ($_smarty_tpl->tpl_vars['brands']->value||$_smarty_tpl->tpl_vars['whoms']->value||$_smarty_tpl->tpl_vars['events']->value||$_smarty_tpl->tpl_vars['features']->value) {?>
 <script src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /js/jquery-ui-1.9.0.custom.min.js"  type="text/javascript"></script>
 <script src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
-/js/filter.min.js"  type="text/javascript"></script>
+/js/filter.js"  type="text/javascript"></script>
 <?php }?>
 <?php }?> 
 <?php if ($_smarty_tpl->tpl_vars['page']->value->url=='reviews'||$_smarty_tpl->tpl_vars['module']->value=='PhotoView'||$_smarty_tpl->tpl_vars['module']->value=='ProductView'||$_smarty_tpl->tpl_vars['module']->value=='MainView') {?>
@@ -314,7 +314,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 <?php }?>
 <link rel="stylesheet" href="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /css/jquery.mmenu.all.css?v=<?php ob_start();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
-<?php $_tmp3=ob_get_clean();?><?php echo filemtime("design/".$_tmp3."/css/jquery.mmenu.all.css");?>
+<?php $_tmp6=ob_get_clean();?><?php echo filemtime("design/".$_tmp6."/css/jquery.mmenu.all.css");?>
 " type="text/css" />
 <script src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /js/jquery.mmenu.all.min.js" type="text/javascript"></script>

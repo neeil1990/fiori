@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:01:51
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:32
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/products_session_wishlist_informer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8880220555a2d768f100740-11088362%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:20369989705a7d7f50d0d705-60858352%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8880220555a2d768f100740-11088362',
+  'nocache_hash' => '20369989705a7d7f50d0d705-60858352',
   'function' => 
   array (
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d768f10ab78_49906855',
+  'unifunc' => 'content_5a7d7f50d15ae4_97506101',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d768f10ab78_49906855')) {function content_5a2d768f10ab78_49906855($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['session']->value->count>0) {?>
+<?php if ($_valid && !is_callable('content_5a7d7f50d15ae4_97506101')) {function content_5a7d7f50d15ae4_97506101($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['session']->value->count>0) {?>
 	<a href="/wishlist">
 		<b>Избранное</b> <span><?php echo $_smarty_tpl->tpl_vars['session']->value->count;?>
 </span>

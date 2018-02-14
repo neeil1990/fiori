@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-28 16:17:15
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:32
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/cart_informer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:10765248675a2d768f10cde9-89730979%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2374186125a7d7f50d193d1-06837559%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10765248675a2d768f10cde9-89730979',
+  'nocache_hash' => '2374186125a7d7f50d193d1-06837559',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d768f190fe6_29646051',
   'variables' => 
   array (
     'cart' => 0,
@@ -27,8 +25,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'property' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a7d7f50d8c984_70771863',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d768f190fe6_29646051')) {function content_5a2d768f190fe6_29646051($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['cart']->value->total_products>0) {?>
+<?php if ($_valid && !is_callable('content_5a7d7f50d8c984_70771863')) {function content_5a7d7f50d8c984_70771863($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['cart']->value->total_products>0) {?>
 	<span class="cionecitwo">
 		<span class="cione"><?php echo $_smarty_tpl->tpl_vars['cart']->value->total_products;?>
 </span>
@@ -87,7 +87,7 @@ $_smarty_tpl->tpl_vars['property']->_loop = true;
 						<?php if ($_smarty_tpl->tpl_vars['purchase']->value->variant->compare_price) {?>
 						<div class="carskidka">
 						Скидка <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['purchase']->value->variant->price;?>
-<?php $_tmp4=ob_get_clean();?><?php echo floor(abs(100-$_tmp4/($_smarty_tpl->tpl_vars['purchase']->value->variant->compare_price)*100));?>
+<?php $_tmp7=ob_get_clean();?><?php echo floor(abs(100-$_tmp7/($_smarty_tpl->tpl_vars['purchase']->value->variant->compare_price)*100));?>
  %
 						</div>
 						<?php }?>

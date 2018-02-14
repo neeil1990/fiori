@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-01-09 18:41:47
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:09:22
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/product_iteam_slick.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:4953950475a2d77cd019b88-71066750%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16211234385a7d8162051083-42746497%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4953950475a2d77cd019b88-71066750',
+  'nocache_hash' => '16211234385a7d8162051083-42746497',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d77cd0c56b9_78540855',
   'variables' => 
   array (
     'product' => 0,
@@ -26,8 +24,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'wishlist' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a7d81620e5543_90571737',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d77cd0c56b9_78540855')) {function content_5a2d77cd0c56b9_78540855($_smarty_tpl) {?><div class="product_iteam_slick product jsprod">
+<?php if ($_valid && !is_callable('content_5a7d81620e5543_90571737')) {function content_5a7d81620e5543_90571737($_smarty_tpl) {?><div class="product_iteam_slick product jsprod">
 	<form class="variants pis_table" action="/cart">
 		<div class="pis_info">
 			<div class="pisi_table">
