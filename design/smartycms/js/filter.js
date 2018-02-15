@@ -549,7 +549,7 @@ function count_filter(a) {
         step: 1,
         orientation: "horizontal",
         min: 0,
-        max: w - 1,
+        max: w - 6,
         range: !0,
         values: [0, w],
         start: function(a, b) {

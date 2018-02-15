@@ -15,7 +15,7 @@
 				<em>{$currency->sign|escape}</em>
 			</span>
 			<div class="podslider">
-			<div id="slider_price" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content" data-slider-min-range="{$slider_max_min_price->min_price|convert:null:false|floor}" data-slider-max-range="{$slider_max_min_price->max_price|convert:null:false|ceil}">
+			<div id="slider_price" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content" data-slider-min-range="{$max_min_price->min_price|convert:null:false|floor}" data-slider-max-range="{$max_min_price->max_price|convert:null:false|ceil}">
 			
 				<div class="ui-slider-range ui-widget-header ui-widget-header-bar"></div>
 				<div class="ui-slider-range ui-widget-header ui-widget-header-left ui-widget-header-hidden"></div>
