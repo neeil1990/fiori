@@ -15,7 +15,7 @@ class Managers extends Simpla
 {	
 	public $permissions_list = array('products', 'categories', 'brands', 'whoms', 'events', 'features', 'orders', 'labels',
 		'users', 'groups', 'coupons', 'pages', 'blog', 'photo', 'comments', 'feedbacks', 'import', 'export',
-		'backup', 'stats', 'design', 'settings', 'currency', 'delivery', 'payment', 'managers', 'callbacks', 'dmenus', 'license');
+		'backup', 'stats', 'design', 'settings', 'currency', 'delivery', 'payment', 'managers', 'callbacks', 'dmenus', 'city', 'license');
 		
 	public $passwd_file = "simpla/.passwd";
 
@@ -57,6 +57,7 @@ class Managers extends Simpla
 				$managers[] = $manager;
 			}
 		}
+
 		return $managers;
 	}
 		
@@ -79,7 +80,7 @@ class Managers extends Simpla
 				$m->permissions = $this->permissions_list;
 				return $m;
 			}
-				
+
 		foreach($this->get_managers() as $manager)
 		{
 			if($manager->login == $login)

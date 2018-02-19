@@ -75,6 +75,10 @@ switch ($object)
     	if($simpla->managers->access('dmenus'))
         $result = $simpla->dmenus->update_menu($id, $values);
         break;
+    case 'city':
+        if($simpla->managers->access('city'))
+            $result = $simpla->city->update_city($id, $values);
+        break;
     case 'label':
     	if($simpla->managers->access('labels'))
         $result = $simpla->orders->update_label($id, $values);

@@ -55,7 +55,7 @@
 	{if in_array('pages', $manager->permissions)}
 		<li><a href="index.php?module=PagesAdmin"><img src="design/images/menu/pages.png"><b>Страницы</b></a></li>
 	{/if}
-	
+
 	{if in_array('dmenus', $manager->permissions)}
 		<li><a href="{url module=DmenusGroupsAdmin}"><img src="design/images/menu/menu.png"><b>Меню</b></a></li>
 	{/if}
@@ -102,6 +102,10 @@
 	{/if}
 		
 	{if in_array('settings', $manager->permissions)}<li><a href="index.php?module=BannersAdmin"><img src="design/images/menu/banners.png"><b>Баннеры</b></a></li>{/if}
+
+	{if in_array('city', $manager->permissions)}
+		<li><a href="{url module=CityAdmin}"><img src="design/images/menu/city.png"><b>Города</b></a></li>
+	{/if}
 	</ul>
 	<!-- Главное меню (The End)-->
 	

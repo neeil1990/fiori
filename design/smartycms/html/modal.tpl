@@ -27,6 +27,37 @@
 	</div>
 </div>
 
+<div class="modalitem city-form">
+	<div class="modalclose"></div>
+	<div class="modal-city-items">
+		<div>
+			{if $citys}
+			<div class="modaltitle">
+				Куда доставить букет?
+				<span>Доставляем цветы по всей России, ассортимент зависит от города.</span>
+				<span class="close bluroff" onclick="$('.city-form').fadeOut(300); return false;"></span>
+			</div>
+			<div class="city-search-form">
+				<form action="" class="">
+					<input class="input_search_city" type="text" name="search_city" value="" placeholder="Поиск города" autocomplete="off">
+					<input class="button_search" value="" type="submit">
+				</form>
+			</div>
+
+			<div class="city-list">
+				{foreach $citys as $city_row}
+				<ul>
+					{foreach $city_row as $city}
+							<li><a href="http://{$city->alias}">{$city->name_city}</a></li>
+					{/foreach}
+				</ul>
+				{/foreach}
+			</div>
+			{/if}
+		</div>
+	</div>
+</div>
+
 <div class="modalitem vopros">
 	<div class="modalclose"></div>
 	<div class="modal">

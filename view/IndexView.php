@@ -52,7 +52,19 @@ class IndexView extends View
 	
         // Категории товаров
 		$this->design->assign('categories', $this->categories->get_categories_tree());
-		
+
+		$city = $this->city->get_city_alias_filter($_SERVER['HTTP_HOST']);
+		if(!$city){
+			$city = "fiori.ru";
+		}
+		$this->design->assign('city', $city);
+
+		$city_array = $this->city->get_city(array("visible" => 1));
+		if($city_array){
+			$row_city = ceil(count($city_array) / 3);
+			$this->design->assign('citys', array_chunk($city_array,$row_city));
+		}
+
 		// Страницы
 		$pages = $this->pages->get_pages(array('visible'=>1));		
 		$this->design->assign('pages', $pages);

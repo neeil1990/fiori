@@ -145,6 +145,8 @@ $(function() {
         $(this).toggleClass("active")
     }), $(".bluron").click(function() {
         $(".blurs").addClass("blur"), $("body").addClass("hid")
+    }),$(".city").click(function() {
+         $("body").addClass("hid")
     }), $(".bluroff").click(function() {
         $(".blurs").removeClass("blur"), $("body").removeClass("hid")
     }), $(".mylist_add").click(function() {
@@ -172,6 +174,18 @@ $(function() {
             var c = new RegExp("(\\" + ["/", ".", "*", "+", "?", "|", "(", ")", "[", "]", "{", "}", "\\"].join("|\\") + ")", "g"),
                 d = "(" + b.replace(c, "\\$1") + ")";
             return (a.data.image ? "<img align=absmiddle src='" + a.data.image + "'> " : "") + a.value.replace(new RegExp(d, "gi"), "<strong>$1</strong>")
+        }
+    }), $(".input_search_city").autocomplete({
+        serviceUrl: "ajax/search_city.php",
+        minChars: 1,
+        noCache: !1,
+        onSelect: function(a) {
+            window.location.href="http://" + a.link;
+        },
+        formatResult: function(a, b) {
+            var c = new RegExp("(\\" + ["/", ".", "*", "+", "?", "|", "(", ")", "[", "]", "{", "}", "\\"].join("|\\") + ")", "g"),
+                d = "(" + b.replace(c, "\\$1") + ")";
+            return a.value.replace(new RegExp(d, "gi"), "<strong>$1</strong>")
         }
     }), $(function() {
         document.getElementById("feedback-form").onsubmit = function() {

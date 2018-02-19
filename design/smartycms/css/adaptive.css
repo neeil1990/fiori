@@ -36,12 +36,31 @@
 }
 
 
+@media screen and (max-width: 1230px) {
 
+	.topinfo{
+		display: none;
+	}
 
-@media screen and (max-width: 1130px) {
+	.phone .mob {
+		display: block !important;
+	}
 
-	.logo {
-		padding: 0px 50px 0px 0px;
+	.phone .pk {
+		display: none;
+	}
+
+	.phone .mob b {
+		font-weight: 400;
+	}
+
+	.phone> b.link {
+		color: #C92D8C;
+		text-decoration: none;
+	}
+
+	.phone> b.link:hover {
+		color: #000;
 	}
 
 	.phone {
@@ -59,6 +78,18 @@
 		height: 30px;
 		background-size: 15px;
 	}
+
+}
+
+
+
+@media screen and (max-width: 1130px) {
+
+	.logo {
+		padding: 0px 50px 0px 0px;
+	}
+
+
 
 	.callback {
 		font-size: 13px;
@@ -86,6 +117,10 @@
 
 	.zecopy, .zeblock {
 		margin: 0px 70px 0px 0px;
+	}
+
+	.modal-city-items::before{
+		display: none;
 	}
 	
 }
@@ -161,29 +196,9 @@
 
 @media screen and (max-width: 980px) {
 
-	.phone .mob {
-		display: block !important;
-	}
 
-	.phone .pk {
-		display: none;
-	}
-
-	.phone .mob b {
-		font-weight: 400;
-	}
-
-	.phone> b.link {
-		color: #C92D8C;
-		text-decoration: none;
-	}
-
-	.phone> b.link:hover {
-		color: #000;
-	}
-
-	.topinfo {
-		display: none;
+	.logo,.city {
+		padding: 0px 10px 0px 0px;
 	}
 
 	.zecopy, .zeblock {
@@ -572,7 +587,7 @@ ul.export> li textarea {
 .cartd.carimage img {
 	max-width: 100%;
 	height: auto;
-	max-height: 100%:
+	max-height: 100%;
 }
 
 .carinfo> div> b, .carinfo> div> span {
@@ -641,6 +656,8 @@ ul.relatednews> li:last-child {
 
 
 @media screen and (max-width: 768px) {
+
+
 
 	#nav {
 		display: table;
@@ -839,6 +856,20 @@ ul.relatednews> li:last-child {
 
 @media screen and (max-width: 720px) {
 
+	.phone {
+		padding: 6px 15px 0px 10px;
+		font-size: 11px;
+		line-height: 20px;
+	}
+
+	.city .c-where {
+		font-size: 11px;
+	}
+	.callback {
+		font-size: 11px;
+	}
+
+
 span.fullfilterlink.fileBtn {
     margin: 21px 0px 0px 0px;
     height: 32px;
@@ -926,6 +957,15 @@ ul.cpa> li {
 
 
 @media screen and (max-width: 650px) {
+	.city{
+		margin: 0 auto;
+		text-align: center;
+		display: block;
+		padding: 5px 0;
+	}
+	.city div.c-now-city{
+		margin: 0 auto;
+	}
 	.logo {
 		padding: 0px 10px 0px 0px;
 	}
@@ -1128,6 +1168,19 @@ ul.cpa> li {
 	
 	.mcitem> div.mcname {
 		white-space: initial;
+	}
+
+	.modal-city-items{
+		width: initial;
+		margin: 0px;
+		left: 15px;
+		top: 15px;
+		right: 15px;
+		bottom: 15px;
+		max-height: 100%;
+	}
+	.modal-city-items:before{
+		display: none;
 	}
 
 	.modal {

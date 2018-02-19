@@ -13,7 +13,6 @@ class DmenusGroupsAdmin extends Simpla
         // Обработка действий 	
 		if($this->request->method('post'))
 		{
-
 			if($this->request->post('add_group')){
 				$this->dmenus->add_menu_group(array('name'=>$this->request->post('add_group')));
 			}else{

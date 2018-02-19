@@ -92,17 +92,33 @@
 		</div>
 		
 		<div class="tpt">
-			<div class="phone">
-				<b class="pk">{$settings->zphone1}</b>
-				<b class="mob bluron link" onclick="$('.cback').fadeIn(300); return false;">{$settings->zphone1}</b>
-				<span class="pk">Номер телефона приема заказов</span>
-				<span class="mob"><b>Работаем:</b> с 08:00 до 20:00</span>
-			</div>
-			
+
 			<div class="topinfo">
-				<span class="callback bluron" onclick="$('.cback').fadeIn(300); return false;">Заказать обратный звонок</span>
+				<div class="name-shop">
+					<span>Интернет-магазин</span>
+					<span>цветов с доставкой</span>
+				</div>
 				<span class="time"><b>Работаем:</b> с 08:00 до 20:00</span>
 			</div>
+
+			{if $city}
+			<div class="city" onclick="$('.city-form').fadeIn(300); return false;">
+				<div class="c-where">Куда доставить букет:</div>
+				<div class="c-now-city">
+					<span>{$city->name_city}</span>
+				</div>
+			</div>
+			{/if}
+
+			<div class="phone">
+				<span class="pk">Номер телефона приема заказов</span>
+				<b class="pk">{$settings->zphone1}</b>
+				<span class="callback bluron" onclick="$('.cback').fadeIn(300); return false;">Заказать обратный звонок</span>
+
+				<b class="mob bluron link" onclick="$('.cback').fadeIn(300); return false;">{$settings->zphone1}</b>
+				<span class="mob"><b>Работаем:</b> с 08:00 до 20:00</span>
+			</div>
+
 		</div>
 		
 		<div class="butsearch">

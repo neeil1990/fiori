@@ -62,6 +62,7 @@ class IndexAdmin extends Simpla
         'DmenusGroupsAdmin'   => 'dmenus',
 		'DmenusGroupAdmin'    => 'dmenus',
 		'DmenusAdmin'		  => 'dmenus',
+		'CityAdmin'		  => 'city',
 	);
 
 	// Конструктор
@@ -107,7 +108,6 @@ class IndexAdmin extends Simpla
  		// Берем название модуля из get-запроса
 		$module = $this->request->get('module', 'string');
 		$module = preg_replace("/[^A-Za-z0-9]+/", "", $module);
-		
 		// Если не запросили модуль - используем модуль первый из разрешенных
 		if(empty($module) || !is_file('simpla/'.$module.'.php'))
 		{

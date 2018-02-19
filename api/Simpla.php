@@ -44,6 +44,7 @@ class Simpla
 		'banner' 	 => 'Banner', 
 		'callbacks'  => 'Callbacks',
 		'dmenus'     => 'Dmenus',
+		'city'     => 'City',
 		'managers'   => 'Managers'
 	);
 	

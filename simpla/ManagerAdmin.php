@@ -50,16 +50,23 @@ class ManagerAdmin extends Simpla
 		}
 		else
 		{
+
+
 			$login = $this->request->get('login');
 			if(!empty($login))
-				$manager = $this->managers->get_manager($login);			
-		}	
+				$manager = $this->managers->get_manager($login);
+
+		}
+
+
 
 		if(!empty($manager))
 		{
 			$this->design->assign('m', $manager);			
 		}
-		
+
+
+
  	  	return $this->design->fetch('manager.tpl');
 	}
 	
