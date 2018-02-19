@@ -54,9 +54,6 @@ class IndexView extends View
 		$this->design->assign('categories', $this->categories->get_categories_tree());
 
 		$city = $this->city->get_city_alias_filter($_SERVER['HTTP_HOST']);
-		if(!$city){
-			$city = "fiori.ru";
-		}
 		$this->design->assign('city', $city);
 
 		$city_array = $this->city->get_city(array("visible" => 1));
