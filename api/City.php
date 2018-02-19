@@ -72,9 +72,9 @@ class City extends Simpla
             $result = new SimpleXMLElement($result);
             $city = (string)$result->ip->city;
             if($city){
+                setcookie("city", 1, time()+3600);
                 $city = $this->get_city_name_filter($city);
                 if($city->alias AND $_SERVER['HTTP_HOST'] != $city->alias){
-                    setcookie("city", 1, time()+3600);
                     header('Location: http://'.$city->alias, true, 302);
                     exit;
                 }
