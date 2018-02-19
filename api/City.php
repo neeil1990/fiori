@@ -65,7 +65,11 @@ class City extends Simpla
         }
     }
 
-    public function detect_city($ip){
+    public function detect_city($ip,$get_city){
+
+        if(!empty($get_city)){
+            setcookie("city", 1, time()+3600);
+        }
 
         if(!isset($_COOKIE["city"])){
             $result = file_get_contents("http://ipgeobase.ru:7020/geo?ip=".$ip);

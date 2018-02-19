@@ -56,7 +56,7 @@ class IndexView extends View
 		$city = $this->city->get_city_alias_filter($_SERVER['HTTP_HOST']);
 		$this->design->assign('city', $city);
 
-		$this->city->detect_city($_SERVER['REMOTE_ADDR']);
+		$this->city->detect_city($_SERVER['REMOTE_ADDR'],$this->request->get('city'));
 
 		$city_array = $this->city->get_city(array("visible" => 1));
 		if($city_array){

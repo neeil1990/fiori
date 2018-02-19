@@ -48,7 +48,7 @@
 				{foreach $citys as $city_row}
 				<ul>
 					{foreach $city_row as $city}
-							<li><a href="http://{$city->alias}">{$city->name_city}</a></li>
+							<li><a href="http://{$city->alias}?city=1">{$city->name_city}</a></li>
 					{/foreach}
 				</ul>
 				{/foreach}

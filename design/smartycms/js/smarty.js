@@ -180,7 +180,7 @@ $(function() {
         minChars: 1,
         noCache: !1,
         onSelect: function(a) {
-            window.location.href="http://" + a.link;
+            window.location.href="http://" + a.link +"?city=1";
         },
         formatResult: function(a, b) {
             var c = new RegExp("(\\" + ["/", ".", "*", "+", "?", "|", "(", ")", "[", "]", "{", "}", "\\"].join("|\\") + ")", "g"),
