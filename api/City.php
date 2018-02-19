@@ -68,10 +68,11 @@ class City extends Simpla
     public function detect_city($ip){
 
         if(!isset($_COOKIE["city"])){
-            $result = file_get_contents("http://api.sypexgeo.net/json/".$ip);
-            $result = json_decode($result);
-            if($result->city){
-                $city = $this->get_city_name_filter($result->city->name_ru);
+            $result = file_get_contents("http://ipgeobase.ru:7020/geo?ip=".$ip);
+            $result = new SimpleXMLElement($result);
+            $city = (string)$result->ip->city;
+            if($city){
+                $city = $this->get_city_name_filter($city);
                 if($city->alias AND $_SERVER['HTTP_HOST'] != $city->alias){
                     setcookie("city", 1, time()+3600);
                     header('Location: http://'.$city->alias, true, 302);
