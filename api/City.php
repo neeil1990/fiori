@@ -36,7 +36,17 @@ class City extends Simpla
         $alias = strip_tags(trim($alias));
         $query = "SELECT * FROM __city WHERE alias='$alias' AND visible = 1 ORDER BY name_city LIMIT 1";
         $this->db->query($query);
-        return $this->db->result();
+        $city = $this->db->result();
+        return $city;
+    }
+
+    public function get_city_name_filter($name)
+    {
+        $name = strip_tags(trim($name));
+        $query = "SELECT * FROM __city WHERE name_city='$name' AND visible = 1 ORDER BY name_city LIMIT 1";
+        $this->db->query($query);
+        $city = $this->db->result();
+        return $city;
     }
 
     public function update_city($id, $city)
@@ -52,6 +62,22 @@ class City extends Simpla
         {
             $query = $this->db->placehold("DELETE FROM __city WHERE id=? LIMIT 1", intval($id));
             $this->db->query($query);
+        }
+    }
+
+    public function detect_city($ip){
+
+        if(!isset($_COOKIE["city"])){
+            $result = file_get_contents("http://api.sypexgeo.net/json/".$ip);
+            $result = json_decode($result);
+            if($result->city){
+                $city = $this->get_city_name_filter($result->city->name_ru);
+                if($city->alias AND $_SERVER['HTTP_HOST'] != $city->alias){
+                    setcookie("city", 1, time()+3600);
+                    header('Location: http://'.$city->alias, true, 302);
+                    exit;
+                }
+            }
         }
     }
 
