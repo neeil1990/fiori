@@ -390,30 +390,23 @@ ul.nav1> li:hover> div
         text-align: center;
         position: relative;
         cursor: pointer;
-        margin: 0 0 0px 5px;
-        max-width: 125px;
     }
     .city div.c-now-city:before{
         display: inline-block;
         content: "";
-        position: absolute;
         background: url(../img/placeholder.png) no-repeat;
         background-size: contain;
-        width: 20px;
+        width: 15px;
         height: 22px;
-        left: -5px;
-        top: 5px;
+        vertical-align: bottom;
     }
     .city div.c-now-city:after{
         display: inline-block;
         content: "";
-        position: absolute;
         background: url(../img/arrow-point-to-right.svg) no-repeat;
         background-size: contain;
         width: 10px;
         height: 10px;
-        right: 0px;
-        bottom: 7px;
         transform: rotate(90deg);
     }
     .topinfo .name-shop{
