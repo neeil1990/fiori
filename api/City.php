@@ -70,8 +70,7 @@ class City extends Simpla
         if(!empty($get_city)){
             setcookie("city", 1, time()+3600);
         }
-
-        if(!isset($_COOKIE["city"])){
+        if(!isset($_COOKIE["city"]) and empty($get_city)){
             $result = file_get_contents("http://ipgeobase.ru:7020/geo?ip=".$ip);
             $result = new SimpleXMLElement($result);
             $city = (string)$result->ip->city;
