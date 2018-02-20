@@ -22,18 +22,19 @@
 
         <div id="list" class="menu_groups">
             {foreach $citys as $city}
-                <div class="{if !$city->visible}invisible{/if} row">
+                <div class="{if !$city->visible}invisible{/if} row" data-id="{$city->id}">
                     <div class="checkbox cell">
                         <input type="checkbox" name="check[]" value="{$city->id}" />
                     </div>
-                    <div class="cell">
+                    <div class="cell" id="name_city">
                         {$city->name_city|escape}
                     </div>
                     <div class="icons cell">
+                        <a class="accept" title="Отредактировать" href="#"></a>
                         <a class="enable" title="Активна" href="#"></a>
                         <a class="delete"  title="Удалить" href="#"></a>
                     </div>
-                    <div class="icons cell">
+                    <div class="icons cell" id="alias">
                         {$city->alias}
                     </div>
                     <div class="clear"></div>
@@ -122,6 +123,39 @@
             return false;
         });
 
+        $(".row").dblclick(function() {
+            $name_city = $(this).find('#name_city').text();
+            $alias = $(this).find('#alias').text();
+            $(this).find('#name_city').html('<input type="text" value="'+ $name_city.trim() +'">');
+            $(this).find('#alias').html('<input type="text" value="'+ $alias.trim() +'">');
+        });
+
+        $(".accept").click(function(){
+            $id = $(this).closest('.row').attr("data-id");
+
+            $name_city = $(this).closest('.row').find('#name_city input').val();
+            $alias = $(this).closest('.row').find('#alias input').val();
+
+            $.ajax({
+                type: 'POST',
+                url: 'ajax/update_city.php',
+                data: {'id': $id, 'values': {name_city: $name_city,alias:$alias}, 'session_id': '{/literal}{$smarty.session.id}{literal}'},
+                success: function(data){
+                   console.log(data);
+                },
+                dataType: 'json'
+            });
+            $(this).closest('.row').find('#name_city').text($name_city);
+            $(this).closest('.row').find('#alias').text($alias);
+
+            return false;
+        });
+
+
     });
+
+
+
+
 </script>
 {/literal}
