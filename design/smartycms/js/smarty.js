@@ -193,7 +193,7 @@ $(function() {
             return a.open("POST", "/contacts.php", !0), a.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), a.send("nameFF=" + this.nameFF.value + "&phoneFF=" + this.phoneFF.value), a.onreadystatechange = function() {
                 4 == a.readyState && 200 == a.status && ($(".cback").fadeOut(300), setTimeout('$(".send").fadeIn(300)', 300), setTimeout('$(".send").fadeOut(300)', 3500), setTimeout('$(".blurs").removeClass("blur")', 3500))
             }, a.onerror = function() {
-                alert("Извините, данные не были переданы")
+                alert("РР·РІРёРЅРёС‚Рµ, РґР°РЅРЅС‹Рµ РЅРµ Р±С‹Р»Рё РїРµСЂРµРґР°РЅС‹")
             }, !1
         }
     }), $(function() {
@@ -202,7 +202,7 @@ $(function() {
             return a.open("POST", "/contacts-vopros.php", !0), a.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), a.send("nameFF=" + this.nameFF.value + "&phoneFF=" + this.phoneFF.value + "&mailFF=" + this.mailFF.value + "&messageFF=" + this.messageFF.value), a.onreadystatechange = function() {
                 4 == a.readyState && 200 == a.status && ($(".vopros").fadeOut(300), setTimeout('$(".send").fadeIn(300)', 300), setTimeout('$(".send").fadeOut(300)', 3500), setTimeout('$(".blurs").removeClass("blur")', 3500))
             }, a.onerror = function() {
-                alert("Извините, данные не были переданы")
+                alert("РР·РІРёРЅРёС‚Рµ, РґР°РЅРЅС‹Рµ РЅРµ Р±С‹Р»Рё РїРµСЂРµРґР°РЅС‹")
             }, !1
         }
     }), $("select.ajaxselect").change(function() {
@@ -246,13 +246,13 @@ $(function() {
     }), $(".mainhidetext").readmore({
         maxHeight: 255,
         speed: 500,
-        moreLink: '<a class="slink" style="margin-top: 15px;" href="#">Подробнее</a>',
-        lessLink: '<a class="slink" style="margin-top: 15px;" href="#">Скрыть</a>'
+        moreLink: '<a class="slink" style="margin-top: 15px;" href="#">РџРѕРґСЂРѕР±РЅРµРµ</a>',
+        lessLink: '<a class="slink" style="margin-top: 15px;" href="#">РЎРєСЂС‹С‚СЊ</a>'
     }), $(".maxtext").readmore({
         maxHeight: 246,
         speed: 500,
-        moreLink: '<a class="slink" style="margin-top: 15px;" href="#">Подробнее</a>',
-        lessLink: '<a class="slink" style="margin-top: 15px;" href="#">Скрыть</a>'
+        moreLink: '<a class="slink" style="margin-top: 15px;" href="#">РџРѕРґСЂРѕР±РЅРµРµ</a>',
+        lessLink: '<a class="slink" style="margin-top: 15px;" href="#">РЎРєСЂС‹С‚СЊ</a>'
     }), $(".mail_form").submit(function(a) {
         return a.preventDefault(), $.ajax({
             type: "post",
