@@ -86,16 +86,23 @@
 	<div class="zecopy">
 		{$settings->zcopy}
 		<br/>
+     	<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
+        <p><a href="/files/uploads/compliance.pdf" target="_blank">Согласие на обработку персональных данных.</a>
+           <a href="/files/uploads/politics.pdf" target="_blank">Политика конфиденциальности. </a></p>     
 		{if $settings->vkontakte || $settings->twitter || $settings->instagram || $settings->youtube || $settings->facebook || $settings->odnoklassniki}
 		<div class="socblock">
 			{if $settings->vkontakte}<a href="https://vk.com/fiori36" target="_blank"><img src="design/{$settings->theme}/images/vk.png" alt="" /></a>{/if}
-			{if $settings->twitter}<a href="{$settings->twitter}" target="_blank"><img src="design/{$settings->theme}/images/twitter.png" alt="" /></a>{/if}
+            <!-- 
+            {if $settings->twitter}<a href="{$settings->twitter}" target="_blank"><img src="design/{$settings->theme}/images/twitter.png" alt="" /></a>{/if}
 			{if $settings->instagram}<a href="{$settings->instagram}" target="_blank"><img src="design/{$settings->theme}/images/instagram.png" alt="" /></a>{/if}
 			{if $settings->youtube}<a href="{$settings->youtube}" target="_blank"><img src="design/{$settings->theme}/images/youtube.png" alt="" /></a>{/if}
 			{if $settings->facebook}<a href="{$settings->facebook}" target="_blank"><img src="design/{$settings->theme}/images/facebook.png" alt="" /></a>{/if}
 			{if $settings->odnoklassniki}<a href="{$settings->odnoklassniki}" target="_blank"><img src="design/{$settings->theme}/images/odnoklassniki.png" alt="" /></a>{/if}
+            -->
 		</div>
 		{/if}
+
+           <!--
 		<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
 		<div class="socblock pay">
 			<img src="design/{$settings->theme}/images/money1.png" alt="" />
@@ -104,6 +111,7 @@
 			<img src="design/{$settings->theme}/images/money4.png" alt="" />
 			<img src="design/{$settings->theme}/images/money5.png" alt="" />
 		</div>
+            -->
 	</div>
 	<div class="zecontact">
 		<b>{$settings->zphone1}</b>

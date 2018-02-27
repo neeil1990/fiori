@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:32
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-20 13:03:27
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11642237445a7d7f50f33465-98612046%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c31f9b3bdfa427eb73705f099be22e10b686dea' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/footer.tpl',
-      1 => 1517839281,
+      1 => 1519121005,
       2 => 'file',
     ),
   ),
@@ -29,6 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a7d7f51070a18_46416538',
   'variables' => 
   array (
     'callback_email' => 0,
@@ -40,8 +42,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'settings' => 0,
   ),
   'has_nocache_code' => 0,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a7d7f51070a18_46416538',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a7d7f51070a18_46416538')) {function content_5a7d7f51070a18_46416538($_smarty_tpl) {?><div class="mainfeatured pad-t-50 pad-b-50 mar-t-70 mar-b-50">
 	<div class="max">
@@ -162,11 +162,15 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 		<?php echo $_smarty_tpl->tpl_vars['settings']->value->zcopy;?>
 
 		<br/>
+     	<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
+        <p><a href="/files/uploads/compliance.pdf" target="_blank">Согласие на обработку персональных данных.</a>
+           <a href="/files/uploads/politics.pdf" target="_blank">Политика конфиденциальности. </a></p>     
 		<?php if ($_smarty_tpl->tpl_vars['settings']->value->vkontakte||$_smarty_tpl->tpl_vars['settings']->value->twitter||$_smarty_tpl->tpl_vars['settings']->value->instagram||$_smarty_tpl->tpl_vars['settings']->value->youtube||$_smarty_tpl->tpl_vars['settings']->value->facebook||$_smarty_tpl->tpl_vars['settings']->value->odnoklassniki) {?>
 		<div class="socblock">
 			<?php if ($_smarty_tpl->tpl_vars['settings']->value->vkontakte) {?><a href="https://vk.com/fiori36" target="_blank"><img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/vk.png" alt="" /></a><?php }?>
-			<?php if ($_smarty_tpl->tpl_vars['settings']->value->twitter) {?><a href="<?php echo $_smarty_tpl->tpl_vars['settings']->value->twitter;?>
+            <!-- 
+            <?php if ($_smarty_tpl->tpl_vars['settings']->value->twitter) {?><a href="<?php echo $_smarty_tpl->tpl_vars['settings']->value->twitter;?>
 " target="_blank"><img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/twitter.png" alt="" /></a><?php }?>
 			<?php if ($_smarty_tpl->tpl_vars['settings']->value->instagram) {?><a href="<?php echo $_smarty_tpl->tpl_vars['settings']->value->instagram;?>
@@ -181,8 +185,11 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 			<?php if ($_smarty_tpl->tpl_vars['settings']->value->odnoklassniki) {?><a href="<?php echo $_smarty_tpl->tpl_vars['settings']->value->odnoklassniki;?>
 " target="_blank"><img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/odnoklassniki.png" alt="" /></a><?php }?>
+            -->
 		</div>
 		<?php }?>
+
+           <!--
 		<p>Цена на сайте может не соответсовать цене в магазине, уточняйте у менеджера.</p>
 		<div class="socblock pay">
 			<img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
@@ -196,6 +203,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 			<img src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /images/money5.png" alt="" />
 		</div>
+            -->
 	</div>
 	<div class="zecontact">
 		<b><?php echo $_smarty_tpl->tpl_vars['settings']->value->zphone1;?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:06:27
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-19 16:43:37
          compiled from "simpla/design/html/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10270420535a2d77a3134c45-52139519%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ed9b81a965719284d5b47a929b4c7464c4e8baa7' => 
     array (
       0 => 'simpla/design/html/index.tpl',
-      1 => 1512928511,
+      1 => 1519047648,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d77a31e3360_96241026',
   'variables' => 
   array (
     'meta_title' => 0,
@@ -26,8 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'settings' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d77a31e3360_96241026',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d77a31e3360_96241026')) {function content_5a2d77a31e3360_96241026($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -89,7 +89,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<?php if (in_array('pages',$_smarty_tpl->tpl_vars['manager']->value->permissions)) {?>
 		<li><a href="index.php?module=PagesAdmin"><img src="design/images/menu/pages.png"><b>Страницы</b></a></li>
 	<?php }?>
-	
+
 	<?php if (in_array('dmenus',$_smarty_tpl->tpl_vars['manager']->value->permissions)) {?>
 		<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('module'=>'DmenusGroupsAdmin'),$_smarty_tpl);?>
 "><img src="design/images/menu/menu.png"><b>Меню</b></a></li>
@@ -138,6 +138,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<?php }?>
 		
 	<?php if (in_array('settings',$_smarty_tpl->tpl_vars['manager']->value->permissions)) {?><li><a href="index.php?module=BannersAdmin"><img src="design/images/menu/banners.png"><b>Баннеры</b></a></li><?php }?>
+
+	<?php if (in_array('city',$_smarty_tpl->tpl_vars['manager']->value->permissions)) {?>
+		<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0][0]->url_modifier(array('module'=>'CityAdmin'),$_smarty_tpl);?>
+"><img src="design/images/menu/city.png"><b>Города</b></a></li>
+	<?php }?>
 	</ul>
 	<!-- Главное меню (The End)-->
 	

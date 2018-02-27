@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 16:10:08
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-15 13:29:17
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/filter.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19417506415a7d7f5097bce6-01577925%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '98dcf21a0e71e855ec51cb0ea0ccd95a63f6e61c' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/filter.tpl',
-      1 => 1518181807,
+      1 => 1518690538,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'config' => 0,
     'max_min_price' => 0,
     'currency' => 0,
-    'slider_max_min_price' => 0,
     'filter_brand' => 0,
     'b' => 0,
     'brands' => 0,
@@ -72,8 +71,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </em>
 			</span>
 			<div class="podslider">
-			<div id="slider_price" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content" data-slider-min-range="<?php echo floor($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->tpl_vars['slider_max_min_price']->value->min_price,null,false));?>
-" data-slider-max-range="<?php echo ceil($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->tpl_vars['slider_max_min_price']->value->max_price,null,false));?>
+			<div id="slider_price" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content" data-slider-min-range="<?php echo floor($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->tpl_vars['max_min_price']->value->min_price,null,false));?>
+" data-slider-max-range="<?php echo ceil($_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER]['convert'][0][0]->convert($_smarty_tpl->tpl_vars['max_min_price']->value->max_price,null,false));?>
 ">
 			
 				<div class="ui-slider-range ui-widget-header ui-widget-header-bar"></div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:32
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-19 16:41:11
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2809412105a7d7f50bf7a46-29070762%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a22196e84fdfc4c6f2aaa26545be869df712bacf' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/index.tpl',
-      1 => 1518007248,
+      1 => 1519047648,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a7d7f50d04d54_82724741',
   'variables' => 
   array (
     'config' => 0,
@@ -38,14 +40,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dmenu2' => 0,
     'dm' => 0,
     'wishlist' => 0,
+    'city' => 0,
     'categories' => 0,
     'module' => 0,
     'content' => 0,
     'page' => 0,
   ),
   'has_nocache_code' => 0,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a7d7f50d04d54_82724741',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a7d7f50d04d54_82724741')) {function content_5a7d7f50d04d54_82724741($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="ru">
@@ -75,14 +76,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 "/><?php }?>
 	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/style.css?v=<?php ob_start();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
-<?php $_tmp4=ob_get_clean();?><?php echo filemtime("design/".$_tmp4."/css/style.css");?>
+<?php $_tmp1=ob_get_clean();?><?php echo filemtime("design/".$_tmp1."/css/style.css");?>
 " rel="stylesheet" type="text/css" media="screen"/>
 	<?php if ($_smarty_tpl->tpl_vars['category']->value) {?><?php if ($_smarty_tpl->tpl_vars['category']->value->brands||$_smarty_tpl->tpl_vars['category']->value->whoms||$_smarty_tpl->tpl_vars['category']->value->events||$_smarty_tpl->tpl_vars['features']->value) {?><link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/filter.css" rel="stylesheet" type="text/css" media="screen"/><?php }?><?php } else { ?><?php if ($_smarty_tpl->tpl_vars['brands']->value||$_smarty_tpl->tpl_vars['whoms']->value||$_smarty_tpl->tpl_vars['events']->value||$_smarty_tpl->tpl_vars['features']->value) {?><link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/filter.css" rel="stylesheet" type="text/css" media="screen"/><?php }?><?php }?> 
 	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/adaptive.css?v=<?php ob_start();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
-<?php $_tmp5=ob_get_clean();?><?php echo filemtime("design/".$_tmp5."/css/adaptive.css");?>
+<?php $_tmp2=ob_get_clean();?><?php echo filemtime("design/".$_tmp2."/css/adaptive.css");?>
 " rel="stylesheet" type="text/css" media="screen"/>
 	<link href="design/<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
 /css/pagination.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -180,19 +181,36 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 		</div>
 		
 		<div class="tpt">
-			<div class="phone">
-				<b class="pk"><?php echo $_smarty_tpl->tpl_vars['settings']->value->zphone1;?>
-</b>
-				<b class="mob bluron link" onclick="$('.cback').fadeIn(300); return false;"><?php echo $_smarty_tpl->tpl_vars['settings']->value->zphone1;?>
-</b>
-				<span class="pk">Номер телефона приема заказов</span>
-				<span class="mob"><b>Работаем:</b> с 08:00 до 20:00</span>
-			</div>
-			
+
 			<div class="topinfo">
-				<span class="callback bluron" onclick="$('.cback').fadeIn(300); return false;">Заказать обратный звонок</span>
+				<div class="name-shop">
+					<span>Интернет-магазин</span>
+					<span>цветов с доставкой</span>
+				</div>
 				<span class="time"><b>Работаем:</b> с 08:00 до 20:00</span>
 			</div>
+
+			<?php if ($_smarty_tpl->tpl_vars['city']->value) {?>
+			<div class="city" onclick="$('.city-form').fadeIn(300); return false;">
+				<div class="c-where">Куда доставить букет:</div>
+				<div class="c-now-city">
+					<span><?php echo $_smarty_tpl->tpl_vars['city']->value->name_city;?>
+</span>
+				</div>
+			</div>
+			<?php }?>
+
+			<div class="phone">
+				<span class="pk">Номер телефона приема заказов</span>
+				<b class="pk"><?php echo $_smarty_tpl->tpl_vars['settings']->value->zphone1;?>
+</b>
+				<span class="callback bluron" onclick="$('.cback').fadeIn(300); return false;">Заказать обратный звонок</span>
+
+				<b class="mob bluron link" onclick="$('.cback').fadeIn(300); return false;"><?php echo $_smarty_tpl->tpl_vars['settings']->value->zphone1;?>
+</b>
+				<span class="mob"><b>Работаем:</b> с 08:00 до 20:00</span>
+			</div>
+
 		</div>
 		
 		<div class="butsearch">
@@ -314,7 +332,7 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
 <?php }?>
 <link rel="stylesheet" href="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /css/jquery.mmenu.all.css?v=<?php ob_start();?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['settings']->value->theme, ENT_QUOTES, 'UTF-8', true);?>
-<?php $_tmp6=ob_get_clean();?><?php echo filemtime("design/".$_tmp6."/css/jquery.mmenu.all.css");?>
+<?php $_tmp3=ob_get_clean();?><?php echo filemtime("design/".$_tmp3."/css/jquery.mmenu.all.css");?>
 " type="text/css" />
 <script src="design/<?php echo $_smarty_tpl->tpl_vars['settings']->value->theme;?>
 /js/jquery.mmenu.all.min.js" type="text/javascript"></script>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2018-02-09 14:00:33
+<?php /* Smarty version Smarty-3.1.18, created on 2018-02-19 19:11:12
          compiled from "/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/modal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6986628655a7d7f51079df1-57444794%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3d04d6662ec7ce386eb9b4ab95de760fa453bf76' => 
     array (
       0 => '/home/s/svprim4w/svprim4w.beget.tech/public_html/design/smartycms/html/modal.tpl',
-      1 => 1512928511,
+      1 => 1519056666,
       2 => 'file',
     ),
   ),
@@ -15,8 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a7d7f510b3d50_08429107',
   'variables' => 
   array (
+    'citys' => 0,
+    'city_row' => 0,
+    'city' => 0,
     'user' => 0,
     'keyword' => 0,
     'module' => 0,
@@ -27,8 +32,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'categories' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a7d7f510b3d50_08429107',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a7d7f510b3d50_08429107')) {function content_5a7d7f510b3d50_08429107($_smarty_tpl) {?><div class="modalitem cback">
 	<div class="modalclose"></div>
@@ -55,6 +58,47 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					</ul>
 				</form>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modalitem city-form">
+	<div class="modalclose"></div>
+	<div class="modal-city-items">
+		<div>
+			<?php if ($_smarty_tpl->tpl_vars['citys']->value) {?>
+			<div class="modaltitle">
+				Куда доставить букет?
+				<span>Доставляем цветы по всей России, ассортимент зависит от города.</span>
+				<span class="close bluroff" onclick="$('.city-form').fadeOut(300); return false;"></span>
+			</div>
+			<div class="city-search-form">
+				<form action="" class="">
+					<input class="input_search_city" type="text" name="search_city" value="" placeholder="Поиск города" autocomplete="off">
+					<input class="button_search" value="" type="submit">
+				</form>
+			</div>
+
+			<div class="city-list">
+				<?php  $_smarty_tpl->tpl_vars['city_row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['city_row']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['citys']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['city_row']->key => $_smarty_tpl->tpl_vars['city_row']->value) {
+$_smarty_tpl->tpl_vars['city_row']->_loop = true;
+?>
+				<ul>
+					<?php  $_smarty_tpl->tpl_vars['city'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['city']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['city_row']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['city']->key => $_smarty_tpl->tpl_vars['city']->value) {
+$_smarty_tpl->tpl_vars['city']->_loop = true;
+?>
+							<li><a href="http://<?php echo $_smarty_tpl->tpl_vars['city']->value->alias;?>
+?city=1"><?php echo $_smarty_tpl->tpl_vars['city']->value->name_city;?>
+</a></li>
+					<?php } ?>
+				</ul>
+				<?php } ?>
+			</div>
+			<?php }?>
 		</div>
 	</div>
 </div>

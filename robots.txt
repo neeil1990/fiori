@@ -1,5 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /*?
+Disallow: /*utm_*
+Disallow: /*_openstat
+Disallow: /*from
+Disallow: /*.pdf
+Disallow: /*.xls
+Disallow: /*.doc
+Disallow: /*.ppt
+Disallow: /*.txt
 Disallow: /simpla/
 Disallow: /js/
 Disallow: /Smarty/
@@ -7,6 +16,9 @@ Disallow: /api/
 Disallow: /password.php
 Disallow: /admin/
 Disallow: /design/
+Disallow: /brands/
+Disallow: /whoms/
+Disallow: /events/
+
 Host: fiori.su
-
-
+Sitemap: http://fiori.su/sitemap.xml
