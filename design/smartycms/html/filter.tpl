@@ -235,7 +235,7 @@
 </div>
 	
 <div class="butfilter pad-t-15">
-	<div class="count_filter">Найдено {$products|count}</div>
+	<div class="count_filter">Найдено {$total_products_num}</div>
 	<span class="sendsform fileBtn">Подобрать</span>
 </div>
 	

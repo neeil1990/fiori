@@ -276,12 +276,12 @@ class ProductsView extends View
 			}
 
 			$this->design->assign('features', $features);
-		
+
 			//Минимальная и максимальная допустимая цена
 			$this->design->assign('max_min_price', $this->products->max_min_products($filter));	
 			
 			//Минимальная и максимальная допустимая цена
-			$this->design->assign('slider_max_min_price', $this->products->max_min_products(array('category_id'=>$filter['category_id'])));	
+			$this->design->assign('slider_max_min_price', $this->products->max_min_products(array('category_id'=>$filter['category_id'])));
  		//}
 
 		$this->design->assign('filter_features', $filter['features']);

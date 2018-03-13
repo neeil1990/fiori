@@ -450,13 +450,14 @@ class Products extends Simpla
 			$category_id_filter = $this->db->placehold('INNER JOIN __products_categories pc ON pc.product_id = p.id AND pc.category_id in(?@)', (array)$filter['category_id']);
 
 		if(!empty($filter['brand_id']))
-			$brand_id_filter = $this->db->placehold('AND p.brand_id in(?@)', (array)$filter['brand_id']);
+			$brand_id_filter = $this->db->placehold('INNER JOIN __brands_products bp ON bp.product_id = p.id AND bp.brand_id in(?@)', (array)$filter['brand_id']);
 		
 		if(!empty($filter['event_id']))
-			$event_id_filter = $this->db->placehold('AND p.event_id in(?@)', (array)$filter['event_id']);
+			$event_id_filter = $this->db->placehold('INNER JOIN __events_products ep ON ep.product_id = p.id AND ep.event_id in(?@)', (array)$filter['event_id']);
 		
 		if(!empty($filter['whom_id']))
-			$whom_id_filter = $this->db->placehold('AND p.whom_id in(?@)', (array)$filter['whom_id']);
+			$whom_id_filter = $this->db->placehold('INNER JOIN __whoms_products wp ON wp.product_id = p.id AND wp.whom_id in(?@)', (array)$filter['whom_id']);
+
 		
 		if(isset($filter['keyword']))
 		{
@@ -488,10 +489,10 @@ class Products extends Simpla
 				FROM __products AS p
 				LEFT JOIN __variants pv ON pv.product_id=p.id
 				$category_id_filter
+				$brand_id_filter
+				$event_id_filter
+				$whom_id_filter
 				WHERE 1
-					$brand_id_filter
-					$event_id_filter
-					$whom_id_filter
 					$keyword_filter
 					$is_featured_filter
 					$discounted_filter
@@ -500,7 +501,7 @@ class Products extends Simpla
 					$in_stock_filter
 					";
 
-		$this->db->query($query);	
+		$this->db->query($query);
 		return $this->db->result();
 	}
 
