@@ -232,6 +232,7 @@ $(function() {
             })
         }
         var a = $('<div class="balloon"></div>').appendTo("body");
+
         $(".tip").each(function() {
             var c = $(this),
                 d = c.data("tip");
@@ -243,6 +244,7 @@ $(function() {
                 b(a.pageX, a.pageY)
             })
         })
+
     }), $(".mainhidetext").readmore({
         maxHeight: 255,
         speed: 500,

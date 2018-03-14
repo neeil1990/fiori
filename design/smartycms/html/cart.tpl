@@ -325,6 +325,19 @@
 				</li>
 			</ul>
 		</div>
+		<div class="sendcart">
+			<div class="zcfullink">
+				<ul class="export">
+					<li>
+						<br>
+						<input type="checkbox" name="rule" checked required>
+						Нажимая на эту кнопку, я даю свое согласие на
+						<a href="/files/uploads/compliance.pdf" target="_blank">обработку персональных данных</a> и соглашаюсь с условиями
+						<a href="/files/uploads/politics.pdf" target="_blank">политики конфиденциальности</a>.
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	
 	

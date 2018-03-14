@@ -18,6 +18,12 @@
 							<input id="phone" type="text" name="phoneFF" required placeholder="+7 (900) 900-90-90">
 						</li>
 						<li>
+							<input type="checkbox" name="ruleFF" checked required>
+							Нажимая на эту кнопку, я даю свое согласие на
+							<a href="/files/uploads/compliance.pdf" target="_blank">обработку персональных данных</a> и соглашаюсь с условиями
+							<a href="/files/uploads/politics.pdf" target="_blank">политики конфиденциальности</a>.
+						</li>
+						<li>
 							<button type="submit" class="but" value="">Отправить</button>
 						</li>
 					</ul>
@@ -84,6 +90,12 @@
 						<li>
 							<label>Опишите ваш вопрос <span>*</span></label>
 							<textarea name="messageFF" required="" placeholder="....."></textarea>
+						</li>
+						<li>
+							<input type="checkbox" name="ruleFF" checked required>
+							Нажимая на эту кнопку, я даю свое согласие на
+							<a href="/files/uploads/compliance.pdf" target="_blank">обработку персональных данных</a> и соглашаюсь с условиями
+							<a href="/files/uploads/politics.pdf" target="_blank">политики конфиденциальности</a>.
 						</li>
 						<li>
 							<button type="submit" class="but" value="">Отправить</button>
@@ -224,6 +236,12 @@ $(function() {
 							<textarea placeholder="Ваш комментарий:" class="onecomment" id="user_comment" name="comment" data-notice="Введите комментарий">{$user->comment|escape}</textarea>
 						</li>
 						<li>
+							<input type="checkbox" name="ruleFF" checked required>
+							Нажимая на эту кнопку, я даю свое согласие на
+							<a href="/files/uploads/compliance.pdf" target="_blank">обработку персональных данных</a> и соглашаюсь с условиями
+							<a href="/files/uploads/politics.pdf" target="_blank">политики конфиденциальности</a>.
+						</li>
+						<li>
 							<button type="submit" class="but oneclickbuy" value="">Заказать</button>
 						</li>
 					</ul>
@@ -305,6 +323,12 @@ $(function() {
 						<li>
 							<label>Ваш отзыв</label>
 							<textarea id="comment_text" name="text" placeholder="Введите отзыв" required>{$comment_text}</textarea>
+						</li>
+						<li>
+							<input type="checkbox" name="ruleFF" checked required>
+							Нажимая на эту кнопку, я даю свое согласие на
+							<a href="/files/uploads/compliance.pdf" target="_blank">обработку персональных данных</a> и соглашаюсь с условиями
+							<a href="/files/uploads/politics.pdf" target="_blank">политики конфиденциальности</a>.
 						</li>
 						<li>
 							<input class="frbutton" type="submit" name="comment" value="Оставить отзыв" />
