@@ -50,7 +50,7 @@
 		<span>Сложности с выбором?<br/>Мы поможем!</span>
 		<b>{$settings->zphone1}</b>
 		<a class="slz1 bluron" href="#" onclick="$('.cback').fadeIn(300); return false;">Заказать звонок</a>
-		<a class="slz2" href="#">Онлайн помощь</a>
+		{*<a class="slz2" href="#">Онлайн помощь</a>*}
 		<a class="slz3 bluron" href="#" onclick="$('.vopros').fadeIn(300); return false;">Написать письмо</a>
 	</div>
 </div>
