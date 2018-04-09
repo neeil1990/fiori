@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:07:56
+<?php /* Smarty version Smarty-3.1.18, created on 2018-04-02 09:00:43
          compiled from "simpla/design/html/theme.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4678471615a2d77fcc00d74-85050416%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c67705d883d288c64137fd663cc6f4ddb8a2aa3b' => 
     array (
       0 => 'simpla/design/html/theme.tpl',
-      1 => 1512928511,
+      1 => 1520943343,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d77fcc91038_50153117',
   'variables' => 
   array (
     'theme' => 0,
@@ -26,10 +28,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'root_dir' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d77fcc91038_50153117',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d77fcc91038_50153117')) {function content_5a2d77fcc91038_50153117($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include '/home/s/svprim4w/svprim4w.beget.tech/public_html/Smarty/libs/plugins/modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_5a2d77fcc91038_50153117')) {function content_5a2d77fcc91038_50153117($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include '/home/fiori/web/fiori.su/public_html/Smarty/libs/plugins/modifier.truncate.php';
 ?><?php $_smarty_tpl->_capture_stack[0][] = array('tabs', null, null); ob_start(); ?>
 	<li class="active"><a href="index.php?module=ThemeAdmin">Тема</a></li>
 	<li><a href="index.php?module=TemplatesAdmin">Шаблоны</a></li>		

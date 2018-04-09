@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:08:33
+<?php /* Smarty version Smarty-3.1.18, created on 2018-03-21 10:53:22
          compiled from "simpla/design/html/banners.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8431829835a2d78217cc533-14929843%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cc59ffab3fea6fcc4bd3ad8f7594ee8353d5c6cf' => 
     array (
       0 => 'simpla/design/html/banners.tpl',
-      1 => 1512928511,
+      1 => 1520943343,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d7821829907_95111363',
   'variables' => 
   array (
     'categories' => 0,
     'category' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d7821829907_95111363',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d7821829907_95111363')) {function content_5a2d7821829907_95111363($_smarty_tpl) {?><?php $_smarty_tpl->_capture_stack[0][] = array('tabs', null, null); ob_start(); ?>
 <li class="active"><a href="index.php?module=BannersAdmin">Категории баннеров</a></li>

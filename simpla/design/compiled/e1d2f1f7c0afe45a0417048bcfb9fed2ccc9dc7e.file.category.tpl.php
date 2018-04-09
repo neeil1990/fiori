@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-13 18:18:46
+<?php /* Smarty version Smarty-3.1.18, created on 2018-03-14 07:16:43
          compiled from "simpla/design/html/category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:7511519245a3144d61a55f6-94017115%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e1d2f1f7c0afe45a0417048bcfb9fed2ccc9dc7e' => 
     array (
       0 => 'simpla/design/html/category.tpl',
-      1 => 1512928511,
+      1 => 1520943343,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a3144d62cac98_08374276',
   'variables' => 
   array (
     'manager' => 0,
@@ -36,10 +38,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'categories' => 0,
   ),
   'has_nocache_code' => 0,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a3144d62cac98_08374276',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a3144d62cac98_08374276')) {function content_5a3144d62cac98_08374276($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_replace')) include '/home/s/svprim4w/svprim4w.beget.tech/public_html/Smarty/libs/plugins/modifier.replace.php';
+<?php if ($_valid && !is_callable('content_5a3144d62cac98_08374276')) {function content_5a3144d62cac98_08374276($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_replace')) include '/home/fiori/web/fiori.su/public_html/Smarty/libs/plugins/modifier.replace.php';
 ?>
 <?php $_smarty_tpl->_capture_stack[0][] = array('tabs', null, null); ob_start(); ?>
 	<?php if (in_array('products',$_smarty_tpl->tpl_vars['manager']->value->permissions)) {?><li><a href="index.php?module=ProductsAdmin">Товары</a></li><?php }?>

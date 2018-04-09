@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:15:34
+<?php /* Smarty version Smarty-3.1.18, created on 2018-03-14 10:46:56
          compiled from "simpla/design/html/order.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4678009805a2d79c63dc5d7-91410597%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c9f1b81762c6990692fb66cd675883bade2cd397' => 
     array (
       0 => 'simpla/design/html/order.tpl',
-      1 => 1512928511,
+      1 => 1520943343,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d79c666f435_89261458',
   'variables' => 
   array (
     'manager' => 0,
@@ -47,10 +49,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'payment_currency' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d79c666f435_89261458',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d79c666f435_89261458')) {function content_5a2d79c666f435_89261458($_smarty_tpl) {?><?php if (!is_callable('smarty_function_math')) include '/home/s/svprim4w/svprim4w.beget.tech/public_html/Smarty/libs/plugins/function.math.php';
+<?php if ($_valid && !is_callable('content_5a2d79c666f435_89261458')) {function content_5a2d79c666f435_89261458($_smarty_tpl) {?><?php if (!is_callable('smarty_function_math')) include '/home/fiori/web/fiori.su/public_html/Smarty/libs/plugins/function.math.php';
 ?>
 <?php $_smarty_tpl->_capture_stack[0][] = array('tabs', null, null); ob_start(); ?>
 	<?php if (in_array('orders',$_smarty_tpl->tpl_vars['manager']->value->permissions)) {?>

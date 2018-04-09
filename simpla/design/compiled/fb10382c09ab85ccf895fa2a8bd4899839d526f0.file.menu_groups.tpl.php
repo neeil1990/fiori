@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:08:26
+<?php /* Smarty version Smarty-3.1.18, created on 2018-04-08 14:12:23
          compiled from "simpla/design/html/menu_groups.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1150507735a2d781ac930f0-80067355%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fb10382c09ab85ccf895fa2a8bd4899839d526f0' => 
     array (
       0 => 'simpla/design/html/menu_groups.tpl',
-      1 => 1512928511,
+      1 => 1520943343,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d781acf6a68_80111748',
   'variables' => 
   array (
     'menu_groups' => 0,
     'menu_group' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d781acf6a68_80111748',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5a2d781acf6a68_80111748')) {function content_5a2d781acf6a68_80111748($_smarty_tpl) {?>
 <?php $_smarty_tpl->_capture_stack[0][] = array('tabs', null, null); ob_start(); ?>
