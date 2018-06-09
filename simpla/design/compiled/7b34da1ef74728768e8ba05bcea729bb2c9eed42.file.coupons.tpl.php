@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2017-12-10 21:14:44
+<?php /* Smarty version Smarty-3.1.18, created on 2018-04-16 13:29:57
          compiled from "simpla/design/html/coupons.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5487356485a2d7994b23be1-81150730%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7b34da1ef74728768e8ba05bcea729bb2c9eed42' => 
     array (
       0 => 'simpla/design/html/coupons.tpl',
-      1 => 1512928511,
+      1 => 1520943343,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5a2d7994bcfea2_74057096',
   'variables' => 
   array (
     'manager' => 0,
@@ -24,10 +26,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'currency' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5a2d7994bcfea2_74057096',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a2d7994bcfea2_74057096')) {function content_5a2d7994bcfea2_74057096($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/home/s/svprim4w/svprim4w.beget.tech/public_html/Smarty/libs/plugins/modifier.date_format.php';
+<?php if ($_valid && !is_callable('content_5a2d7994bcfea2_74057096')) {function content_5a2d7994bcfea2_74057096($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include '/home/fiori/web/fiori.su/public_html/Smarty/libs/plugins/modifier.date_format.php';
 ?>
 <?php $_smarty_tpl->_capture_stack[0][] = array('tabs', null, null); ob_start(); ?>
 	<?php if (in_array('users',$_smarty_tpl->tpl_vars['manager']->value->permissions)) {?><li><a href="index.php?module=UsersAdmin">Покупатели</a></li><?php }?>
