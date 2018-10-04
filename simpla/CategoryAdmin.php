@@ -18,6 +18,7 @@ class CategoryAdmin extends Simpla
 			$category->id = $this->request->post('id', 'integer');
 			$category->parent_id = $this->request->post('parent_id', 'integer');
 			$category->name = $this->request->post('name');
+			$category->hidden_menu = $this->request->post('hidden_menu', 'boolean');
 			$category->visible = $this->request->post('visible', 'boolean');
 
 			$category->url = trim($this->request->post('url', 'string'));
@@ -26,7 +27,7 @@ class CategoryAdmin extends Simpla
 			$category->meta_description = $this->request->post('meta_description');
 			
 			$category->description = $this->request->post('description');
-	
+
 			// Не допустить одинаковые URL разделов.
 			if(($c = $this->categories->get_category($category->url)) && $c->id!=$category->id)
 			{			

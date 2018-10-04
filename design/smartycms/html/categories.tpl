@@ -9,7 +9,7 @@
 		<a href="#" class="navtoggle bluron">Каталог товаров</a>
 		<div class="nav">
 			{foreach item=c from=$categories}
-			{if $c->visible}
+			{if $c->visible && !$c->hidden_menu}
 				<div class="navone {if $category->id == $c->id}selected{/if} {if $first_category->id == $c->id}selected{/if}">
 					<a href="catalog/{$c->url}"><span{if $c->subcategories} class="sub"{/if}>{$c->name}</span></a>
 					{if $c->subcategories}{include file='categories.tpl' categories=$c->subcategories level=1}{/if}
@@ -31,7 +31,7 @@
 	<div>
 		<div class="podnavtwo">
 		{foreach item=c from=$categories}
-		{if $c->visible}
+		{if $c->visible && !$c->hidden_menu}
 			<div class="navtwo {if $category->id == $c->id}selected{/if} {if $last_category->id == $c->id}selected{/if}">
              	<a href="catalog/{$c->url}"><span{if $c->subcategories} class="sub"{/if}>{$c->name}</span></a>
 				{if $c->subcategories}{include file='categories.tpl' categories=$c->subcategories level=2}{/if}
@@ -48,7 +48,7 @@
 	<div>
 		<div class="podnavtwo">
 		{foreach item=c from=$categories}
-		{if $c->visible}
+		{if $c->visible && !$c->hidden_menu}
 			<div class="navtwo {if $category->id == $c->id}selected{/if} {if $last_category->id == $c->id}selected{/if}">
              	<a href="catalog/{$c->url}"><span{if $c->subcategories} class="sub"{/if}>{$c->name}</span></a>
 				{if $c->subcategories}{include file='categories.tpl' categories=$c->subcategories level=3}{/if}
@@ -65,7 +65,7 @@
 	<div>
 		<div class="podnavtwo">
 		{foreach item=c from=$categories}
-		{if $c->visible}
+		{if $c->visible && !$c->hidden_menu}
 			<div class="navtwo {if $category->id == $c->id}selected{/if} {if $last_category->id == $c->id}selected{/if}">
              	<a href="catalog/{$c->url}"><span{if $c->subcategories} class="sub"{/if}>{$c->name}</span></a>
 				{if $c->subcategories}{include file='categories.tpl' categories=$c->subcategories level=4}{/if}
@@ -87,7 +87,7 @@
 <div>
 	<div>
 		{foreach item=c from=$categories}
-		{if $c->visible}
+		{if $c->visible && !$c->hidden_menu}
 			<div class="navtwo {if $category->id == $c->id}selected{/if} {if $last_category->id == $c->id}selected{/if}">
              	<a href="catalog/{$c->url}"><span{if $c->subcategories} class="sub"{/if}>{$c->name}</span></a>
 				{if $c->subcategories}{include file='categories.tpl' categories=$c->subcategories level=1}{/if}
@@ -113,7 +113,7 @@
 {if $level == 50}
 	<div class="navblock">
 	{foreach item=c from=$categories}
-		{if $c->visible}
+		{if $c->visible && !$c->hidden_menu}
 			{if $c->subcategories}
 			<div class="licat {if $category->id == $c->id}selected{/if} {if $first_category->id == $c->id}selected{/if}">
              	<a href="catalog/{$c->url}" data-category="{$c->id}"><span class="sub">{$c->name}</span></a>

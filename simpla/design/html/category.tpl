@@ -167,6 +167,9 @@ function translit(str)
 		<input class="name" name=name type="text" value="{$category->name|escape}"/> 
 		<input name=id type="hidden" value="{$category->id|escape}"/> 
 		<div class="checkbox">
+			<input name=hidden_menu value='1' type="checkbox" id="active_checkbox_hidden" {if $category->hidden_menu}checked{/if}/> <label for="active_checkbox_hidden">Скрыть в меню</label>
+		</div>
+		<div class="checkbox">
 			<input name=visible value='1' type="checkbox" id="active_checkbox" {if $category->visible}checked{/if}/> <label for="active_checkbox">Активна</label>
 		</div>
 	</div> 
